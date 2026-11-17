@@ -118,3 +118,51 @@
 @keyframes pcake-lite { from { opacity: 0; transform: scale(.3, 0); } }
 @keyframes pcake-flicker { 40% { transform: scale(.93, 1.07) skewX(2deg); } to { transform: scale(1.03, .96) skewX(-1.5deg); } }
 @keyframes pcake-smoke { from { opacity: .9; } to { opacity: 0; transform: translateY(-1.2em) scale(1.8, 2.2); } }
+
+/* realism v2: seamless fondant, chocolate ganache drip and top, stronger cylinder light, candles clear of the rim, live fire */
+.pcake { --gan: #3a1b0f; --gan-2: #5c2f1b; }
+.pcake__p { box-shadow: none; }
+.pcake__p::before { /* ganache drip: a glossy band with drips of three lengths, offset per panel so no two repeat */
+  height: 3.4cqi; inset: -1px 0 auto;
+  background:
+    linear-gradient(#ffffff40, #0000 .5cqi) top / 100% .9cqi no-repeat,
+    linear-gradient(var(--gan-2), var(--gan)) top / 100% .95cqi no-repeat,
+    radial-gradient(.55cqi 1.5cqi at 50% 0, var(--gan) 96%, #0000) calc(var(--j) * 2cqi + .4cqi) .5cqi / 2.6cqi 2.2cqi repeat-x,
+    radial-gradient(.75cqi 2.3cqi at 50% 0, var(--gan-2) 96%, #0000) calc(var(--j) * 3cqi + 1.7cqi) .5cqi / 4.1cqi 3cqi repeat-x;
+  filter: drop-shadow(0 .22cqi .18cqi rgb(var(--sh) / .45));
+}
+.pcake__top {
+  border-color: #fffaf2;
+  background: radial-gradient(closest-side, rgb(0 0 0 / .45) calc(var(--ao) - 8%), rgb(0 0 0 / .22) var(--ao), #0000 calc(var(--ao) + 12%)),
+    radial-gradient(circle at 34% 26%, #8a5236, var(--gan-2) 30%, var(--gan) 72%, #1f0d06);
+}
+.pcake__sl i { background: linear-gradient(rgb(var(--sh) / .3), #0000 22% 76%, rgb(var(--sh) / .36)), linear-gradient(90deg, var(--g)); }
+.pcake__sl i:nth-child(1) { --g: rgb(var(--sh) / .34), rgb(var(--sh) / .5) 40%, rgb(var(--sh) / .16); }
+.pcake__sl i:nth-child(2) { --g: rgb(var(--sh) / .12), #ffffff30 58%, #ffffff12; }
+.pcake__sl i:nth-child(3) { --g: #ffffff14, rgb(var(--sh) / .1); }
+.pcake__sl i:nth-child(4) { --g: rgb(var(--sh) / .14), rgb(var(--sh) / .42); }
+.pcake__sl i:nth-child(5) { --g: rgb(var(--sh) / .44), rgb(var(--sh) / .72) 55%, rgb(var(--sh) / .48); }
+
+.pcake__candles { transform: translate(-50%, -104%) translateZ(calc(var(--R) * .3)); }
+.pcake__c::before { top: -.13em; height: .15em; background: #2b1a12; }
+.pcake__c i { /* flame: blue root, white-hot core, amber body, orange tip */
+  top: -.66em; width: .2em; height: .5em; margin-left: -.1em; transform-origin: 50% 92%;
+  border-radius: 50% 50% 48% 48% / 70% 70% 30% 30%;
+  background:
+    radial-gradient(38% 18% at 50% 88%, #7fb4ffcc, #0000),
+    radial-gradient(34% 34% at 50% 72%, #ffffff 40%, #fff6c8 70%, #0000),
+    radial-gradient(50% 64% at 50% 66%, #ffe08a 30%, #ffb547 55%, #ff7a26e6 78%, #ff5a1a00 96%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pcake__c i { animation: var(--lite, none) .4s ease-out 1.5s both, pcake-fire 1.1s ease-in-out 1.9s infinite; }
+  .pcake__c + .pcake__c i { animation-delay: 1.5s, 1.45s; animation-duration: .4s, .95s; }
+  .hero__stage:not(:has(.pcake.is-out, .pcake.is-paused))::before { animation: pcake-glow 2.4s ease-in-out infinite; }
+}
+@keyframes pcake-fire {
+  0%, 100% { transform: scale(1, 1) skewX(0); }
+  18% { transform: scale(.9, 1.12) skewX(3deg); }
+  36% { transform: scale(1.06, .93) skewX(-2deg); }
+  55% { transform: scale(.95, 1.07) skewX(2deg); }
+  78% { transform: scale(1.03, .96) skewX(-3.5deg); }
+}
+@keyframes pcake-glow { 0%, 100% { opacity: 1; } 30% { opacity: .82; } 55% { opacity: .95; } 80% { opacity: .86; } }

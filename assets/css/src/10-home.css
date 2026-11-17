@@ -437,3 +437,11 @@ html.has-motion .custom__sketch-note { display: block; }
   .hero__stage { grid-column: 8 / 13; }
 }
 @media (max-width: 959.98px) { .hero__mark { bottom: auto; top: 46%; font-size: 38vw; } }
+
+/* sizes v3: a braided teal rug under the plate (fixed size; only the cake scales) */
+.sizes .sguide__stage { max-width: 760px; }
+.sguide__rug-shadow { fill: rgba(10, 39, 48, .28); }
+.sguide__rug-ring { fill: none; stroke-width: 6.6; stroke-dasharray: 4 2.2; stroke-linecap: round; }
+.sguide__rug-tex { fill: #000; opacity: .34; mix-blend-mode: soft-light; pointer-events: none; }
+.sguide__rug-edge { fill: none; stroke: #052630; stroke-width: 1.5; }
+.sguide__rug-fringe { fill: none; stroke: #b9a48c; stroke-width: 1.7; stroke-linecap: round; }
