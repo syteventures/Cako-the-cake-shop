@@ -347,10 +347,9 @@ html.has-motion .custom__sketch-note { display: block; }
 /* hero v2 (palette v2): full-bleed teal-to-rose gradient, content spans the full screen width */
 .hero {
   background:
-    linear-gradient(to top, rgba(4, 44, 61, .55), transparent 34%),
-    radial-gradient(38% 46% at 74% 42%, rgba(255, 226, 170, .28), transparent 72%),
-    linear-gradient(90deg, transparent 61%, rgba(255, 255, 255, .17) 65.5%, rgba(255, 255, 255, .17) 82.5%, transparent 87%),
-    linear-gradient(100deg, #042C3D 0%, #063F57 36%, #07759D 66%, #0097C3 100%);
+    linear-gradient(to top, rgba(46, 8, 12, .6), transparent 34%),
+    radial-gradient(42% 60% at 74% 40%, rgba(255, 150, 90, .22), transparent 72%),
+    linear-gradient(100deg, #2E080C 0%, #4A0E14 34%, #761319 66%, #981112 100%);
 }
 .hero::after { /* fine grain so the gradient never bands */
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .08; mix-blend-mode: overlay;
@@ -365,7 +364,7 @@ html.has-motion .custom__sketch-note { display: block; }
   .hero__below { grid-column: 1 / 8; }
   .hero__under { grid-column: 8 / 13; }
 }
-.hero__display { color: #FFFFFF; text-shadow: 0 2px 40px rgba(4, 44, 61, .4); }
+.hero__display { color: #FFFFFF; text-shadow: 0 2px 40px rgba(46, 8, 12, .45); }
 
 /* hero heading v2: pill eyebrow, two-tone headline, title and lede stacked beside the cake */
 .hero__kicker {
@@ -374,7 +373,7 @@ html.has-motion .custom__sketch-note { display: block; }
   background: rgba(255, 255, 255, .06); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   color: #FFFFFF; font-size: var(--fs-small); font-weight: 500; letter-spacing: .02em; line-height: 1.2;
 }
-.hero__kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(226, 190, 120, .2); }
+.hero__kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(242, 194, 122, .2); }
 .hero__title { gap: 22px; }
 .hero__display { max-width: none; letter-spacing: -0.025em; line-height: 0.98; }
 .hero__line { display: block; }
@@ -401,14 +400,14 @@ html.has-motion .custom__sketch-note { display: block; }
   }
   .flavours__table::before { left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); background: radial-gradient(closest-side, rgba(255, 226, 170, .16), transparent); }
 }
-.fan__card::after { background: linear-gradient(to top, rgba(4, 44, 61, .88), transparent); }
+.fan__card::after { background: linear-gradient(to top, rgba(46, 8, 12, .88), transparent); }
 
 /* sizes v2: soft white-to-blush ground; the guide cake sits on a porcelain plate and a silver board */
 .sec.sizes {
   background:
-    radial-gradient(55% 65% at 82% 35%, rgba(0, 151, 195, .13), transparent 70%),
-    radial-gradient(45% 55% at 0% 100%, rgba(226, 190, 120, .16), transparent 70%),
-    linear-gradient(180deg, #FFFFFF 0%, #F1F9FC 100%);
+    radial-gradient(55% 65% at 82% 35%, rgba(152, 17, 18, .08), transparent 70%),
+    radial-gradient(45% 55% at 0% 100%, rgba(242, 194, 122, .18), transparent 70%),
+    linear-gradient(180deg, #FFFAF4 0%, #F8EDE3 100%);
 }
 .sizes .sguide { --sg-gold: #cdd5d9; }
 .sizes .sguide__shadow { fill: rgba(10, 39, 48, .22); }
@@ -443,11 +442,50 @@ html.has-motion .custom__sketch-note { display: block; }
 .sguide__rug-shadow { fill: rgba(10, 39, 48, .28); }
 .sguide__rug-ring { fill: none; stroke-width: 6.6; stroke-dasharray: 4 2.2; stroke-linecap: round; }
 .sguide__rug-tex { fill: #000; opacity: .34; mix-blend-mode: soft-light; pointer-events: none; }
-.sguide__rug-edge { fill: none; stroke: #03222f; stroke-width: 1.5; }
+.sguide__rug-edge { fill: none; stroke: #1e0508; stroke-width: 1.5; }
 .sguide__rug-fringe { fill: none; stroke: #b9a48c; stroke-width: 1.7; stroke-linecap: round; }
 @media (max-width: 959.98px) { /* phones: the wall stripe stands behind the centred cake */
   .hero { background:
-    linear-gradient(to top, rgba(4, 44, 61, .6), transparent 30%),
-    linear-gradient(90deg, transparent 26%, rgba(255, 255, 255, .14) 32%, rgba(255, 255, 255, .14) 68%, transparent 74%),
-    linear-gradient(170deg, #042C3D 0%, #063F57 34%, #07759D 70%, #0097C3 100%); }
+    linear-gradient(to top, rgba(46, 8, 12, .6), transparent 30%),
+    linear-gradient(170deg, #2E080C 0%, #4A0E14 34%, #761319 70%, #981112 100%); }
 }
+
+/* palette v4: the shop's lit ivory arch stands behind the hero cake (Cako Images.zip) */
+.hero__stage::after {
+  content: ""; position: absolute; z-index: -1; left: 50%; bottom: 6%; translate: -50% 0;
+  width: min(78%, 470px); aspect-ratio: 5 / 7; border-radius: 999px 999px 6px 6px;
+  background: linear-gradient(180deg, #FFF9F0 0%, #F7EADB 60%, #E9D6C0 100%);
+  box-shadow: 0 0 0 3px #FFD596, 0 0 0 5px rgba(255, 196, 120, .35), 0 0 46px 10px rgba(255, 160, 80, .45), inset 0 -40px 60px -30px rgba(120, 60, 30, .25);
+  pointer-events: none;
+}
+@media (max-width: 959.98px) { .hero__stage::after { width: min(70%, 300px); bottom: 4%; } }
+/* the primary button keeps a fine gold edge on maroon so it never sinks into the wall */
+[data-ground^="night"] .btn--primary { box-shadow: 0 0 0 1px rgba(255, 213, 150, .55), 0 10px 24px -12px rgba(0, 0, 0, .6); }
+
+/* inside Cako: real shop photos (Cako Images.zip); the tall one takes the shop's arch */
+.inside__grid { display: grid; gap: var(--gap); margin-top: clamp(28px, 4vw, 48px); }
+.inside__fig { position: relative; margin: 0; overflow: hidden; border-radius: 6px; background: var(--night-3); box-shadow: 0 0 0 1px var(--gold-hair), 0 30px 60px -36px rgba(0, 0, 0, .8); }
+.inside__fig img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.inside__fig figcaption { position: absolute; left: 14px; bottom: 12px; padding: 6px 12px; border-radius: var(--r-pill); background: rgba(46, 8, 12, .72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--cream); font-size: var(--fs-small); font-weight: 500; }
+.inside__a { border-radius: 999px 999px 6px 6px; box-shadow: 0 0 0 3px #FFD596, 0 0 40px 6px rgba(255, 160, 80, .35); }
+.inside__a figcaption { left: 50%; translate: -50% 0; white-space: nowrap; }
+.inside__fig:not(.inside__b) { aspect-ratio: 4 / 5; }
+.inside__b { aspect-ratio: 3 / 2; }
+@media (min-width: 960px) {
+  .inside__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto auto; align-items: stretch; }
+  .inside__a { grid-column: 1 / 5; grid-row: 1 / 3; aspect-ratio: auto; }
+  .inside__b { grid-column: 5 / 13; grid-row: 1; }
+  .inside__c { grid-column: 5 / 9; grid-row: 2; aspect-ratio: 4 / 3; }
+  .inside__d { grid-column: 9 / 13; grid-row: 2; aspect-ratio: 4 / 3; }
+}
+.visit__photo img { display: block; width: 100%; height: auto; }
+@media (min-width: 960px) {
+  .inside__grid { grid-template-rows: clamp(300px, 28vw, 430px) clamp(230px, 21vw, 320px); }
+  .inside__fig, .inside__c, .inside__d, .inside__b { aspect-ratio: auto; }
+  .inside__a { grid-column: 1 / 6; grid-row: 1 / 3; }
+  .inside__b { grid-column: 6 / 13; grid-row: 1; }
+  .inside__c { grid-column: 6 / 9; grid-row: 2; }
+  .inside__d { grid-column: 9 / 13; grid-row: 2; }
+  .inside__a img { object-position: 50% 60%; }
+}
+@media (min-width: 960px) { .inside__grid .inside__fig { aspect-ratio: auto; } }

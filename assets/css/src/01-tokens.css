@@ -1,40 +1,40 @@
 /* ==========================================================================
-   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v3: white, shop cyan, cherry, board gold; taken from the shop photos)
+   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v4: maroon wall, ivory arches, logo red, LED gold; from Cako Images.zip)
    One :root block. Load after fonts.css and before every component rule.
    Contrast ratios are WCAG 2.x, computed in _workfiles/fontwork/cd-contrast.py.
    ========================================================================== */
 :root {
   /* ---- Night grounds (chapters 1 and 3) ---------------------------------- */
-  --night: #063F57;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
-  --night-2: #08506D;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
-  --night-3: #042C3D;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
-  --cream: #FFFFFF;          /* text and headings on night; focus ring on night */
-  --cream-2: #BFE3EF;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
+  --night: #4A0E14;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
+  --night-2: #5C1219;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
+  --night-3: #2E080C;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
+  --cream: #FFF8F0;          /* text and headings on night; focus ring on night */
+  --cream-2: #F0D6CB;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
 
   /* ---- Paper grounds (chapter 2, paper cards, order slip) ---------------- */
-  --paper: #FFFFFF;          /* vanilla paper. ink 14.84:1 */
-  --paper-2: #EEF8FB;        /* biscuit: raised panels on paper. ink 12.76:1 */
-  --ink: #0A2633;            /* text on paper and cream; focus ring on paper */
-  --ink-2: #46646F;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
+  --paper: #FFFAF4;          /* vanilla paper. ink 14.84:1 */
+  --paper-2: #F6EADF;        /* biscuit: raised panels on paper. ink 12.76:1 */
+  --ink: #2A0B0F;            /* text on paper and cream; focus ring on paper */
+  --ink-2: #6E4A4C;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
 
   /* ---- Action red: the only accent ---------------------------------------- */
-  --accent: #D21F3C;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
-  --accent-press: #A8142D;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
-  --accent-ink: #A8142D;     /* red text on paper or cream (6.08:1 / 6.20:1) */
+  --accent: #D3202A;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
+  --accent-press: #A8161E;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
+  --accent-ink: #A8161E;     /* red text on paper or cream (6.08:1 / 6.20:1) */
   --on-accent: #FFFFFF;      /* label on red buttons */
   --brand-red: #EF3334;      /* logo badge and the hero's "1" "2" candles only. Never UI text (cream on it 3.35:1) */
 
   /* ---- Gold: fine ornament ------------------------------------------------ */
-  --cyan: #0097C3;          /* the shop wall (photos): big colour fields only, never body text under white */
-  --cyan-2: #0FAED4;
-  --gold: #E2BE78;           /* hairlines, dial ticks, icons, numerals on night (7.90:1). Never on paper (1.84:1) */
-  --gold-deep: #8A6420;      /* gold on paper: hairlines, icons, small italic notes (5.67:1 / 4.87:1) */
-  --gold-hair: rgba(226, 190, 120, .45);  /* ornamental gold hairline on night (composite #6E5639) */
-  --gold-deep-hair: rgba(138, 100, 32, .35);
+  --wall: #981112;          /* the lit shop wall (Cako Images.zip): big colour fields only */
+  --wall-2: #681615;
+  --gold: #F2C27A;           /* hairlines, dial ticks, icons, numerals on night (7.90:1). Never on paper (1.84:1) */
+  --gold-deep: #8A5A1E;      /* gold on paper: hairlines, icons, small italic notes (5.67:1 / 4.87:1) */
+  --gold-hair: rgba(242, 194, 122, .45);  /* ornamental gold hairline on night (composite #6E5639) */
+  --gold-deep-hair: rgba(138, 90, 30, .35);
 
   /* ---- Structure lines ------------------------------------------------------ */
-  --line: rgba(10, 38, 51, .13);          /* structural hairline on paper (composite #D1C4B4) */
-  --line-night: rgba(255, 255, 255, .14); /* structural hairline on night (composite #3F322C) */
+  --line: rgba(42, 11, 15, .13);          /* structural hairline on paper (composite #D1C4B4) */
+  --line-night: rgba(255, 240, 225, .15); /* structural hairline on night (composite #3F322C) */
 
   /* ---- Live light ------------------------------------------------------------ */
   --candle: #FFB547;                      /* flame core, "open now" dot and text on night (10.20:1) */
@@ -97,7 +97,7 @@
   --rim-night: inset 0 1px 0 rgba(255, 236, 220, .08);  /* top rim on night-2 surfaces */
   --shadow-paper: 0 1px 0 rgba(31, 18, 13, .06), 0 16px 32px -20px rgba(31, 18, 13, .28);  /* raised on paper */
   --shadow-paper-night: 0 2px 0 rgba(0, 0, 0, .25), 0 24px 48px -28px rgba(0, 0, 0, .7);   /* paper card on night */
-  --frame-inset: rgba(138, 100, 32, .3);  /* menu-card inner frame: outline 1px, outline-offset -8px */
+  --frame-inset: rgba(138, 90, 30, .3);  /* menu-card inner frame: outline 1px, outline-offset -8px */
   --mat-offset: 10px;                     /* gold mat line around framed photos */
 
   /* ---- Motion ---------------------------------------------------------------------------- */

@@ -201,9 +201,21 @@ export default page({
   </section>
 
   ${scallop('--paper', '--night')}
+  <section class="sec inside" id="inside" data-ground="night-2" aria-labelledby="inside-title">
+    <div class="wrap">
+      ${head("inside", "Come in, it’s lit till twelve", "Glowing arches, a counter full of cakes and a corner for birthdays. This is the shop on Upper Kondhwa Road.", true)}
+      <div class="inside__grid">
+        <figure class="inside__fig inside__a"><img src="assets/img/shop/arch-cake-800.webp" srcset="assets/img/shop/arch-cake-800.webp 800w, assets/img/shop/arch-cake-1600.webp 1600w" sizes="(min-width: 960px) 34vw, 92vw" width="800" height="1000" alt="A yellow cake on the counter in front of a lit arch with the red Cako sign" loading="lazy" decoding="async"><figcaption>Under the arch</figcaption></figure>
+        <figure class="inside__fig inside__b"><img src="assets/img/shop/interior-800.webp" srcset="assets/img/shop/interior-800.webp 800w, assets/img/shop/interior-1600.webp 1600w" sizes="(min-width: 960px) 62vw, 92vw" width="800" height="533" alt="The Cako wall: red with white arches, shelves and the cake counters" loading="lazy" decoding="async"><figcaption>The arch wall</figcaption></figure>
+        <figure class="inside__fig inside__c"><img src="assets/img/shop/party-800.webp" srcset="assets/img/shop/party-800.webp 800w, assets/img/shop/party-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 92vw" width="800" height="1000" alt="The party corner: a teal sofa, pink and white balloons and a Happy Birthday banner" loading="lazy" decoding="async"><figcaption>The party corner</figcaption></figure>
+        <figure class="inside__fig inside__d"><img src="assets/img/shop/display-800.webp" srcset="assets/img/shop/display-800.webp 800w, assets/img/shop/display-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 92vw" width="800" height="1000" alt="The glass display case full of cakes" loading="lazy" decoding="async"><figcaption>Tonight’s display</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <section class="sec visit" id="visit" data-ground="night" aria-labelledby="visit-title">
     <div class="wrap visit__grid">
-      <figure class="visit__photo framed">${photo('counter', ALT.counter, '(min-width: 960px) 34vw, 92vw')}</figure>
+      <figure class="visit__photo framed"><img src="assets/img/shop/logo-arch-800.webp" srcset="assets/img/shop/logo-arch-800.webp 800w, assets/img/shop/logo-arch-1600.webp 1600w" sizes="(min-width: 960px) 34vw, 92vw" width="800" height="1000" alt="The glowing red Cako sign inside a lit white arch" loading="lazy" decoding="async"></figure>
       <div class="visit__copy">
         ${head('visit', 'Find us on Upper Kondhwa Road', '', true)}
         <address class="h3 visit__addr" data-assumed>${ADDRESS}</address>
