@@ -119,3 +119,4 @@
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-26 -12 52 30'%3E%3Cpath d='M0 0C-14-11-25-6-22 3C-19 10-7 7 0 0Z' fill='%23F2B3C3'/%3E%3Cpath d='M0 0C14-11 25-6 22 3C19 10 7 7 0 0Z' fill='%23E9A3B5'/%3E%3Cpath d='M0 0C-3 7-7 13-11 17M0 0C3 7 8 13 12 16' stroke='%23E9A3B5' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3Ccircle r='3.4' fill='%23C9758C'/%3E%3C/svg%3E") center / contain no-repeat;
   filter: drop-shadow(0 2px 2px rgba(20, 3, 6, .35));
 }
+@media (max-width: 959.98px) { .hero { padding-top: calc(var(--top-h) + 26px); } }

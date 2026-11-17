@@ -128,15 +128,17 @@
 
 <header class="top" data-top>
   <div class="wrap top__bar">
-    <a class="brand" href="index.html" aria-label="Cako The Cake Shop, home"><img src="/assets/brand/cako-badge.svg" width="52" height="52" alt=""></a>
-    <nav class="nav" aria-label="Main"><ul><li><a href="index.html">Home</a></li><li><a href="cakes.html">Cakes</a></li><li><a href="index.html#occasions">Occasions</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="order.html">Order</a></li><li><a href="visit.html" aria-current="page">Visit</a></li></ul></nav>
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__side nav__side--l"><li><a href="index.html">Home</a></li><li><a href="cakes.html">Cakes</a></li><li><a href="index.html#occasions">Occasions</a></li></ul>
+      <a class="brand" href="index.html" aria-label="Cako The Cake Shop, home"><span class="brand__bow" aria-hidden="true"></span><img src="/assets/brand/cako-badge.svg" width="76" height="76" alt=""></a>
+      <ul class="nav__side nav__side--r"><li><a href="gallery.html">Gallery</a></li><li><a href="visit.html" aria-current="page">Visit</a></li></ul>
+    </nav>
     <div class="top__right">
-      <p class="status-chip"><span class="status-chip__dot" aria-hidden="true"></span><span data-live data-open="Open till 12 tonight" data-closed="Opens at 11 am">Open 11 am to 12 midnight</span></p>
-      <a class="btn btn--secondary btn--sm top__call" href="tel:+918446966779"><svg class="icon icon--line" aria-hidden="true"><use href="#i-phone"/></svg><span>Call</span></a>
-      <a class="btn btn--primary btn--sm top__wa" href="https://wa.me/918446966779?text=Hello%20Cako%2C%20I'd%20like%20to%20order%20a%20cake." target="_blank" rel="noopener"><svg class="icon icon--solid" aria-hidden="true"><use href="#b-whatsapp"/></svg><span>WhatsApp</span></a>
+      <a class="btn btn--primary btn--sm top__order" href="order.html">Order a cake</a>
       <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-open><svg class="icon icon--line" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Menu</span></button>
     </div>
   </div>
+  <span class="top__ribbon" aria-hidden="true"></span>
 </header>
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1" hidden>
   <div class="menu__head wrap"><img src="/assets/brand/cako-badge.svg" width="52" height="52" alt="" loading="lazy"><button class="icon-btn menu-btn" type="button" data-menu-close><svg class="icon icon--line" aria-hidden="true"><use href="#i-x"/></svg><span class="visually-hidden">Close menu</span></button></div>
@@ -187,7 +189,7 @@
         <p class="vhero__cap">The gold arc is our opening hours. The hand is the time in Pune, right now.</p>
       </div>
       <figure class="vhero__photo framed">
-        <img src="/assets/img/cakes/counter-480.webp" srcset="/assets/img/cakes/counter-480.webp 480w, /assets/img/cakes/counter-900.webp 900w" sizes="(min-width: 1200px) 334px, (min-width: 768px) 40vw, 92vw" width="900" height="1125" alt="Cakes on glass shelves in Cako's display counter." decoding="async">
+        <img src="/assets/img/shop/arch-cake-800.webp" srcset="/assets/img/shop/arch-cake-800.webp 800w, /assets/img/shop/arch-cake-1600.webp 1600w" sizes="(min-width: 1200px) 334px, (min-width: 768px) 40vw, 92vw" width="800" height="1000" alt="Inside Cako: a cake on the counter in front of a lit white arch with the red Cako sign" decoding="async">
       </figure>
     </div>
   </section>

@@ -16,6 +16,7 @@ export const motionButton = (cls = '') => `<button class="icon-btn motion-btn${c
 export function page({ file, title, description, body, jsonld = '', preload = '', parts = [], bodyClass = '', ogTitle = '' }) {
   const current = (h) => (h === file ? ' aria-current="page"' : '');
   const nav = MENU.map(([h, t]) => `<li><a href="${h}"${current(h)}>${t}</a></li>`).join('');
+  const side = (hs) => hs.map((h) => MENU.find(([x]) => x === h)).map(([h, t]) => `<li><a href="${h}"${current(h)}>${t}</a></li>`).join('');
   const url = SITE + (file === 'index.html' ? '' : file);
   return `<!doctype html>
 <html lang="en-IN" class="is-open">
@@ -54,15 +55,17 @@ ${jsonld}
 ${part('sprite.html')}
 <header class="top" data-top>
   <div class="wrap top__bar">
-    <a class="brand" href="index.html" aria-label="Cako The Cake Shop, home"><img src="assets/brand/cako-badge.svg" width="52" height="52" alt=""></a>
-    <nav class="nav" aria-label="Main"><ul>${nav}</ul></nav>
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__side nav__side--l">${side(['index.html', 'cakes.html', 'index.html#occasions'])}</ul>
+      <a class="brand" href="index.html" aria-label="Cako The Cake Shop, home"><span class="brand__bow" aria-hidden="true"></span><img src="assets/brand/cako-badge.svg" width="76" height="76" alt=""></a>
+      <ul class="nav__side nav__side--r">${side(['gallery.html', 'visit.html'])}</ul>
+    </nav>
     <div class="top__right">
-      ${statusPill()}
-      <a class="btn btn--secondary btn--sm top__call" href="${TEL}">${icon('i-phone')}<span>Call</span></a>
-      <a class="btn btn--primary btn--sm top__wa" href="${WA_ORDER}" target="_blank" rel="noopener">${icon('b-whatsapp', 1)}<span>WhatsApp</span></a>
+      <a class="btn btn--primary btn--sm top__order" href="order.html"${current('order.html')}>Order a cake</a>
       <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>${icon('i-menu')}<span class="visually-hidden">Menu</span></button>
     </div>
   </div>
+  <span class="top__ribbon" aria-hidden="true"></span>
 </header>
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1" hidden>
   <div class="menu__head wrap"><img src="assets/brand/cako-badge.svg" width="52" height="52" alt="" loading="lazy"><button class="icon-btn menu-btn" type="button" data-menu-close>${icon('i-x')}<span class="visually-hidden">Close menu</span></button></div>

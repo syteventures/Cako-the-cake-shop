@@ -201,7 +201,7 @@
       var lift = btn.querySelector('.tt__lift') || btn;
       var shade = D.createElement('span'); shade.className = 'tt__shade'; shade.setAttribute('aria-hidden', 'true'); lift.appendChild(shade);
       li.setAttribute('role', 'presentation');
-      var fig = li.querySelector('.tt__fig'); if (fig) fig.setAttribute('role', 'presentation');
+      // a <figure> with a caption may not take a role (ARIA in HTML), so it keeps its own
       it.btn = btn; it.img = btn.querySelector('img'); it.shade = shade;
       // the shade is the cut-out's own silhouette: it darkens a cake without showing the ones behind through it.
       // It reuses the file the <img> picked, so nothing downloads twice.

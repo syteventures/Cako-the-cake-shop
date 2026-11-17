@@ -69,7 +69,7 @@ export default page({
         <p class="vhero__cap">The gold arc is our opening hours. The hand is the time in Pune, right now.</p>
       </div>
       <figure class="vhero__photo framed">
-        <img src="assets/img/cakes/counter-480.webp" srcset="assets/img/cakes/counter-480.webp 480w, assets/img/cakes/counter-900.webp 900w" sizes="(min-width: 1200px) 334px, (min-width: 768px) 40vw, 92vw" width="900" height="1125" alt="${ALT.counter}" decoding="async">
+        <img src="assets/img/shop/arch-cake-800.webp" srcset="assets/img/shop/arch-cake-800.webp 800w, assets/img/shop/arch-cake-1600.webp 1600w" sizes="(min-width: 1200px) 334px, (min-width: 768px) 40vw, 92vw" width="800" height="1000" alt="Inside Cako: a cake on the counter in front of a lit white arch with the red Cako sign" decoding="async">
       </figure>
     </div>
   </section>
