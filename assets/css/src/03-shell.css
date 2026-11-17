@@ -5,7 +5,7 @@
   border-bottom: 1px solid transparent;
   transition: background-color var(--dur-hover) var(--ease-out), border-color var(--dur-hover) var(--ease-out), transform 0.5s var(--ease-out);
 }
-.top.is-solid { background: rgb(11 58 71 / 0.94); border-bottom-color: var(--gold-hair); }
+.top.is-solid { background: rgb(4 54 76 / 0.94); border-bottom-color: var(--gold-hair); }
 .top.is-hidden { transform: translateY(-101%); }
 .top__bar { display: flex; align-items: center; gap: 16px; min-height: var(--top-h); }
 .brand { display: inline-flex; flex: none; border-radius: 50%; transition: transform 0.6s var(--ease-out); }

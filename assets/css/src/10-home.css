@@ -347,17 +347,17 @@ html.has-motion .custom__sketch-note { display: block; }
 /* hero v2 (palette v2): full-bleed teal-to-rose gradient, content spans the full screen width */
 .hero {
   background:
-    radial-gradient(60% 70% at 88% 18%, rgba(247, 120, 180, .55), transparent 70%),
-    radial-gradient(45% 55% at 62% 100%, rgba(194, 24, 91, .45), transparent 72%),
-    radial-gradient(55% 60% at 4% 8%, rgba(39, 152, 170, .55), transparent 70%),
-    linear-gradient(135deg, #062A34 0%, #0B3A47 45%, #3A1840 100%);
+    linear-gradient(to top, rgba(4, 44, 61, .55), transparent 34%),
+    radial-gradient(38% 46% at 74% 42%, rgba(255, 226, 170, .28), transparent 72%),
+    linear-gradient(90deg, transparent 61%, rgba(255, 255, 255, .17) 65.5%, rgba(255, 255, 255, .17) 82.5%, transparent 87%),
+    linear-gradient(100deg, #042C3D 0%, #063F57 36%, #07759D 66%, #0097C3 100%);
 }
 .hero::after { /* fine grain so the gradient never bands */
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .08; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .hero > .hero__grid { width: auto; max-width: none; margin-inline: var(--gutter); }
-.hero__stage::before { background: radial-gradient(closest-side, rgba(255, 190, 225, .30), rgba(247, 120, 180, .10) 45%, transparent); }
+.hero__stage::before { background: radial-gradient(closest-side, rgba(255, 236, 196, .32), rgba(255, 206, 140, .10) 45%, transparent); }
 @media (min-width: 960px) {
   .hero__title { grid-column: 1 / 8; }
   .hero__display { max-width: 12ch; }
@@ -365,7 +365,7 @@ html.has-motion .custom__sketch-note { display: block; }
   .hero__below { grid-column: 1 / 8; }
   .hero__under { grid-column: 8 / 13; }
 }
-.hero__display { color: #FFFFFF; text-shadow: 0 2px 40px rgba(6, 42, 52, .35); }
+.hero__display { color: #FFFFFF; text-shadow: 0 2px 40px rgba(4, 44, 61, .4); }
 
 /* hero heading v2: pill eyebrow, two-tone headline, title and lede stacked beside the cake */
 .hero__kicker {
@@ -374,7 +374,7 @@ html.has-motion .custom__sketch-note { display: block; }
   background: rgba(255, 255, 255, .06); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   color: #FFFFFF; font-size: var(--fs-small); font-weight: 500; letter-spacing: .02em; line-height: 1.2;
 }
-.hero__kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(247, 168, 207, .18); }
+.hero__kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(226, 190, 120, .2); }
 .hero__title { gap: 22px; }
 .hero__display { max-width: none; letter-spacing: -0.025em; line-height: 0.98; }
 .hero__line { display: block; }
@@ -399,16 +399,16 @@ html.has-motion .custom__sketch-note { display: block; }
     left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); bottom: 6%;
     box-shadow: 0 40px 60px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .12);
   }
-  .flavours__table::before { left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); background: radial-gradient(closest-side, rgba(247, 168, 207, .14), transparent); }
+  .flavours__table::before { left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); background: radial-gradient(closest-side, rgba(255, 226, 170, .16), transparent); }
 }
-.fan__card::after { background: linear-gradient(to top, rgba(6, 42, 52, .88), transparent); }
+.fan__card::after { background: linear-gradient(to top, rgba(4, 44, 61, .88), transparent); }
 
 /* sizes v2: soft white-to-blush ground; the guide cake sits on a porcelain plate and a silver board */
 .sec.sizes {
   background:
-    radial-gradient(55% 65% at 82% 35%, rgba(247, 168, 207, .26), transparent 70%),
-    radial-gradient(45% 55% at 0% 100%, rgba(39, 152, 170, .12), transparent 70%),
-    linear-gradient(180deg, #FFFFFF 0%, #FCF5F8 100%);
+    radial-gradient(55% 65% at 82% 35%, rgba(0, 151, 195, .13), transparent 70%),
+    radial-gradient(45% 55% at 0% 100%, rgba(226, 190, 120, .16), transparent 70%),
+    linear-gradient(180deg, #FFFFFF 0%, #F1F9FC 100%);
 }
 .sizes .sguide { --sg-gold: #cdd5d9; }
 .sizes .sguide__shadow { fill: rgba(10, 39, 48, .22); }
@@ -443,5 +443,11 @@ html.has-motion .custom__sketch-note { display: block; }
 .sguide__rug-shadow { fill: rgba(10, 39, 48, .28); }
 .sguide__rug-ring { fill: none; stroke-width: 6.6; stroke-dasharray: 4 2.2; stroke-linecap: round; }
 .sguide__rug-tex { fill: #000; opacity: .34; mix-blend-mode: soft-light; pointer-events: none; }
-.sguide__rug-edge { fill: none; stroke: #052630; stroke-width: 1.5; }
+.sguide__rug-edge { fill: none; stroke: #03222f; stroke-width: 1.5; }
 .sguide__rug-fringe { fill: none; stroke: #b9a48c; stroke-width: 1.7; stroke-linecap: round; }
+@media (max-width: 959.98px) { /* phones: the wall stripe stands behind the centred cake */
+  .hero { background:
+    linear-gradient(to top, rgba(4, 44, 61, .6), transparent 30%),
+    linear-gradient(90deg, transparent 26%, rgba(255, 255, 255, .14) 32%, rgba(255, 255, 255, .14) 68%, transparent 74%),
+    linear-gradient(170deg, #042C3D 0%, #063F57 34%, #07759D 70%, #0097C3 100%); }
+}

@@ -157,44 +157,46 @@
 
 /* ==== src/01-tokens.css ==== */
 /* ==========================================================================
-   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v2: white, deep teal, rose; after Awwwards bakery refs)
+   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v3: white, shop cyan, cherry, board gold; taken from the shop photos)
    One :root block. Load after fonts.css and before every component rule.
    Contrast ratios are WCAG 2.x, computed in _workfiles/fontwork/cd-contrast.py.
    ========================================================================== */
 :root {
   /* ---- Night grounds (chapters 1 and 3) ---------------------------------- */
-  --night: #0B3A47;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
-  --night-2: #0F4655;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
-  --night-3: #062A34;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
+  --night: #063F57;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
+  --night-2: #08506D;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
+  --night-3: #042C3D;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
   --cream: #FFFFFF;          /* text and headings on night; focus ring on night */
-  --cream-2: #C4E0E6;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
+  --cream-2: #BFE3EF;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
 
   /* ---- Paper grounds (chapter 2, paper cards, order slip) ---------------- */
   --paper: #FFFFFF;          /* vanilla paper. ink 14.84:1 */
-  --paper-2: #FDF0F5;        /* biscuit: raised panels on paper. ink 12.76:1 */
-  --ink: #0A2730;            /* text on paper and cream; focus ring on paper */
-  --ink-2: #46636C;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
+  --paper-2: #EEF8FB;        /* biscuit: raised panels on paper. ink 12.76:1 */
+  --ink: #0A2633;            /* text on paper and cream; focus ring on paper */
+  --ink-2: #46646F;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
 
   /* ---- Action red: the only accent ---------------------------------------- */
-  --accent: #C2185B;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
-  --accent-press: #9C1149;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
-  --accent-ink: #9C1149;     /* red text on paper or cream (6.08:1 / 6.20:1) */
+  --accent: #D21F3C;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
+  --accent-press: #A8142D;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
+  --accent-ink: #A8142D;     /* red text on paper or cream (6.08:1 / 6.20:1) */
   --on-accent: #FFFFFF;      /* label on red buttons */
   --brand-red: #EF3334;      /* logo badge and the hero's "1" "2" candles only. Never UI text (cream on it 3.35:1) */
 
   /* ---- Gold: fine ornament ------------------------------------------------ */
-  --gold: #F7A8CF;           /* hairlines, dial ticks, icons, numerals on night (7.90:1). Never on paper (1.84:1) */
-  --gold-deep: #9C1149;      /* gold on paper: hairlines, icons, small italic notes (5.67:1 / 4.87:1) */
-  --gold-hair: rgba(247, 168, 207, .45);  /* ornamental gold hairline on night (composite #6E5639) */
-  --gold-deep-hair: rgba(156, 17, 73, .35);
+  --cyan: #0097C3;          /* the shop wall (photos): big colour fields only, never body text under white */
+  --cyan-2: #0FAED4;
+  --gold: #E2BE78;           /* hairlines, dial ticks, icons, numerals on night (7.90:1). Never on paper (1.84:1) */
+  --gold-deep: #8A6420;      /* gold on paper: hairlines, icons, small italic notes (5.67:1 / 4.87:1) */
+  --gold-hair: rgba(226, 190, 120, .45);  /* ornamental gold hairline on night (composite #6E5639) */
+  --gold-deep-hair: rgba(138, 100, 32, .35);
 
   /* ---- Structure lines ------------------------------------------------------ */
-  --line: rgba(10, 39, 48, .14);          /* structural hairline on paper (composite #D1C4B4) */
+  --line: rgba(10, 38, 51, .13);          /* structural hairline on paper (composite #D1C4B4) */
   --line-night: rgba(255, 255, 255, .14); /* structural hairline on night (composite #3F322C) */
 
   /* ---- Live light ------------------------------------------------------------ */
   --candle: #FFB547;                      /* flame core, "open now" dot and text on night (10.20:1) */
-  --candle-glow: rgba(247, 120, 180, .22); /* one light pool per scene, centred on its source */
+  --candle-glow: rgba(255, 190, 110, .22); /* one light pool per scene, centred on its source */
   --smoke: #9C8A7E;                       /* closed dot, blown-out wick (5.42:1 on night) */
   --live: var(--candle);                  /* status dot colour used by the shell */
 
@@ -253,7 +255,7 @@
   --rim-night: inset 0 1px 0 rgba(255, 236, 220, .08);  /* top rim on night-2 surfaces */
   --shadow-paper: 0 1px 0 rgba(31, 18, 13, .06), 0 16px 32px -20px rgba(31, 18, 13, .28);  /* raised on paper */
   --shadow-paper-night: 0 2px 0 rgba(0, 0, 0, .25), 0 24px 48px -28px rgba(0, 0, 0, .7);   /* paper card on night */
-  --frame-inset: rgba(156, 17, 73, .28);  /* menu-card inner frame: outline 1px, outline-offset -8px */
+  --frame-inset: rgba(138, 100, 32, .3);  /* menu-card inner frame: outline 1px, outline-offset -8px */
   --mat-offset: 10px;                     /* gold mat line around framed photos */
 
   /* ---- Motion ---------------------------------------------------------------------------- */
@@ -372,7 +374,7 @@ a:hover { text-decoration-thickness: 2px; }
   border-bottom: 1px solid transparent;
   transition: background-color var(--dur-hover) var(--ease-out), border-color var(--dur-hover) var(--ease-out), transform 0.5s var(--ease-out);
 }
-.top.is-solid { background: rgb(11 58 71 / 0.94); border-bottom-color: var(--gold-hair); }
+.top.is-solid { background: rgb(4 54 76 / 0.94); border-bottom-color: var(--gold-hair); }
 .top.is-hidden { transform: translateY(-101%); }
 .top__bar { display: flex; align-items: center; gap: 16px; min-height: var(--top-h); }
 .brand { display: inline-flex; flex: none; border-radius: 50%; transition: transform 0.6s var(--ease-out); }
@@ -1856,6 +1858,23 @@ button.tt__cake {
   .tt *, .tt *::before, .tt *::after, .tt-sky__l { transition-duration: 0s !important; transition-delay: 0s !important; animation: none !important; }
 }
 
+/* palette v3: white porcelain turntable on a polished gold rim (the shop's gold cake boards) */
+.tt__side {
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.32)),
+    linear-gradient(90deg, #5e451c 0%, #9c7a3a 16%, #d4b26c 40%, #f1dba0 49%, #fff3cc 50%, #f1dba0 51%, #d4b26c 60%, #9c7a3a 84%, #5e451c 100%);
+}
+.tt__top {
+  background:
+    radial-gradient(ellipse 46% 40% at 50% 70%, rgba(255, 236, 200, 0.35), transparent 70%),
+    radial-gradient(ellipse farthest-side at 50% 50%,
+      transparent calc(36% - 1px), rgba(138, 100, 32, 0.22) 36%, transparent calc(36% + 1.4px),
+      transparent calc(70% - 1px), rgba(138, 100, 32, 0.18) 70%, transparent calc(70% + 1.4px),
+      transparent calc(91% - 1px), rgba(138, 100, 32, 0.32) 91%, transparent calc(91% + 1.4px)),
+    radial-gradient(ellipse farthest-side at 46% 36%, #ffffff, #f5f8f9 40%, #e2eaee 74%, #c9d5da);
+  box-shadow: inset 0 0 0 1px rgba(226, 190, 120, .7), inset 0 -3px 10px rgba(4, 44, 61, 0.28);
+}
+
 /* ==== src/10-home.css ==== */
 /* ---------------------------------------------------------------- home (brief section 9) */
 
@@ -2206,17 +2225,17 @@ html.has-motion .custom__sketch-note { display: block; }
 /* hero v2 (palette v2): full-bleed teal-to-rose gradient, content spans the full screen width */
 .hero {
   background:
-    radial-gradient(60% 70% at 88% 18%, rgba(247, 120, 180, .55), transparent 70%),
-    radial-gradient(45% 55% at 62% 100%, rgba(194, 24, 91, .45), transparent 72%),
-    radial-gradient(55% 60% at 4% 8%, rgba(39, 152, 170, .55), transparent 70%),
-    linear-gradient(135deg, #062A34 0%, #0B3A47 45%, #3A1840 100%);
+    linear-gradient(to top, rgba(4, 44, 61, .55), transparent 34%),
+    radial-gradient(38% 46% at 74% 42%, rgba(255, 226, 170, .28), transparent 72%),
+    linear-gradient(90deg, transparent 61%, rgba(255, 255, 255, .17) 65.5%, rgba(255, 255, 255, .17) 82.5%, transparent 87%),
+    linear-gradient(100deg, #042C3D 0%, #063F57 36%, #07759D 66%, #0097C3 100%);
 }
 .hero::after { /* fine grain so the gradient never bands */
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .08; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .hero > .hero__grid { width: auto; max-width: none; margin-inline: var(--gutter); }
-.hero__stage::before { background: radial-gradient(closest-side, rgba(255, 190, 225, .30), rgba(247, 120, 180, .10) 45%, transparent); }
+.hero__stage::before { background: radial-gradient(closest-side, rgba(255, 236, 196, .32), rgba(255, 206, 140, .10) 45%, transparent); }
 @media (min-width: 960px) {
   .hero__title { grid-column: 1 / 8; }
   .hero__display { max-width: 12ch; }
@@ -2224,7 +2243,7 @@ html.has-motion .custom__sketch-note { display: block; }
   .hero__below { grid-column: 1 / 8; }
   .hero__under { grid-column: 8 / 13; }
 }
-.hero__display { color: #FFFFFF; text-shadow: 0 2px 40px rgba(6, 42, 52, .35); }
+.hero__display { color: #FFFFFF; text-shadow: 0 2px 40px rgba(4, 44, 61, .4); }
 
 /* hero heading v2: pill eyebrow, two-tone headline, title and lede stacked beside the cake */
 .hero__kicker {
@@ -2233,7 +2252,7 @@ html.has-motion .custom__sketch-note { display: block; }
   background: rgba(255, 255, 255, .06); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   color: #FFFFFF; font-size: var(--fs-small); font-weight: 500; letter-spacing: .02em; line-height: 1.2;
 }
-.hero__kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(247, 168, 207, .18); }
+.hero__kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(226, 190, 120, .2); }
 .hero__title { gap: 22px; }
 .hero__display { max-width: none; letter-spacing: -0.025em; line-height: 0.98; }
 .hero__line { display: block; }
@@ -2258,16 +2277,16 @@ html.has-motion .custom__sketch-note { display: block; }
     left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); bottom: 6%;
     box-shadow: 0 40px 60px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .12);
   }
-  .flavours__table::before { left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); background: radial-gradient(closest-side, rgba(247, 168, 207, .14), transparent); }
+  .flavours__table::before { left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); background: radial-gradient(closest-side, rgba(255, 226, 170, .16), transparent); }
 }
-.fan__card::after { background: linear-gradient(to top, rgba(6, 42, 52, .88), transparent); }
+.fan__card::after { background: linear-gradient(to top, rgba(4, 44, 61, .88), transparent); }
 
 /* sizes v2: soft white-to-blush ground; the guide cake sits on a porcelain plate and a silver board */
 .sec.sizes {
   background:
-    radial-gradient(55% 65% at 82% 35%, rgba(247, 168, 207, .26), transparent 70%),
-    radial-gradient(45% 55% at 0% 100%, rgba(39, 152, 170, .12), transparent 70%),
-    linear-gradient(180deg, #FFFFFF 0%, #FCF5F8 100%);
+    radial-gradient(55% 65% at 82% 35%, rgba(0, 151, 195, .13), transparent 70%),
+    radial-gradient(45% 55% at 0% 100%, rgba(226, 190, 120, .16), transparent 70%),
+    linear-gradient(180deg, #FFFFFF 0%, #F1F9FC 100%);
 }
 .sizes .sguide { --sg-gold: #cdd5d9; }
 .sizes .sguide__shadow { fill: rgba(10, 39, 48, .22); }
@@ -2302,8 +2321,14 @@ html.has-motion .custom__sketch-note { display: block; }
 .sguide__rug-shadow { fill: rgba(10, 39, 48, .28); }
 .sguide__rug-ring { fill: none; stroke-width: 6.6; stroke-dasharray: 4 2.2; stroke-linecap: round; }
 .sguide__rug-tex { fill: #000; opacity: .34; mix-blend-mode: soft-light; pointer-events: none; }
-.sguide__rug-edge { fill: none; stroke: #052630; stroke-width: 1.5; }
+.sguide__rug-edge { fill: none; stroke: #03222f; stroke-width: 1.5; }
 .sguide__rug-fringe { fill: none; stroke: #b9a48c; stroke-width: 1.7; stroke-linecap: round; }
+@media (max-width: 959.98px) { /* phones: the wall stripe stands behind the centred cake */
+  .hero { background:
+    linear-gradient(to top, rgba(4, 44, 61, .6), transparent 30%),
+    linear-gradient(90deg, transparent 26%, rgba(255, 255, 255, .14) 32%, rgba(255, 255, 255, .14) 68%, transparent 74%),
+    linear-gradient(170deg, #042C3D 0%, #063F57 34%, #07759D 70%, #0097C3 100%); }
+}
 
 /* ==== src/20-pages.css ==== */
 /* ---------------------------------------------------------------- inner pages: cakes.html, order.html, visit.html (brief sections 10 to 12)
@@ -2357,7 +2382,7 @@ html:not(.js) [data-copy-message], html:not(.js) [data-copy-address], html:not(.
 
 .filterbar {
   position: sticky; top: var(--top-h); z-index: 30;
-  background: rgb(43 24 17 / 0.94); border-top: 1px solid var(--line-night); border-bottom: 1px solid var(--gold-hair);
+  background: rgb(4 54 76 / 0.94); border-top: 1px solid var(--line-night); border-bottom: 1px solid var(--gold-hair);
   transition: transform 0.5s var(--ease-out);
 }
 html:has(.top.is-hidden) .filterbar { transform: translateY(calc(-1 * var(--top-h))); }
@@ -2844,7 +2869,7 @@ html:not(.js) .filterbar { display: none; } /* filtering needs script; without i
 .vmap__pin { stroke: var(--gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; fill: var(--night-2); }
 .vmap__pin path, .vmap__pin circle { vector-effect: non-scaling-stroke; }
 .vmap__ask { position: absolute; left: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px); display: grid; gap: 10px; justify-items: start; }
-.vmap__load { background: rgb(33 20 16 / 0.86); }
+.vmap__load { background: rgb(4 44 61 / 0.86); }
 .vmap__note { font-size: var(--fs-small); color: var(--text-2); }
 .vmap.is-on .vmap__facade { display: none; }
 .vmap__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: var(--night-2); }

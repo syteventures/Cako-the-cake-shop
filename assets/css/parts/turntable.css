@@ -297,3 +297,20 @@ button.tt__cake {
 @media (prefers-reduced-motion: reduce) {
   .tt *, .tt *::before, .tt *::after, .tt-sky__l { transition-duration: 0s !important; transition-delay: 0s !important; animation: none !important; }
 }
+
+/* palette v3: white porcelain turntable on a polished gold rim (the shop's gold cake boards) */
+.tt__side {
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.32)),
+    linear-gradient(90deg, #5e451c 0%, #9c7a3a 16%, #d4b26c 40%, #f1dba0 49%, #fff3cc 50%, #f1dba0 51%, #d4b26c 60%, #9c7a3a 84%, #5e451c 100%);
+}
+.tt__top {
+  background:
+    radial-gradient(ellipse 46% 40% at 50% 70%, rgba(255, 236, 200, 0.35), transparent 70%),
+    radial-gradient(ellipse farthest-side at 50% 50%,
+      transparent calc(36% - 1px), rgba(138, 100, 32, 0.22) 36%, transparent calc(36% + 1.4px),
+      transparent calc(70% - 1px), rgba(138, 100, 32, 0.18) 70%, transparent calc(70% + 1.4px),
+      transparent calc(91% - 1px), rgba(138, 100, 32, 0.32) 91%, transparent calc(91% + 1.4px)),
+    radial-gradient(ellipse farthest-side at 46% 36%, #ffffff, #f5f8f9 40%, #e2eaee 74%, #c9d5da);
+  box-shadow: inset 0 0 0 1px rgba(226, 190, 120, .7), inset 0 -3px 10px rgba(4, 44, 61, 0.28);
+}
