@@ -146,7 +146,6 @@ export default page({
 
   ${midnightSection}
 
-  ${scallop('--night-3', '--paper')}
   <section class="sec sizes" id="sizes" data-ground="paper" aria-labelledby="sizes-title">
     <div class="wrap sizes__grid">
       <div class="sizes__copy">
@@ -200,7 +199,6 @@ export default page({
     </div>
   </section>
 
-  ${scallop('--paper', '--night')}
   <section class="sec inside" id="inside" data-ground="night-2" aria-labelledby="inside-title">
     <div class="wrap">
       ${head("inside", "Come in, it’s lit till twelve", "Glowing arches, a counter full of cakes and a corner for birthdays. This is the shop on Upper Kondhwa Road.", true)}

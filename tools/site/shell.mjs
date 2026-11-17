@@ -6,7 +6,7 @@ import { WA_ORDER, TEL, PHONE_TEXT, ADDRESS } from './content.mjs';
 
 export const NAV = [['index.html', 'Home'], ['cakes.html', 'Cakes'], ['order.html', 'Order'], ['visit.html', 'Visit'], ['gallery.html', 'Gallery']];
 // header nav (copy deck): Cakes, Occasions, Order, Visit
-const MENU = [['cakes.html', 'Cakes'], ['index.html#occasions', 'Occasions'], ['gallery.html', 'Gallery'], ['order.html', 'Order'], ['visit.html', 'Visit']];
+const MENU = [['index.html', 'Home'], ['cakes.html', 'Cakes'], ['index.html#occasions', 'Occasions'], ['gallery.html', 'Gallery'], ['order.html', 'Order'], ['visit.html', 'Visit']];
 // only the two faces used above the fold on every page (brief section 3)
 export const FONT_PRELOAD = ['bodoni-moda-latin.woff2', 'schibsted-grotesk-latin.woff2'];
 

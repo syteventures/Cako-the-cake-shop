@@ -124,3 +124,30 @@
   .top :is(.status-chip, .top__call) { transition: transform var(--dur-ui) var(--ease-out); }
   .top.hide-wa :is(.status-chip, .top__call) { transform: translateX(var(--wa-shift, 0px)); }
 }
+
+/* nav v2: a glassy capsule with Bodoni links; the current page is a lit ivory arch, like the niches on the shop wall */
+.brand { box-shadow: 0 0 0 2px rgba(255, 213, 150, .6), 0 0 22px rgba(255, 150, 80, .35); }
+.brand img { width: 58px; height: 58px; }
+@media (min-width: 960px) {
+  .nav { margin-inline-start: 22px; }
+  .nav ul {
+    gap: 2px; padding: 5px; border: 1px solid rgba(255, 213, 150, .38); border-radius: 999px;
+    background: rgba(46, 8, 12, .45); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 12px 30px -18px rgba(0, 0, 0, .75);
+  }
+  .nav a {
+    min-height: 40px; padding: 0 17px; border-radius: 999px 999px 12px 12px;
+    font-family: var(--f-display); font-size: 1.0625rem; font-weight: 500; letter-spacing: .005em; color: var(--cream);
+    transition: background-color var(--dur-hover) var(--ease-out), color var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out);
+  }
+  .nav a::after { display: none; }
+  .nav a:hover { background: rgba(255, 248, 240, .1); }
+  .nav a[aria-current="page"] { background: var(--cream); color: var(--night); box-shadow: 0 0 0 1px #FFD596, 0 0 18px rgba(255, 170, 90, .45); }
+  .nav a:focus-visible { outline: 2px solid var(--cream); outline-offset: 2px; }
+  .top.is-solid { border-bottom: 1px solid rgba(255, 213, 150, .4); box-shadow: 0 10px 30px -20px rgba(0, 0, 0, .8); }
+}
+@media (min-width: 960px) and (max-width: 1279.98px) {
+  .top .status-chip { display: none; }
+  .nav a { padding: 0 12px; font-size: 1rem; }
+}
+@media (min-width: 960px) and (max-width: 1099.98px) { .top .top__call span { display: none; } }
