@@ -307,11 +307,11 @@ export function sizeGuide(o = {}) {
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="198" stroke="#5c1219" style="stroke-dashoffset:0"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="205" stroke="#6e151d" style="stroke-dashoffset:3"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="212" stroke="#4a0e14" style="stroke-dashoffset:0"/>
-          <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="219" stroke="#0e5c5e" style="stroke-dashoffset:3"/>
+          <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="219" stroke="#e8a7b5" style="stroke-dashoffset:3"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="226" stroke="#5c1219" style="stroke-dashoffset:0"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="233" stroke="#6e151d" style="stroke-dashoffset:3"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="240" stroke="#4a0e14" style="stroke-dashoffset:0"/>
-          <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="247" stroke="#0e5c5e" style="stroke-dashoffset:3"/>
+          <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="247" stroke="#e8a7b5" style="stroke-dashoffset:3"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="254" stroke="#5c1219" style="stroke-dashoffset:0"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="261" stroke="#d9a35a" style="stroke-dashoffset:3"/>
           <circle class="sguide__rug-ring" cx="${CX}" cy="${CY}" r="268" stroke="#4a0e14" style="stroke-dashoffset:0"/>

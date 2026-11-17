@@ -407,7 +407,7 @@ html.has-motion .custom__sketch-note { display: block; }
   background:
     radial-gradient(55% 65% at 82% 35%, rgba(152, 17, 18, .08), transparent 70%),
     radial-gradient(45% 55% at 0% 100%, rgba(242, 194, 122, .18), transparent 70%),
-    linear-gradient(180deg, #FFFAF4 0%, #F8EDE3 100%);
+    linear-gradient(180deg, #FFFFFF 0%, #FBEAEE 100%);
 }
 .sizes .sguide { --sg-gold: #cdd5d9; }
 .sizes .sguide__shadow { fill: rgba(10, 39, 48, .22); }
@@ -490,9 +490,36 @@ html.has-motion .custom__sketch-note { display: block; }
 }
 @media (min-width: 960px) { .inside__grid .inside__fig { aspect-ratio: auto; } }
 
-/* palette v5: deep teal (the party-corner sofa) as the second colour. Sections alternate maroon / teal */
-.sec.flavours, .sec.visit { --night: var(--teal); --night-2: var(--teal-2); --night-3: var(--teal-3); }
-.sec.flavours .fan__card::after { background: linear-gradient(to top, rgba(8, 58, 60, .9), transparent); }
-.sizes .sguide { --sg-thumb: var(--teal); --sg-thumb-fg: #FFFFFF; }
+/* palette v6: teal removed; blush (balloons) is the second colour, on light grounds */
 .hero__kicker { border-color: rgba(255, 255, 255, .22); }
 .pin-spacer:has(> .mclock), .mclock { max-width: 100%; } /* GSAP pins at window width incl. the scrollbar; keep it inside the page */
+
+/* inside v2: arch photo, a looping display-case video, then a swipeable row of arch-framed shop photos */
+.inside__v video { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--night-3); }
+.inside__v { aspect-ratio: 4 / 5; }
+@media (min-width: 960px) {
+  .inside__grid { grid-template-rows: clamp(250px, 23vw, 360px) clamp(250px, 23vw, 360px); }
+  .inside__a { grid-column: 1 / 5; grid-row: 1 / 3; }
+  .inside__v { grid-column: 5 / 9; grid-row: 1 / 3; }
+  .inside__c { grid-column: 9 / 13; grid-row: 1; }
+  .inside__d { grid-column: 9 / 13; grid-row: 2; }
+}
+.inside__strip {
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+  padding: clamp(36px, 4vw, 56px) var(--gutter) 22px; scrollbar-color: rgba(242, 194, 122, .6) transparent; scrollbar-width: thin;
+}
+.inside__strip:focus-visible { outline: 2px solid var(--focus, var(--cream)); outline-offset: -4px; }
+@media (min-width: 1440px) { .inside__strip { padding-inline: calc((100% - var(--wrap)) / 2); scroll-padding-inline: calc((100% - var(--wrap)) / 2); } }
+.inside__row { display: flex; gap: clamp(14px, 1.6vw, 22px); width: max-content; margin: 0; padding: 0; list-style: none; }
+.inside__card {
+  position: relative; width: clamp(200px, 21vw, 290px); aspect-ratio: 4 / 5; margin: 0; overflow: hidden; scroll-snap-align: start;
+  border-radius: 999px 999px 6px 6px; background: var(--night-3);
+  box-shadow: 0 0 0 2px rgba(255, 213, 150, .75), 0 0 30px 2px rgba(255, 160, 80, .22);
+}
+.inside__card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.inside__card figcaption {
+  position: absolute; left: 50%; bottom: 12px; translate: -50% 0; white-space: nowrap; padding: 6px 12px; border-radius: var(--r-pill);
+  background: rgba(46, 8, 12, .74); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--cream); font-size: var(--fs-small); font-weight: 500;
+}
+.inside__hint { margin-top: 4px; color: var(--cream-2); }
+.inside__hint { text-align: left; }
