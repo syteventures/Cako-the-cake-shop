@@ -10,6 +10,7 @@ import home from './site/home.mjs';
 import cakes from './site/cakes.mjs';
 import order from './site/order.mjs';
 import visit from './site/visit.mjs';
+import gallery from './site/gallery.mjs';
 
 // component stylesheets that are part of the build (the rest of assets/css/parts is work in progress)
 const PARTS = ['midnight', 'photocake', 'turntable'];
@@ -26,7 +27,7 @@ fs.writeFileSync(path.join(cssDir, 'site.css'),
 
 // asset URLs are root-absolute: Vite serves and copies public/ as is, and bundles the CSS and JS
 const abs = (html) => html.replace(/(="|, )assets\//g, '$1/assets/').replace(/="(favicon\.svg|site\.webmanifest)"/g, '="/$1"');
-for (const [f, html] of [['index.html', home], ['cakes.html', cakes], ['order.html', order], ['visit.html', visit]]) fs.writeFileSync(path.join(root, f), abs(html));
+for (const [f, html] of [['index.html', home], ['cakes.html', cakes], ['order.html', order], ['visit.html', visit], ['gallery.html', gallery]]) fs.writeFileSync(path.join(root, f), abs(html));
 // sitemap for launch (domain is a placeholder)
 fs.writeFileSync(path.join(root, 'public/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${NAV.map(([h]) => `  <url><loc>${SITE}${h === 'index.html' ? '' : h}</loc></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(root, 'public/robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}sitemap.xml\n`);

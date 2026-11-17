@@ -4,9 +4,9 @@ import path from 'node:path';
 import { SITE, DIRECTIONS, icon, part, root } from './data.mjs';
 import { WA_ORDER, TEL, PHONE_TEXT, ADDRESS } from './content.mjs';
 
-export const NAV = [['index.html', 'Home'], ['cakes.html', 'Cakes'], ['order.html', 'Order'], ['visit.html', 'Visit']];
+export const NAV = [['index.html', 'Home'], ['cakes.html', 'Cakes'], ['order.html', 'Order'], ['visit.html', 'Visit'], ['gallery.html', 'Gallery']];
 // header nav (copy deck): Cakes, Occasions, Order, Visit
-const MENU = [['cakes.html', 'Cakes'], ['index.html#occasions', 'Occasions'], ['order.html', 'Order'], ['visit.html', 'Visit']];
+const MENU = [['cakes.html', 'Cakes'], ['index.html#occasions', 'Occasions'], ['gallery.html', 'Gallery'], ['order.html', 'Order'], ['visit.html', 'Visit']];
 // only the two faces used above the fold on every page (brief section 3)
 export const FONT_PRELOAD = ['bodoni-moda-latin.woff2', 'schibsted-grotesk-latin.woff2'];
 
@@ -103,7 +103,7 @@ ${body}
   <a class="actionbar__btn" href="${TEL}">${icon('i-phone')}<span>Call</span></a>
   <a class="actionbar__btn" href="${DIRECTIONS}" target="_blank" rel="noopener">${icon('i-navigation')}<span>Directions</span></a>
 </nav>
-<script type="module" src="/src/entries/${parts.includes('home') ? 'home' : parts.includes('midnight') ? 'visit' : 'base'}.js"></script>
+<script type="module" src="/src/entries/${parts.includes('home') ? 'home' : parts.includes('gallery') ? 'gallery' : parts.includes('midnight') ? 'visit' : 'base'}.js"></script>
 </body>
 </html>
 `;

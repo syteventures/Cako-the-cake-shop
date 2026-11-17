@@ -227,7 +227,7 @@ export default page({
           <li><figure class="inside__card"><img src="assets/img/shop/arch-wall-800.webp" srcset="assets/img/shop/arch-wall-800.webp 800w, assets/img/shop/arch-wall-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="White arches glowing on the red wall" loading="lazy" decoding="async"><figcaption>Lit till twelve</figcaption></figure></li>
       </ul>
     </div>
-    <p class="wrap inside__hint small">Scroll sideways for more of the shop.</p>
+    <p class="wrap inside__hint small">Scroll sideways for more of the shop, or <a class="link" href="gallery.html">open the full gallery</a>.</p>
     <script>(()=>{const v=document.querySelector("[data-autoloop]");if(!v||!("IntersectionObserver" in window))return;const still=matchMedia("(prefers-reduced-motion: reduce)").matches;new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const s=v.querySelector("source");if(s.dataset.src){s.src=s.dataset.src;s.removeAttribute("data-src");v.load()}if(!still)v.play().catch(()=>{})}else v.pause()}),{rootMargin:"300px"}).observe(v)})();</script>
   </section>
 

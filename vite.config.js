@@ -11,6 +11,6 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     assetsInlineLimit: 0,
-    rollupOptions: { input: { index: page('index.html'), cakes: page('cakes.html'), order: page('order.html'), visit: page('visit.html') } },
+    rollupOptions: { input: { index: page('index.html'), cakes: page('cakes.html'), order: page('order.html'), visit: page('visit.html'), gallery: page('gallery.html') } },
   },
 });
