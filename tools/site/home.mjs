@@ -55,6 +55,7 @@ export default page({
   bodyClass: 'page-home',
   body: `
   <section class="hero" id="hero" data-ground="night" aria-labelledby="hero-title">
+    <span class="hero__mark" aria-hidden="true">midnight</span>
     <div class="wrap hero__grid">
       <h1 class="hero__title" id="hero-title">
         <span class="hero__kicker label">Vegetarian cake shop in Bibvewadi, Pune</span>
@@ -72,6 +73,11 @@ export default page({
           <a class="btn btn--primary" href="order.html" data-hero-cta>${icon('b-whatsapp', 1)}<span>Order on WhatsApp</span></a>
           <a class="link" href="cakes.html">See all 22 cakes</a>
         </div>
+        <ul class="hero__facts" data-enter>
+          <li><b>22</b><span>cakes on the menu</span></li>
+          <li><b>100%</b><span>vegetarian, always</span></li>
+          <li><b>11–12</b><span>open daily, am to midnight</span></li>
+        </ul>
         <div class="hero__status" data-enter>${live('hero__live')}</div>
         <p class="hero__note small" data-enter data-assumed>Home delivery, takeaway and seats inside.</p>
       </div>

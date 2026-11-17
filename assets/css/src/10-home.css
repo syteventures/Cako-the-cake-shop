@@ -389,3 +389,51 @@ html.has-motion .custom__sketch-note { display: block; }
   .hero__under { grid-column: 8 / 13; grid-row: 3; padding: 12px 0 0; }
   .hero__rule { display: none; }
 }
+
+/* flavour hand v2 (desktop): larger cards, tighter fan, hand shifted into the right margin */
+@media (min-width: 960px) {
+  .flavours__table { min-height: clamp(520px, 40vw, 720px); }
+  .fan__card {
+    --w: clamp(240px, 22.5vw, 430px);
+    --a: calc((var(--i) - (var(--n) - 1) / 2) * 18deg / (var(--n) - 1));
+    left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); bottom: 6%;
+    box-shadow: 0 40px 60px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .12);
+  }
+  .flavours__table::before { left: calc(50% + max(0px, (100vw - var(--wrap)) * 0.34)); background: radial-gradient(closest-side, rgba(247, 168, 207, .14), transparent); }
+}
+.fan__card::after { background: linear-gradient(to top, rgba(6, 42, 52, .88), transparent); }
+
+/* sizes v2: soft white-to-blush ground; the guide cake sits on a porcelain plate and a silver board */
+.sec.sizes {
+  background:
+    radial-gradient(55% 65% at 82% 35%, rgba(247, 168, 207, .26), transparent 70%),
+    radial-gradient(45% 55% at 0% 100%, rgba(39, 152, 170, .12), transparent 70%),
+    linear-gradient(180deg, #FFFFFF 0%, #FCF5F8 100%);
+}
+.sizes .sguide { --sg-gold: #cdd5d9; }
+.sizes .sguide__shadow { fill: rgba(10, 39, 48, .22); }
+.sguide__plate-shadow { fill: rgba(10, 39, 48, .18); }
+.sguide__plate-edge { fill: none; stroke: rgba(255, 255, 255, .9); stroke-width: 1.5; }
+.sguide__plate-well { fill: none; stroke: rgba(10, 39, 48, .09); stroke-width: 2; }
+
+/* hero v3: poster-scale headline, full-bleed outlined wordmark, fact row */
+.split { -webkit-user-select: none; user-select: none; } /* copy gives the readable text once */
+.hero > .hero__grid { position: relative; z-index: 1; }
+.hero__display { font-size: clamp(3.4rem, 0.9rem + 7.6vw, 10rem); line-height: 0.92; letter-spacing: -0.035em; }
+.hero__line--accent { font-size: 1.04em; }
+.hero__mark {
+  position: absolute; z-index: 0; left: 50%; bottom: -0.34em; transform: translateX(-50%);
+  font-family: var(--f-display); font-style: italic; font-weight: 400; font-size: clamp(7rem, 26vw, 30rem); line-height: 1; letter-spacing: -0.04em;
+  white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .13);
+  pointer-events: none; -webkit-user-select: none; user-select: none;
+}
+.hero__facts { display: flex; flex-wrap: wrap; gap: 14px 0; margin: 6px 0 0; padding: 0; list-style: none; }
+.hero__facts li { display: grid; gap: 2px; padding-right: clamp(18px, 2.4vw, 34px); margin-right: clamp(18px, 2.4vw, 34px); border-right: 1px solid rgba(255, 255, 255, .18); }
+.hero__facts li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+.hero__facts b { font-family: var(--f-display); font-weight: 500; font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.75rem); line-height: 1; color: #FFFFFF; letter-spacing: -0.02em; }
+.hero__facts span { font-size: var(--fs-small); color: rgba(255, 255, 255, .72); }
+@media (min-width: 960px) {
+  .hero__title { grid-column: 1 / 9; }
+  .hero__stage { grid-column: 8 / 13; }
+}
+@media (max-width: 959.98px) { .hero__mark { bottom: auto; top: 46%; font-size: 38vw; } }

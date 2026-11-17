@@ -292,14 +292,25 @@ export function sizeGuide(o = {}) {
         <defs>
           <radialGradient id="${g}t" cx="36%" cy="30%" r="80%"><stop offset="0" stop-color="#6e4330"/><stop offset=".42" stop-color="#46271a"/><stop offset="1" stop-color="#28140d"/></radialGradient>
           <linearGradient id="${g}b" x1="0" y1="0" x2="1" y2="1"><stop class="sguide__gold-hi" offset="0"/><stop class="sguide__gold-lo" offset=".55"/><stop class="sguide__gold-hi" offset="1"/></linearGradient>
+          <radialGradient id="${g}pw" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#ffffff"/><stop offset=".8" stop-color="#f6f8f9"/><stop offset="1" stop-color="#e7edf0"/></radialGradient>
+          <linearGradient id="${g}pr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#eef2f4"/><stop offset="1" stop-color="#dfe6ea"/></linearGradient>
+          <radialGradient id="${g}gl" cx="32%" cy="26%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <filter id="${g}s" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="9"/></filter>
           <g id="${g}r"><path class="sguide__rose" d="${star}"/><circle class="sguide__rose-c" r="2"/></g>
         </defs>
+        <g class="sguide__plate">
+          <circle class="sguide__plate-shadow" cx="${CX}" cy="${CY + 14}" r="194" filter="url(#${g}s)"/>
+          <circle cx="${CX}" cy="${CY}" r="194" fill="url(#${g}pr)"/>
+          <circle class="sguide__plate-edge" cx="${CX}" cy="${CY}" r="190"/>
+          <circle cx="${CX}" cy="${CY}" r="172" fill="url(#${g}pw)"/>
+          <circle class="sguide__plate-well" cx="${CX}" cy="${CY}" r="172"/>
+        </g>
         <g class="sguide__cake">
           <circle class="sguide__shadow" cx="${CX}" cy="${CY + 12}" r="${BOARD}" filter="url(#${g}s)"/>
           <circle class="sguide__board" cx="${CX}" cy="${CY}" r="${BOARD}" fill="url(#${g}b)"/>
           <circle class="sguide__board-line" cx="${CX}" cy="${CY}" r="${BOARD - 5}"/>
           <circle class="sguide__top" cx="${CX}" cy="${CY}" r="${R}" fill="url(#${g}t)"/>
+          <circle cx="${CX}" cy="${CY}" r="${R}" fill="url(#${g}gl)" pointer-events="none"/>
           <g class="sguide__cuts">${SIZES.map(cutSet).join('')}</g>
           <g class="sguide__roses">${rosettes}</g>
         </g>

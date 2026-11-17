@@ -152,6 +152,7 @@
 <main id="main">
 
   <section class="hero" id="hero" data-ground="night" aria-labelledby="hero-title">
+    <span class="hero__mark" aria-hidden="true">midnight</span>
     <div class="wrap hero__grid">
       <h1 class="hero__title" id="hero-title">
         <span class="hero__kicker label">Vegetarian cake shop in Bibvewadi, Pune</span>
@@ -169,6 +170,11 @@
           <a class="btn btn--primary" href="order.html" data-hero-cta><svg class="icon icon--solid" aria-hidden="true"><use href="#b-whatsapp"/></svg><span>Order on WhatsApp</span></a>
           <a class="link" href="cakes.html">See all 22 cakes</a>
         </div>
+        <ul class="hero__facts" data-enter>
+          <li><b>22</b><span>cakes on the menu</span></li>
+          <li><b>100%</b><span>vegetarian, always</span></li>
+          <li><b>11–12</b><span>open daily, am to midnight</span></li>
+        </ul>
         <div class="hero__status" data-enter><p class="live hero__live"><span class="live__dot" aria-hidden="true"></span><span data-live data-open="Open now, till 12 midnight (&lt;strong&gt;{left}&lt;/strong&gt; left)" data-closed="Closed now, opens at 11 am (&lt;strong&gt;{until}&lt;/strong&gt; to go)">Open every day, 11 am to 12 midnight.</span></p></div>
         <p class="hero__note small" data-enter data-assumed>Home delivery, takeaway and seats inside.</p>
       </div>
@@ -584,14 +590,25 @@
         <defs>
           <radialGradient id="sg2t" cx="36%" cy="30%" r="80%"><stop offset="0" stop-color="#6e4330"/><stop offset=".42" stop-color="#46271a"/><stop offset="1" stop-color="#28140d"/></radialGradient>
           <linearGradient id="sg2b" x1="0" y1="0" x2="1" y2="1"><stop class="sguide__gold-hi" offset="0"/><stop class="sguide__gold-lo" offset=".55"/><stop class="sguide__gold-hi" offset="1"/></linearGradient>
+          <radialGradient id="sg2pw" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#ffffff"/><stop offset=".8" stop-color="#f6f8f9"/><stop offset="1" stop-color="#e7edf0"/></radialGradient>
+          <linearGradient id="sg2pr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#eef2f4"/><stop offset="1" stop-color="#dfe6ea"/></linearGradient>
+          <radialGradient id="sg2gl" cx="32%" cy="26%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <filter id="sg2s" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="9"/></filter>
           <g id="sg2r"><path class="sguide__rose" d="M0 -10.5L2.07 -4.99L7.42 -7.42L4.99 -2.07L10.5 0L4.99 2.07L7.42 7.42L2.07 4.99L0 10.5L-2.07 4.99L-7.42 7.42L-4.99 2.07L-10.5 0L-4.99 -2.07L-7.42 -7.42L-2.07 -4.99Z"/><circle class="sguide__rose-c" r="2"/></g>
         </defs>
+        <g class="sguide__plate">
+          <circle class="sguide__plate-shadow" cx="200" cy="204" r="194" filter="url(#sg2s)"/>
+          <circle cx="200" cy="190" r="194" fill="url(#sg2pr)"/>
+          <circle class="sguide__plate-edge" cx="200" cy="190" r="190"/>
+          <circle cx="200" cy="190" r="172" fill="url(#sg2pw)"/>
+          <circle class="sguide__plate-well" cx="200" cy="190" r="172"/>
+        </g>
         <g class="sguide__cake">
           <circle class="sguide__shadow" cx="200" cy="202" r="168" filter="url(#sg2s)"/>
           <circle class="sguide__board" cx="200" cy="190" r="168" fill="url(#sg2b)"/>
           <circle class="sguide__board-line" cx="200" cy="190" r="163"/>
           <circle class="sguide__top" cx="200" cy="190" r="150" fill="url(#sg2t)"/>
+          <circle cx="200" cy="190" r="150" fill="url(#sg2gl)" pointer-events="none"/>
           <g class="sguide__cuts"><g class="sguide__cut" data-cut="0.5"><path pathLength="1" style="--k:0" d="M200 190L200 40"/><path pathLength="1" style="--k:1" d="M200 190L329.9 115"/><path pathLength="1" style="--k:2" d="M200 190L329.9 265"/><path pathLength="1" style="--k:3" d="M200 190L200 340"/><path pathLength="1" style="--k:4" d="M200 190L70.1 265"/><path pathLength="1" style="--k:5" d="M200 190L70.1 115"/></g><g class="sguide__cut" data-cut="1"><path pathLength="1" style="--k:0" d="M200 190L200 40"/><path pathLength="1" style="--k:1" d="M200 190L288.17 68.65"/><path pathLength="1" style="--k:2" d="M200 190L342.66 143.65"/><path pathLength="1" style="--k:3" d="M200 190L342.66 236.35"/><path pathLength="1" style="--k:4" d="M200 190L288.17 311.35"/><path pathLength="1" style="--k:5" d="M200 190L200 340"/><path pathLength="1" style="--k:6" d="M200 190L111.83 311.35"/><path pathLength="1" style="--k:7" d="M200 190L57.34 236.35"/><path pathLength="1" style="--k:8" d="M200 190L57.34 143.65"/><path pathLength="1" style="--k:9" d="M200 190L111.83 68.65"/></g><g class="sguide__cut" data-cut="1.5"><path pathLength="1" style="--k:0" d="M200 120A70 70 0 0 1 200 260A70 70 0 0 1 200 120"/><path pathLength="1" style="--k:1" d="M200 190L249.5 140.5"/><path pathLength="1" style="--k:2" d="M200 190L262.37 221.78"/><path pathLength="1" style="--k:3" d="M200 190L189.05 259.14"/><path pathLength="1" style="--k:4" d="M200 190L130.86 200.95"/><path pathLength="1" style="--k:5" d="M200 190L168.22 127.63"/><path pathLength="1" style="--k:6" d="M200 120L200 40"/><path pathLength="1" style="--k:7" d="M241.14 133.37L288.17 68.65"/><path pathLength="1" style="--k:8" d="M266.57 168.37L342.66 143.65"/><path pathLength="1" style="--k:9" d="M266.57 211.63L342.66 236.35"/><path pathLength="1" style="--k:10" d="M241.14 246.63L288.17 311.35"/><path pathLength="1" style="--k:11" d="M200 260L200 340"/><path pathLength="1" style="--k:12" d="M158.86 246.63L111.83 311.35"/><path pathLength="1" style="--k:13" d="M133.43 211.63L57.34 236.35"/><path pathLength="1" style="--k:14" d="M133.43 168.37L57.34 143.65"/><path pathLength="1" style="--k:15" d="M158.86 133.37L111.83 68.65"/></g><g class="sguide__cut" data-cut="2"><path pathLength="1" style="--k:0" d="M200 112A78 78 0 0 1 200 268A78 78 0 0 1 200 112"/><path pathLength="1" style="--k:1" d="M200 190L255.15 134.85"/><path pathLength="1" style="--k:2" d="M200 190L275.34 210.19"/><path pathLength="1" style="--k:3" d="M200 190L220.19 265.34"/><path pathLength="1" style="--k:4" d="M200 190L144.85 245.15"/><path pathLength="1" style="--k:5" d="M200 190L124.66 169.81"/><path pathLength="1" style="--k:6" d="M200 190L179.81 114.66"/><path pathLength="1" style="--k:7" d="M200 112L200 40"/><path pathLength="1" style="--k:8" d="M233.84 119.72L265.08 54.85"/><path pathLength="1" style="--k:9" d="M260.98 141.37L317.27 96.48"/><path pathLength="1" style="--k:10" d="M276.04 172.64L346.24 156.62"/><path pathLength="1" style="--k:11" d="M276.04 207.36L346.24 223.38"/><path pathLength="1" style="--k:12" d="M260.98 238.63L317.27 283.52"/><path pathLength="1" style="--k:13" d="M233.84 260.28L265.08 325.15"/><path pathLength="1" style="--k:14" d="M200 268L200 340"/><path pathLength="1" style="--k:15" d="M166.16 260.28L134.92 325.15"/><path pathLength="1" style="--k:16" d="M139.02 238.63L82.73 283.52"/><path pathLength="1" style="--k:17" d="M123.96 207.36L53.76 223.38"/><path pathLength="1" style="--k:18" d="M123.96 172.64L53.76 156.62"/><path pathLength="1" style="--k:19" d="M139.02 141.37L82.73 96.48"/><path pathLength="1" style="--k:20" d="M166.16 119.72L134.92 54.85"/></g></g>
           <g class="sguide__roses"><use href="#sg2r" x="200" y="53"/><use href="#sg2r" x="228.48" y="55.99"/><use href="#sg2r" x="255.72" y="64.84"/><use href="#sg2r" x="280.53" y="79.16"/><use href="#sg2r" x="301.81" y="98.33"/><use href="#sg2r" x="318.65" y="121.5"/><use href="#sg2r" x="330.29" y="147.66"/><use href="#sg2r" x="336.25" y="175.68"/><use href="#sg2r" x="336.25" y="204.32"/><use href="#sg2r" x="330.29" y="232.34"/><use href="#sg2r" x="318.65" y="258.5"/><use href="#sg2r" x="301.81" y="281.67"/><use href="#sg2r" x="280.53" y="300.84"/><use href="#sg2r" x="255.72" y="315.16"/><use href="#sg2r" x="228.48" y="324.01"/><use href="#sg2r" x="200" y="327"/><use href="#sg2r" x="171.52" y="324.01"/><use href="#sg2r" x="144.28" y="315.16"/><use href="#sg2r" x="119.47" y="300.84"/><use href="#sg2r" x="98.19" y="281.67"/><use href="#sg2r" x="81.35" y="258.5"/><use href="#sg2r" x="69.71" y="232.34"/><use href="#sg2r" x="63.75" y="204.32"/><use href="#sg2r" x="63.75" y="175.68"/><use href="#sg2r" x="69.71" y="147.66"/><use href="#sg2r" x="81.35" y="121.5"/><use href="#sg2r" x="98.19" y="98.33"/><use href="#sg2r" x="119.47" y="79.16"/><use href="#sg2r" x="144.28" y="64.84"/><use href="#sg2r" x="171.52" y="55.99"/></g>
         </g>
