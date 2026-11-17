@@ -3170,6 +3170,30 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
   filter: drop-shadow(0 5px 6px rgba(30, 6, 8, .45));
 }
 
+/* ---- celebration: a balloon cluster by the occasions heading, and a satin ribbon swag the tags hang from ---- */
+.sec.occasions > .wrap { position: relative; }
+.balloons { pointer-events: none; }
+.balloons svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 18px 22px rgba(20, 3, 6, .45)); }
+.balloons__string { fill: none; stroke: rgba(255, 236, 214, .7); stroke-width: 1.3; }
+.balloons--occ { position: absolute; z-index: 0; right: var(--gutter-in, 0px); top: clamp(-60px, -3vw, -20px); width: clamp(120px, 22vw, 300px); }
+.occasions .sec__head { position: relative; z-index: 1; }
+@media (max-width: 699.98px) { .balloons--occ { top: -24px; width: 112px; opacity: .95; } .occasions .sec__head { padding-right: 96px; } }
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="paused"]) .balloons__b { animation: balloon-sway 7s ease-in-out var(--d, 0s) infinite alternate; }
+}
+@keyframes balloon-sway { from { transform: rotate(-2deg) translateY(0); } to { transform: rotate(2deg) translateY(-6px); } }
+
+/* the rail becomes a draped blush satin ribbon; a small bow ties each tag's thread on at the low point */
+.tag-slot::before {
+  height: 26px; top: -4px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 30' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='r' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F9DDE4'/%3E%3Cstop offset='.5' stop-color='%23E9A3B5'/%3E%3Cstop offset='1' stop-color='%23C9758C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 3Q200 30 400 3' stroke='url(%23r)' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M0 1.5Q200 28 400 1.5' stroke='%23FFF4F6' stroke-opacity='.55' stroke-width='1' fill='none'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  filter: drop-shadow(0 3px 3px rgba(20, 3, 6, .35));
+}
+.tag-slot::after {
+  content: ""; position: absolute; z-index: 2; left: 50%; top: 2px; width: 46px; height: 30px; margin-left: -23px; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-26 -12 52 30'%3E%3Cpath d='M0 0C-14-11-25-6-22 3C-19 10-7 7 0 0Z' fill='%23F2B3C3'/%3E%3Cpath d='M0 0C14-11 25-6 22 3C19 10 7 7 0 0Z' fill='%23E9A3B5'/%3E%3Cpath d='M0 0C-3 7-7 13-11 17M0 0C3 7 8 13 12 16' stroke='%23E9A3B5' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3Ccircle r='3.4' fill='%23C9758C'/%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 2px 2px rgba(20, 3, 6, .35));
+}
+
 /* ==== src/90-motion.css ==== */
 /* ---------------------------------------------------------------- motion support (motion.js; brief section 13) */
 html.lenis, html.lenis body { height: auto; }

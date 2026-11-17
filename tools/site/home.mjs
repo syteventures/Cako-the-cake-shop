@@ -10,6 +10,7 @@ const exists = (rel) => fs.existsSync(path.join(root, rel));
 import { WA, WA_ORDER, WA_CUSTOM, TEL, ADDRESS, ALT, CAT_NAMES, catCount, cut, photo, FACTS, FLAVOURS, OCCASIONS, nameOf, SAMPLE_REVIEWS, faqList, faqJsonLd, mark, waText } from './content.mjs';
 import { page, motionButton } from './shell.mjs';
 import { photoCake } from './parts/photocake.mjs';
+import { balloons } from './parts/balloons.mjs';
 import { turntable } from './parts/turntable.mjs';
 import { midnightClock, hoursDial, sizeGuide } from './parts/midnight.mjs';
 
@@ -123,6 +124,7 @@ export default page({
 
   <section class="sec occasions" id="occasions" data-ground="night" aria-labelledby="occasions-title">
     <div class="wrap">
+      ${balloons('balloons--occ')}
       ${head('occasions', 'What are we celebrating?', 'Tell us the occasion and we’ll help you choose the size and the flavour.')}
     </div>
     <div class="tags__scroller">
