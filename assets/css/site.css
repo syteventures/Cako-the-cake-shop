@@ -3089,7 +3089,7 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 70' preserveAspectRatio='none'%3E%3Cpath d='M0 0h300v16c-8 0-10 4-10 12v18a7 7 0 0 1-14 0V30c0-8-4-14-12-14h-30c-6 0-8 3-8 9v8a5 5 0 0 1-10 0v-6c0-7-3-11-10-11h-40c-7 0-9 5-9 13v30a8 8 0 0 1-16 0V28c0-8-3-12-10-12h-36c-6 0-8 4-8 10v6a5 5 0 0 1-10 0v-4c0-8-4-12-12-12h-12c-7 0-9 4-9 11v20a7 7 0 0 1-14 0V27c0-7-3-11-10-11H0z'/%3E%3C/svg%3E") var(--drip-x, 0) 0 / clamp(220px, 24vw, 340px) 100% repeat-x;
   filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .3));
 }
-.sec.counter  { --drip-a: #1E0B06; --drip-b: #3A1A0E; --drip-c: #5E321D; }                       /* dark chocolate */
+.sec.counter  { --drip-a: #B8822F; --drip-b: #F2C27A; --drip-c: #FFE7BC; }                       /* champagne-gold glaze: shines on maroon (chocolate only on white) */
 .sec.occasions { --drip-a: #A8304E; --drip-b: #D45E7C; --drip-c: #F2A3B6; --drip-x: 110px; }   /* strawberry icing */
 .sec.sizes    { --drip-a: #2A1209; --drip-b: #45210F; --drip-c: #6B3A20; --drip-x: 60px; }     /* chocolate onto white */
 .sec.inside   { --drip-a: #FFFFFF; --drip-b: #FBF1E4; --drip-c: #EBD6BA; --drip-x: 180px; }    /* vanilla / white chocolate */
@@ -3160,6 +3160,14 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 
 @media (forced-colors: active) {
   .sec.counter::before, .sec.occasions::before, .sec.sizes::before, .sec.inside::before, .sec.faqs::before { display: none; }
+}
+/* the gold glaze gets a brighter sheen than the other drips */
+.sec.counter::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .45), transparent 26%) top / 100% 30% no-repeat,
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 255, 255, .18) 22%, transparent 30% 58%, rgba(255, 255, 255, .14) 62%, transparent 70%),
+    linear-gradient(180deg, var(--drip-a) 0%, var(--drip-b) 45%, var(--drip-c) 100%);
+  filter: drop-shadow(0 5px 6px rgba(30, 6, 8, .45));
 }
 
 /* ==== src/90-motion.css ==== */
