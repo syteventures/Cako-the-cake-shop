@@ -157,7 +157,7 @@
 
 /* ==== src/01-tokens.css ==== */
 /* ==========================================================================
-   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v4: maroon wall, ivory arches, logo red, LED gold; from Cako Images.zip)
+   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v5: white + maroon (primary) + deep teal (second) + champagne gold (third); from Cako Images.zip)
    One :root block. Load after fonts.css and before every component rule.
    Contrast ratios are WCAG 2.x, computed in _workfiles/fontwork/cd-contrast.py.
    ========================================================================== */
@@ -170,8 +170,8 @@
   --cream-2: #F0D6CB;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
 
   /* ---- Paper grounds (chapter 2, paper cards, order slip) ---------------- */
-  --paper: #FFFAF4;          /* vanilla paper. ink 14.84:1 */
-  --paper-2: #F6EADF;        /* biscuit: raised panels on paper. ink 12.76:1 */
+  --paper: #FFFFFF;          /* vanilla paper. ink 14.84:1 */
+  --paper-2: #FAF3EC;        /* biscuit: raised panels on paper. ink 12.76:1 */
   --ink: #2A0B0F;            /* text on paper and cream; focus ring on paper */
   --ink-2: #6E4A4C;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
 
@@ -185,6 +185,9 @@
   /* ---- Gold: fine ornament ------------------------------------------------ */
   --wall: #981112;          /* the lit shop wall (Cako Images.zip): big colour fields only */
   --wall-2: #681615;
+  --teal: #0E5C5E;          /* second colour: the party-corner sofa. cream 7.35:1, gold 4.71:1; white text on it 7.75:1 */
+  --teal-2: #0B4A4C;
+  --teal-3: #083A3C;
   --gold: #F2C27A;           /* hairlines, dial ticks, icons, numerals on night (7.90:1). Never on paper (1.84:1) */
   --gold-deep: #8A5A1E;      /* gold on paper: hairlines, icons, small italic notes (5.67:1 / 4.87:1) */
   --gold-hair: rgba(242, 194, 122, .45);  /* ornamental gold hairline on night (composite #6E5639) */
@@ -2367,6 +2370,13 @@ html.has-motion .custom__sketch-note { display: block; }
   .inside__a img { object-position: 50% 60%; }
 }
 @media (min-width: 960px) { .inside__grid .inside__fig { aspect-ratio: auto; } }
+
+/* palette v5: deep teal (the party-corner sofa) as the second colour. Sections alternate maroon / teal */
+.sec.flavours, .sec.visit { --night: var(--teal); --night-2: var(--teal-2); --night-3: var(--teal-3); }
+.sec.flavours .fan__card::after { background: linear-gradient(to top, rgba(8, 58, 60, .9), transparent); }
+.sizes .sguide { --sg-thumb: var(--teal); --sg-thumb-fg: #FFFFFF; }
+.hero__kicker { border-color: rgba(255, 255, 255, .22); }
+.pin-spacer:has(> .mclock), .mclock { max-width: 100%; } /* GSAP pins at window width incl. the scrollbar; keep it inside the page */
 
 /* ==== src/20-pages.css ==== */
 /* ---------------------------------------------------------------- inner pages: cakes.html, order.html, visit.html (brief sections 10 to 12)

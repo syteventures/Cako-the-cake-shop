@@ -489,3 +489,10 @@ html.has-motion .custom__sketch-note { display: block; }
   .inside__a img { object-position: 50% 60%; }
 }
 @media (min-width: 960px) { .inside__grid .inside__fig { aspect-ratio: auto; } }
+
+/* palette v5: deep teal (the party-corner sofa) as the second colour. Sections alternate maroon / teal */
+.sec.flavours, .sec.visit { --night: var(--teal); --night-2: var(--teal-2); --night-3: var(--teal-3); }
+.sec.flavours .fan__card::after { background: linear-gradient(to top, rgba(8, 58, 60, .9), transparent); }
+.sizes .sguide { --sg-thumb: var(--teal); --sg-thumb-fg: #FFFFFF; }
+.hero__kicker { border-color: rgba(255, 255, 255, .22); }
+.pin-spacer:has(> .mclock), .mclock { max-width: 100%; } /* GSAP pins at window width incl. the scrollbar; keep it inside the page */
