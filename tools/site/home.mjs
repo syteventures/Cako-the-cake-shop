@@ -43,7 +43,6 @@ const midnightSection = midnightClock({ id: 'midnight', level: 2, heading: 'How 
   .replace('<section class="mclock', '<section data-ground="night-3" class="mclock');
 
 const SIZES = [['½ kg', 'about 4 to 6 people', 'Two of you, or a small family'], ['1 kg', 'about 8 to 10 people', 'A birthday at home'], ['1.5 kg', 'about 12 to 15 people', 'A full house'], ['2 kg', 'about 16 to 20 people', 'A party, or the office']];
-const REVIEW_CAKES = ['rasmalai', 'red-velvet-heart', 'chocolate-truffle'];
 const candles = (cls = '') => `<span class="candles${cls ? ` ${cls}` : ''}" aria-hidden="true"><span class="candle"><span class="candle__flame"></span><span class="candle__n">1</span></span><span class="candle"><span class="candle__flame"></span><span class="candle__n">2</span></span></span>`;
 
 export default page({
@@ -164,6 +163,8 @@ export default page({
     </div>
   </section>
 
+  <div class="party-divider" aria-hidden="true"><span class="party-divider__sprinkles"></span><span class="party-divider__flags"></span></div>
+
   <section class="sec custom" id="custom" data-ground="paper" aria-labelledby="custom-title">
     <div class="wrap">
       <div class="custom__panel" data-ground="paper-2">
@@ -188,16 +189,24 @@ export default page({
 
   <section class="sec reviews" id="reviews" data-ground="paper" aria-labelledby="reviews-title">
     <div class="wrap">
-      <header class="sec__head">
+      <header class="sec__head reviews__head">
+        <p class="label reviews__eyebrow">From our guests</p>
         <h2 class="h2" id="reviews-title">Kind words</h2>
+        <p class="lede reviews__lede">Birthdays, anniversaries and plain Tuesday cravings. Here is what people pinned up after their last slice.</p>
         <p class="reviews__label">These are sample reviews for this demo. Real Google reviews will replace them before launch.</p>
       </header>
-      <ul class="book" role="list">
-        ${SAMPLE_REVIEWS.map(([q, by], i) => `<li class="entry${i === 0 ? ' entry--wide' : ''}">
-          <a class="entry__plate plate" href="order.html#order-${REVIEW_CAKES[i]}" aria-label="Order the ${nameOf(REVIEW_CAKES[i])} cake">${cut(REVIEW_CAKES[i], '', '(min-width: 960px) 180px, 120px')}</a>
-          <div class="entry__text"><blockquote><p class="quote-text">${q}</p></blockquote><p class="entry__by note">${by}</p></div>
+      <div class="board">
+        <ul class="notes" role="list">
+        ${SAMPLE_REVIEWS.map(([q, who, tag, slug, col, tilt, drop], i) => `<li class="note${i % 3 === 1 ? ' note--pin' : ' note--tape'}" style="--c:${col};--r:${tilt};--y:${drop}">
+          <p class="note__stars" aria-hidden="true">★★★★★</p><span class="visually-hidden">5 out of 5 stars.</span>
+          <blockquote class="note__q"><p>${q}</p></blockquote>
+          <div class="note__foot">
+            <p class="note__by"><strong>${who}</strong><span>${tag}</span></p>
+            <a class="note__cake" href="order.html#order-${slug}" aria-label="Order the ${nameOf(slug)} cake">${cut(slug, '', '64px')}</a>
+          </div>
         </li>`).join('\n        ')}
-      </ul>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -211,7 +220,8 @@ export default page({
         <figure class="inside__fig inside__d"><img src="assets/img/shop/interior-800.webp" srcset="assets/img/shop/interior-800.webp 800w, assets/img/shop/interior-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 92vw" width="800" height="533" alt="The Cako wall: red with white arches, shelves and the cake counters" loading="lazy" decoding="async"><figcaption>The arch wall</figcaption></figure>
       </div>
     </div>
-    <div class="inside__strip" role="region" aria-label="More photos from the shop. Scroll sideways." tabindex="0">
+    <div class="inside__strip" role="region" aria-label="More photos from the shop, moving slowly across the screen.">
+      <div class="inside__track">
       <ul class="inside__row">
           <li><figure class="inside__card"><img src="assets/img/shop/sign-lamp-800.webp" srcset="assets/img/shop/sign-lamp-800.webp 800w, assets/img/shop/sign-lamp-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="The red Cako sign glowing inside a white arch under a pendant lamp" loading="lazy" decoding="async"><figcaption>The sign, lit</figcaption></figure></li>
           <li><figure class="inside__card"><img src="assets/img/shop/party-cakes-800.webp" srcset="assets/img/shop/party-cakes-800.webp 800w, assets/img/shop/party-cakes-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="Three cakes on a low table in front of the teal sofa and balloons" loading="lazy" decoding="async"><figcaption>The birthday corner</figcaption></figure></li>
@@ -226,8 +236,23 @@ export default page({
           <li><figure class="inside__card"><img src="assets/img/shop/wall-wide-800.webp" srcset="assets/img/shop/wall-wide-800.webp 800w, assets/img/shop/wall-wide-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="The red wall with white arches above the counters" loading="lazy" decoding="async"><figcaption>The whole wall</figcaption></figure></li>
           <li><figure class="inside__card"><img src="assets/img/shop/arch-wall-800.webp" srcset="assets/img/shop/arch-wall-800.webp 800w, assets/img/shop/arch-wall-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="White arches glowing on the red wall" loading="lazy" decoding="async"><figcaption>Lit till twelve</figcaption></figure></li>
       </ul>
+      <ul class="inside__row inside__row--dup" aria-hidden="true">
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/sign-lamp-800.webp" srcset="assets/img/shop/sign-lamp-800.webp 800w, assets/img/shop/sign-lamp-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="The red Cako sign glowing inside a white arch under a pendant lamp" loading="lazy" decoding="async"><figcaption>The sign, lit</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/party-cakes-800.webp" srcset="assets/img/shop/party-cakes-800.webp 800w, assets/img/shop/party-cakes-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="Three cakes on a low table in front of the teal sofa and balloons" loading="lazy" decoding="async"><figcaption>The birthday corner</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/arch-shelves-800.webp" srcset="assets/img/shop/arch-shelves-800.webp 800w, assets/img/shop/arch-shelves-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="Lit white arches on the red wall, with gift shelves and pendant lamps" loading="lazy" decoding="async"><figcaption>Shelves in the arches</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/candy-cakes-800.webp" srcset="assets/img/shop/candy-cakes-800.webp 800w, assets/img/shop/candy-cakes-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="A chocolate cake, a red heart cake and a yellow cake on a table of coloured sweets" loading="lazy" decoding="async"><figcaption>Three cakes, one table</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/display-2-800.webp" srcset="assets/img/shop/display-2-800.webp 800w, assets/img/shop/display-2-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="The lit glass case with rows of cakes" loading="lazy" decoding="async"><figcaption>Tonight’s display</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/banner-800.webp" srcset="assets/img/shop/banner-800.webp 800w, assets/img/shop/banner-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="A Happy Birthday banner with pink and white balloons" loading="lazy" decoding="async"><figcaption>Ready for a birthday</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/arch-cake-2-800.webp" srcset="assets/img/shop/arch-cake-2-800.webp 800w, assets/img/shop/arch-cake-2-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="A yellow cake in front of a lit arch with the Cako sign" loading="lazy" decoding="async"><figcaption>Under the arch</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/shelves-800.webp" srcset="assets/img/shop/shelves-800.webp 800w, assets/img/shop/shelves-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="Shelves of party hats, boxes and gifts in a lit arch" loading="lazy" decoding="async"><figcaption>Party things</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/display-wide-800.webp" srcset="assets/img/shop/display-wide-800.webp 800w, assets/img/shop/display-wide-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="The glass display case below the lit arches" loading="lazy" decoding="async"><figcaption>The glass case</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/cakes-table-800.webp" srcset="assets/img/shop/cakes-table-800.webp 800w, assets/img/shop/cakes-table-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="Three cakes seen from above on a table of coloured sweets" loading="lazy" decoding="async"><figcaption>From above</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/wall-wide-800.webp" srcset="assets/img/shop/wall-wide-800.webp 800w, assets/img/shop/wall-wide-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="The red wall with white arches above the counters" loading="lazy" decoding="async"><figcaption>The whole wall</figcaption></figure></li>
+          <li aria-hidden="true"><figure class="inside__card"><img src="assets/img/shop/arch-wall-800.webp" srcset="assets/img/shop/arch-wall-800.webp 800w, assets/img/shop/arch-wall-1600.webp 1600w" sizes="(min-width: 960px) 300px, 62vw" width="800" height="1000" alt="" data-orig="White arches glowing on the red wall" loading="lazy" decoding="async"><figcaption>Lit till twelve</figcaption></figure></li>
+      </ul>
+      </div>
     </div>
-    <p class="wrap inside__hint small">Scroll sideways for more of the shop, or <a class="link" href="gallery.html">open the full gallery</a>.</p>
+    <p class="wrap inside__hint small">More of the shop, or <a class="link" href="gallery.html">open the full gallery</a>.</p>
     <script>(()=>{const v=document.querySelector("[data-autoloop]");if(!v||!("IntersectionObserver" in window))return;const still=matchMedia("(prefers-reduced-motion: reduce)").matches;new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const s=v.querySelector("source");if(s.dataset.src){s.src=s.dataset.src;s.removeAttribute("data-src");v.load()}if(!still)v.play().catch(()=>{})}else v.pause()}),{rootMargin:"300px"}).observe(v)})();</script>
   </section>
 

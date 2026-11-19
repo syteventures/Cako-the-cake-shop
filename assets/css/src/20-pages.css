@@ -89,19 +89,19 @@ html:not(.js) .filterbar { display: none; } /* filtering needs script; without i
 
 /* the stage: a downlight pool above, the cut-out, its contact shadow, and the shelf's gold-hair lip in front.
    Cut-outs are square with the cake's base at about 96.5% of the height; the lip (84 to 92cqi) hides the bottom 8% of each cake. */
-.dcake__stage { position: relative; isolation: isolate; container-type: inline-size; aspect-ratio: 100 / 92; }
+.dcake__stage { position: relative; isolation: isolate; container-type: inline-size; aspect-ratio: 100 / 96; }
 .dcake__stage::before {
   content: ""; position: absolute; z-index: -2; left: -18cqi; right: -18cqi; top: -16cqi; height: 108cqi;
   background: var(--glow); pointer-events: none;
 }
 .dcake__img {
-  position: absolute; z-index: 1; left: 7cqi; top: 7.9cqi; width: 86cqi; max-width: none; height: auto;
+  position: absolute; z-index: 1; left: 7cqi; top: 2cqi; width: 86cqi; max-width: none; height: auto;
   pointer-events: none; transform-origin: 50% 56%; transition: transform 0.6s var(--ease-out);
 }
-.dcake__contact { position: absolute; z-index: 0; left: 1cqi; right: 1cqi; top: 76cqi; height: 16cqi; background: var(--contact); pointer-events: none; }
+.dcake__contact { position: absolute; z-index: 0; left: 1cqi; right: 1cqi; top: 73cqi; height: 16cqi; background: var(--contact); pointer-events: none; }
 .dcake__lip {
   --l: calc(var(--gap) / -2); --r: calc(var(--gap) / -2);
-  position: absolute; z-index: 2; top: 84cqi; bottom: 0; left: var(--l); right: var(--r);
+  position: absolute; z-index: 2; top: 89cqi; bottom: 0; left: var(--l); right: var(--r);
   background: linear-gradient(180deg, rgba(255, 236, 220, 0.07), rgba(0, 0, 0, 0.24)), var(--night-2);
   border-top: 1px solid var(--gold-hair); box-shadow: var(--rim-night);
 }

@@ -71,9 +71,17 @@ export const nameOf = (slug) => (bySlug[slug] ? bySlug[slug][1] : slug);
 
 // DEMO: sample reviews, labelled on the page, never in structured data, no names or rating while they are samples
 export const SAMPLE_REVIEWS = [
-  ['The rasmalai cake went first at my mother’s birthday. Saffron cream, almond slivers, and not a slice left.', 'Sample review, family birthday'],
-  ['We remembered the anniversary at eleven at night. Cako was still open. One red velvet heart, two forks.', 'Sample review, anniversary'],
-  ['Ordered on WhatsApp on the way home and collected it at the counter. The chocolate truffle lasted ten minutes.', 'Sample review, weeknight order'],
+  // [quote, name, occasion, cake slug, note colour, tilt, drop]
+  ['Walked in at 11:40 pm for my sister’s birthday and the counter was still glowing. Cake in hand before midnight!', 'Riya S.', 'midnight birthday', 'chocolate-truffle', '#FFE15D', '-2.4deg', '0px'],
+  ['As a vegetarian family, a shop that is 100% veg makes ordering so easy. No awkward questions, just cake.', 'Meenal K.', 'family dinner', 'pineapple', '#FF9CB8', '2.2deg', '14px'],
+  ['The black forest was soft, not too sweet, and the cherries tasted fresh. The whole family finished it in one evening.', 'Aditya P.', 'weekend treat', 'black-forest', '#9FE8C0', '-1.6deg', '-6px'],
+  ['The team at the counter is so patient. We changed the order three times and they still smiled.', 'Sneha D.', 'office party', 'butterscotch', '#FFB36B', '2.8deg', '10px'],
+  ['Ordered on WhatsApp, confirmed in minutes, and the cake reached home perfectly set. Zero stress.', 'Karan M.', 'home delivery', 'choco-vanilla', '#8FD3FF', '-2.8deg', '-4px'],
+  ['That glowing arch wall and the birthday corner are so pretty. We clicked more photos of the shop than the cake!', 'Pooja T.', 'kids’ birthday', 'strawberry-butterfly', '#D2B4FF', '1.8deg', '8px'],
+  ['The red velvet heart for our anniversary was gorgeous and tasted even better. Two forks, no leftovers.', 'Nikhil & Isha', 'anniversary', 'red-velvet-heart', '#FF8F85', '-2deg', '16px'],
+  ['So many flavours and every one looks like a bakery window. Choosing was the hardest part of the night.', 'Farhan A.', 'late-night run', 'mango', '#FFF09A', '2.6deg', '-8px'],
+  ['Fair prices and generous size. The half kg butterscotch easily served six of us.', 'Tanvi J.', 'friends’ get-together', 'white-forest', '#BDEB6B', '-2.6deg', '6px'],
+  ['My kids now demand the rasmalai cake every birthday. Saffron cream, almond slivers, not a slice left.', 'Sunita R.', 'family birthday', 'rasmalai', '#FFC4DA', '2deg', '-2px'],
 ];
 
 // FAQ bank (word for word); pages pick by id

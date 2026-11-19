@@ -144,14 +144,10 @@
       if (isPaused()) ticker.classList.add('is-still');
     }
 
-    /* custom cakes: scrolling through the section slides the sketch away to reveal the real cake */
+    /* custom cakes: the sketch slides away and the card opens fully as soon as it comes into view */
     var sketch = document.querySelector('.custom__sketch');
     if (sketch) {
-      if (window.matchMedia('(min-width: 960px)').matches) {
-        gsap.fromTo(sketch, { xPercent: 0 }, { xPercent: 101, ease: 'none', scrollTrigger: { trigger: '.custom__window', start: 'top 65%', end: 'bottom 40%', scrub: true } });
-      } else {
-        gsap.to(sketch, { xPercent: 101, duration: 1.1, ease: 'power3.inOut', scrollTrigger: { trigger: '.custom__window', start: 'top 50%', once: true } });
-      }
+      gsap.to(sketch, { xPercent: 101, duration: 0.9, ease: 'power3.inOut', scrollTrigger: { trigger: '.custom__window', start: 'top 92%', once: true } });
     }
   });
 
