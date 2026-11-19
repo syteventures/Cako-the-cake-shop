@@ -2385,13 +2385,9 @@ html.has-motion .custom__sketch-note { display: block; }
 }
 @media (max-width: 959.98px) { .hero__mark { bottom: auto; top: 46%; font-size: 38vw; } }
 
-/* sizes v3: a braided teal rug under the plate (fixed size; only the cake scales) */
-.sizes .sguide__stage { max-width: 760px; }
-.sguide__rug-shadow { fill: rgba(10, 39, 48, .28); }
-.sguide__rug-ring { fill: none; stroke-width: 6.6; stroke-dasharray: 4 2.2; stroke-linecap: round; }
-.sguide__rug-tex { fill: #000; opacity: .34; mix-blend-mode: soft-light; pointer-events: none; }
-.sguide__rug-edge { fill: none; stroke: #1e0508; stroke-width: 1.5; }
-.sguide__rug-fringe { fill: none; stroke: #b9a48c; stroke-width: 1.7; stroke-linecap: round; }
+/* sizes v4: the cake sits in a bakery box on a paper doily (only the cake scales) */
+.sizes .sguide__stage { max-width: 580px; }
+.sguide__box-shadow { fill: rgba(120, 40, 60, .26); }
 @media (max-width: 959.98px) { /* phones: the wall stripe stands behind the centred cake */
   .hero { background:
     linear-gradient(to top, rgba(46, 8, 12, .6), transparent 30%),
@@ -2560,6 +2556,42 @@ html.has-motion .custom__sketch-note { display: block; }
   .note:nth-child(10) { --x: 10px;  --y: 36px;  min-height: 13rem; }
 }
 @media (max-width: 639.98px) { .notes { gap: 36px; padding-bottom: 24px; } }
+
+/* kind words doodles: a few cute, colourful cake-shop doodles in the margins and corners, behind the notes (decoration only) */
+.sec.reviews > .wrap { position: relative; z-index: 1; }
+.doodles { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.doodle { position: absolute; display: none; width: var(--s, 80px); rotate: var(--rot, 0deg); opacity: .95; filter: drop-shadow(0 4px 4px rgba(74, 14, 20, .14)); }
+.doodle svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* phones and tablets: just a few, in the empty corners */
+.dd1 { display: block; --s: 64px; --rot: 8deg;  top: 18px; right: 4%; }
+.dd2 { display: block; --s: 28px; --rot: 0deg;  top: 92px; right: 22%; }
+.dd9 { display: block; --s: 70px; --rot: -6deg; bottom: 4px; right: 4%; }
+.dd11 { display: block; --s: 50px; --rot: -10deg; bottom: 6px; left: 5%; }
+@media (min-width: 1180px) {
+  .doodle { display: block; }
+  /* header band: the empty right side beside the heading */
+  .dd1  { --s: 104px; --rot: 8deg;   top: 3%;  right: 5%; }
+  .dd7  { --s: 78px;  --rot: 8deg;   top: 2%;  right: 16%; }
+  .dd3  { --s: 80px;  --rot: -14deg; top: 14%; right: 10%; }
+  .dd2  { --s: 38px;  --rot: 0deg;   top: 12%; right: 25%; }
+  .dd8  { --s: 28px;  --rot: 12deg;  top: 20%; right: 18%; }
+  /* mid: tucked behind the notes at the row gap */
+  .dd5  { --s: 50px;  --rot: -12deg; top: 49%; left: .5%; }
+  .dd6  { --s: 84px;  --rot: 14deg;  top: 50%; right: 0; }
+  /* foot: along the bottom edge */
+  .dd10 { --s: 64px;  --rot: -10deg; bottom: 4%; left: 6%; }
+  .dd11 { --s: 62px;  --rot: 10deg;  bottom: 2%; left: 24%; }
+  .dd4  { --s: 84px;  --rot: -6deg;  bottom: 3%; left: 46%; }
+  .dd9  { --s: 112px; --rot: 6deg;   bottom: 3%; right: 6%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .doodle { animation: doodle-bob 5.5s ease-in-out infinite alternate; }
+  .dd2, .dd5, .dd8 { animation-duration: 3.8s; }
+  .dd3, .dd7, .dd10 { animation-duration: 6.4s; animation-delay: -2s; }
+  .dd4, .dd6, .dd11 { animation-delay: -3.2s; }
+  html[data-motion=paused] .doodle { animation-play-state: paused; }
+}
+@keyframes doodle-bob { from { translate: 0 -5px; } to { translate: 0 6px; } }
 
 /* divider between sizes and custom: a string of party bunting with sprinkles, swaying gently */
 .party-divider { position: relative; height: clamp(104px, 11vw, 140px); overflow: hidden; pointer-events: none; background: linear-gradient(180deg, #FBEAEE 0%, #FDF2F4 55%, #FFFFFF 100%); }

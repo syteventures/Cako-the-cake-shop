@@ -144,10 +144,28 @@
       if (isPaused()) ticker.classList.add('is-still');
     }
 
-    /* custom cakes: the sketch slides away and the card opens fully as soon as it comes into view */
+    /* custom cakes: the sketch card sits over the cake and is pulled left to right by the scroll position, exactly like the
+       hero cake follows scroll. Scroll down: it slides away a little with every scroll. Scroll up: it slides back.
+       Fully off the cake by the time the photo is near the top of the screen. */
     var sketch = document.querySelector('.custom__sketch');
     if (sketch) {
-      gsap.to(sketch, { xPercent: 101, duration: 0.9, ease: 'power3.inOut', scrollTrigger: { trigger: '.custom__window', start: 'top 92%', once: true } });
+      var setX = gsap.quickSetter(sketch, 'xPercent');
+      var cur = 0, goal = 0;
+      var smooth = function () {
+        cur += (goal - cur) * 0.12;
+        if (Math.abs(goal - cur) < 0.05) cur = goal;
+        setX(cur);
+        if (cur === goal) gsap.ticker.remove(smooth);
+      };
+      setX(0);
+      ST.create({
+        trigger: '.custom__window',
+        start: 'top bottom',   // photo's top edge enters the bottom of the screen: card still covers the cake
+        end: 'top 12%',        // photo's top edge near the top of the screen: card is fully gone
+        invalidateOnRefresh: true,
+        onUpdate: function (st) { goal = st.progress * 101; gsap.ticker.add(smooth); },
+        onRefresh: function (st) { goal = cur = st.progress * 101; setX(cur); }
+      });
     }
   });
 

@@ -188,12 +188,24 @@ export default page({
   </section>
 
   <section class="sec reviews" id="reviews" data-ground="paper" aria-labelledby="reviews-title">
+    <div class="doodles" aria-hidden="true">
+      <span class="doodle dd1"><svg viewBox="0 0 100 100" focusable="false"><path d="M24 52 L30 90 Q50 96 70 90 L76 52 Z" fill="#FFD166" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M39 58 L41 88 M50 58 L50 91 M61 58 L59 88" fill="none" stroke="#2A0B0F" stroke-width="2.5" stroke-linecap="round" opacity=".55"/><path d="M20 54 Q14 40 30 38 Q28 26 42 28 Q50 16 60 28 Q74 26 72 38 Q88 40 80 54 Z" fill="#FF8FB0" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M34 44 l4 -3 M50 38 l-1 -5 M62 44 l5 -2" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="50" cy="15" r="7" fill="#D3202A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 8 Q52 2 58 1" fill="none" stroke="#2A0B0F" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+      <span class="doodle dd2"><svg viewBox="0 0 100 100" focusable="false"><path d="M50 6 Q54 46 94 50 Q54 54 50 94 Q46 54 6 50 Q46 46 50 6 Z" fill="#FFD166" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+      <span class="doodle dd3"><svg viewBox="0 0 100 100" focusable="false"><path d="M50 46 C30 8 4 18 10 44 C14 58 38 58 50 50 Z" fill="#F2B84B" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 46 C70 8 96 18 90 44 C86 58 62 58 50 50 Z" fill="#F2B84B" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 52 C34 56 16 66 24 82 C32 94 48 76 50 60 Z" fill="#FFD98A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 52 C66 56 84 66 76 82 C68 94 52 76 50 60 Z" fill="#FFD98A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="26" cy="36" r="6" fill="#FF8FB0"/><circle cx="74" cy="36" r="6" fill="#FF8FB0"/><path d="M47 36 Q50 30 53 36 V76 Q50 82 47 76 Z" fill="#2A0B0F" stroke="#2A0B0F" stroke-width="2" stroke-linejoin="round"/><path d="M48 33 Q44 18 36 12 M52 33 Q56 18 64 12" fill="none" stroke="#2A0B0F" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+      <span class="doodle dd4"><svg viewBox="0 0 100 100" focusable="false"><path d="M6 40 Q16 16 26 40 T46 40 T66 40 T86 40" fill="none" stroke="#FF6F91" stroke-width="5" stroke-linecap="round"/><path d="M12 70 l10 -6 M44 74 l8 8 M74 66 l10 -4 M60 14 l4 -10" stroke="#6FD1A8" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M30 80 l8 -4 M84 84 l-2 -9" stroke="#8FD3FF" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="30" cy="10" r="4" fill="#F2B84B"/><circle cx="92" cy="18" r="4" fill="#EF3334"/></svg></span>
+      <span class="doodle dd5"><svg viewBox="0 0 100 100" focusable="false"><path d="M50 88 C8 58 14 20 36 20 C44 20 50 26 50 33 C50 26 56 20 64 20 C86 20 92 58 50 88 Z" fill="#FF6F91" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M28 36 Q30 30 36 29" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".75"/></svg></span>
+      <span class="doodle dd6"><svg viewBox="0 0 100 100" focusable="false"><path fill-rule="evenodd" d="M50 10 a40 40 0 1 0 .01 0 Z M50 38 a12 12 0 1 1 -.01 0 Z" fill="#E8B67A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path fill-rule="evenodd" d="M50 16 C70 14 86 28 84 50 C82 72 66 86 48 84 C28 82 14 68 16 48 C18 30 32 18 50 16 Z M50 38 a12 12 0 1 1 -.01 0 Z" fill="#FF8FB0" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M30 36 l6 -3 M64 30 l5 4 M72 56 l-6 3 M42 74 l2 -6 M26 58 l5 2 M56 20 l-1 5" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M62 70 l5 -3 M34 24 l5 1" stroke="#8FD3FF" stroke-width="3" stroke-linecap="round" fill="none"/></svg></span>
+      <span class="doodle dd7"><svg viewBox="0 0 100 100" focusable="false"><ellipse cx="50" cy="38" rx="26" ry="32" fill="#EF3334" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M45 70 L55 70 L50 77 Z" fill="#EF3334" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 77 Q40 85 50 91 Q58 96 48 99" fill="none" stroke="#2A0B0F" stroke-width="2.5" stroke-linecap="round"/><path d="M35 28 Q37 19 46 16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".75"/></svg></span>
+      <span class="doodle dd8"><svg viewBox="0 0 100 100" focusable="false"><path d="M50 6 Q54 46 94 50 Q54 54 50 94 Q46 54 6 50 Q46 46 50 6 Z" fill="#FFD166" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+      <span class="doodle dd9"><svg viewBox="0 0 100 100" focusable="false"><path d="M14 46 H86 V80 H14 Z" fill="#FFF1DC" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 58 H86 V66 H14 Z" fill="#FF8FB0" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 46 L30 32 H96 L86 46 Z" fill="#FFB3C6" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M86 46 L96 32 V66 L86 80Z" fill="#F2D5B0" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="62" cy="26" rx="9" ry="10" fill="#D3202A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M54 18 L62 21 L70 18 L62 13 Z" fill="#6FD1A8" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 85 H94" fill="none" stroke="#C99A3C" stroke-width="5" stroke-linecap="round"/></svg></span>
+      <span class="doodle dd10"><svg viewBox="0 0 100 100" focusable="false"><rect x="38" y="38" width="24" height="56" rx="4" fill="#8FD3FF" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 52 L62 44 M38 66 L62 58 M38 80 L62 72" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M50 38 V30" fill="none" stroke="#2A0B0F" stroke-width="3" stroke-linecap="round"/><path d="M50 4 Q64 20 50 31 Q36 20 50 4 Z" fill="#FFB547" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 15 Q56 22 50 28 Q44 22 50 15 Z" fill="#FFF3C2"/></svg></span>
+      <span class="doodle dd11"><svg viewBox="0 0 100 100" focusable="false"><path d="M26 56 Q38 26 58 12 M68 60 Q66 32 58 12" fill="none" stroke="#2A0B0F" stroke-width="3" stroke-linecap="round"/><path d="M58 12 Q74 2 86 16 Q70 24 58 12 Z" fill="#6FD1A8" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="26" cy="72" r="17" fill="#D3202A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="68" cy="76" r="17" fill="#D3202A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 66 Q19 61 24 59 M60 70 Q61 65 66 63" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".75"/></svg></span>
+    </div>
     <div class="wrap">
       <header class="sec__head reviews__head">
         <p class="label reviews__eyebrow">From our guests</p>
         <h2 class="h2" id="reviews-title">Kind words</h2>
         <p class="lede reviews__lede">Birthdays, anniversaries and plain Tuesday cravings. Here is what people pinned up after their last slice.</p>
-        <p class="reviews__label">These are sample reviews for this demo. Real Google reviews will replace them before launch.</p>
       </header>
       <div class="board">
         <ul class="notes" role="list">
@@ -291,24 +303,6 @@ export default page({
         <p>Ask us on WhatsApp.</p>
         <a class="btn btn--primary btn--block" href="${waText('Hello Cako, I have a question.')}" target="_blank" rel="noopener">${icon('b-whatsapp', 1)}<span>Ask on WhatsApp</span></a>
       </aside>
-    </div>
-  </section>
-
-  <section class="close" id="close" data-ground="night-3" aria-labelledby="close-title">
-    <div class="wrap close__grid">
-      <div class="close__head">
-        <h2 class="display-l close__title" id="close-title" data-rise>Still open at 11:59 pm.</h2>
-        <p class="lede">Every day, on Upper Kondhwa Road, Bibvewadi.</p>
-      </div>
-      <div class="close__count">
-        <p class="countdown" data-countdown><span class="countdown__static">Open every day, 11 am to 12 midnight.</span></p>
-        ${candles('close__candles')}
-      </div>
-      <p class="mr close__mr"><span lang="mr">आनंदाची बातमी? तोंड गोड करा.</span><span class="mr__en">Good news? Have something sweet. Literally “sweeten your mouth”, what Marathi speakers say when good news arrives.</span></p>
-      <div class="close__cta">
-        <a class="btn btn--primary" href="${WA_ORDER}" target="_blank" rel="noopener">${icon('b-whatsapp', 1)}<span>Order on WhatsApp</span></a>
-        <a class="btn btn--secondary" href="${DIRECTIONS}" target="_blank" rel="noopener">${icon('i-navigation')}<span>Get directions</span></a>
-      </div>
     </div>
   </section>`,
 });
