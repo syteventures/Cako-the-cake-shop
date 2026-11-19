@@ -162,7 +162,7 @@ html:not(.js) .filterbar { display: none; } /* filtering needs script; without i
 .shelves[data-view="list"] .dcake__desc { grid-area: desc; max-width: 52ch; }
 .shelves[data-view="list"] .dcake__buy { grid-area: buy; margin-top: 10px; padding-top: 0; max-width: 26rem; }
 .shelves[data-view="list"] .dcake__buy .leaders { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
-.shelves[data-view="list"] .dcake__buy .note { margin-top: 6px; }
+.shelves[data-view="list"] .dcake__buy .price-note { margin-top: 6px; }
 .shelves[data-view="list"] .dcake__order { grid-area: order; align-self: start; margin-top: 0; }
 @media (min-width: 768px) {
   .shelves[data-view="list"] .dcake__label {

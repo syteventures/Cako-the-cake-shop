@@ -125,7 +125,26 @@
     facing.setAttribute('data-slug', e.detail.slug);
     facing.textContent = e.detail.name || e.detail.slug;
     facing.setAttribute('href', 'order.html#order-' + e.detail.slug);
+    swapPic(e.detail.slug, e.detail.name || e.detail.slug);
   });
+
+  /* the single photo in the hero box shows the cake that faces you */
+  var pic = document.querySelector('[data-facing-pic]'), picImg = pic && pic.querySelector('img');
+  function swapPic(slug, name) {
+    if (!pic || !picImg) return;
+    var base = '/assets/img/cut/' + slug, next = new Image();
+    pic.setAttribute('href', 'order.html#order-' + slug);
+    pic.setAttribute('aria-label', 'Order the ' + name + ' cake');
+    next.onload = function () {
+      picImg.classList.add('is-swap');
+      setTimeout(function () {
+        picImg.src = base + '-480.webp';
+        picImg.srcset = base + '-240.webp 240w, ' + base + '-480.webp 480w, ' + base + '-960.webp 960w';
+        picImg.classList.remove('is-swap');
+      }, 220);
+    };
+    next.src = base + '-480.webp';
+  }
 
   /* ---------------------------------------------------------------- header: its WhatsApp button rests while the hero's own is on screen */
   var heroCta = document.querySelector('[data-hero-cta]'), top = document.querySelector('[data-top]');

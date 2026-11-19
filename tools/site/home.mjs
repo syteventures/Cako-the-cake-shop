@@ -82,7 +82,10 @@ export default page({
         <p class="hero__note small" data-enter data-assumed>Home delivery, takeaway and seats inside.</p>
       </div>
       <div class="hero__under">
-        <p class="hero__caption note">Every photo on this cake is one of our cakes.</p>
+        <div class="hero__proof">
+          <a class="hero__pic" href="order.html#order-chocolate-truffle" aria-label="Order the Chocolate truffle cake" data-facing-pic>${cut('chocolate-truffle', '', '120px', { eager: true })}</a>
+          <p class="hero__caption">Every photo on this cake is one of our cakes.</p>
+        </div>
         <p class="hero__facing small">Facing you: <a href="order.html#order-chocolate-truffle" data-facing>Chocolate truffle</a></p>
         <div class="hero__tools"><span class="hero__hint small" aria-hidden="true">Drag to turn</span>${motionButton('hero__pause')}</div>
       </div>

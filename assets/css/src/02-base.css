@@ -89,7 +89,7 @@ a:hover { text-decoration-thickness: 2px; }
 .lede { font-size: var(--fs-lede); line-height: var(--lh-lede); color: var(--text-2); max-width: var(--measure-lede); }
 .small { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); max-width: var(--measure); }
 .label { font-family: var(--f-text); font-size: var(--fs-eyebrow); font-weight: 500; letter-spacing: var(--tr-eyebrow); line-height: 1.4; color: var(--text-2); }
-.note { font-size: var(--fs-small); font-style: italic; color: var(--orn); }
+.note, .price-note, .hero__caption { font-size: var(--fs-small); font-style: italic; color: var(--orn); }
 .measure { max-width: var(--measure); }
 
 /* Marathi lines: lang="mr" in --f-deva, the English meaning in italic small under it */

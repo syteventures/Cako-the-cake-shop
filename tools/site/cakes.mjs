@@ -43,7 +43,7 @@ const card = (c, i) => `<li class="dcake" id="cake-${c[0]}" data-cat="${c[2]}"${
             <p class="dcake__desc">${c[3]}.</p>
             <div class="dcake__buy">
               <dl class="leaders"><div><dt>½ kg</dt><dd>${inr(c[4])}</dd></div><div><dt>1 kg</dt><dd>${inr(c[5])}</dd></div></dl>
-              <p class="note">Demo price</p>
+              <p class="price-note">Demo price</p>
             </div>
             <a class="btn btn--secondary btn--sm dcake__order" href="order.html#order-${c[0]}" aria-label="Order the ${c[1]} cake">Order</a>
           </div>
