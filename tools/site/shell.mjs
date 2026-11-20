@@ -85,7 +85,7 @@ ${body}
     <div class="foot__grid">
       <div class="foot__brand">
         <a href="index.html" aria-label="Cako Cake, home"><img src="assets/brand/cako-badge.svg" width="88" height="88" alt="" loading="lazy"></a>
-        <p class="foot__tag"><span class="foot__name">Cako Cake</span> A vegetarian-only cake shop and bakery.</p>
+        <p class="foot__tag"><span class="foot__name">Cako Cake <span class="foot__deva" lang="mr">केको केक</span></span> A vegetarian-only cake shop and bakery.</p>
         <address><a href="${DIRECTIONS}" target="_blank" rel="noopener">${ADDRESS}</a><br><a class="tnum" href="${TEL}">${PHONE_TEXT}</a>, call or WhatsApp</address>
       </div>
       <div class="foot__col"><h2 class="foot__h">Hours</h2><p>Open every day, 11 am to 12 midnight</p>${statusPill()}</div>

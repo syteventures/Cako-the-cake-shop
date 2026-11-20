@@ -1,13 +1,13 @@
 /* ==========================================================================
-   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v6: white + wall maroon (primary) + balloon blush (second) + LED champagne (third); from Cako Images.zip)
+   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v7: logo red + white (punchier), wall reds, balloon blush, LED champagne; from Cako Images.zip)
    One :root block. Load after fonts.css and before every component rule.
    Contrast ratios are WCAG 2.x, computed in _workfiles/fontwork/cd-contrast.py.
    ========================================================================== */
 :root {
   /* ---- Night grounds (chapters 1 and 3) ---------------------------------- */
-  --night: #4A0E14;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
-  --night-2: #5C1219;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
-  --night-3: #2E080C;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
+  --night: #A3141C;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
+  --night-2: #8E1219;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
+  --night-3: #5E0B11;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
   --cream: #FFF8F0;          /* text and headings on night; focus ring on night */
   --cream-2: #F0D6CB;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
 
@@ -18,9 +18,9 @@
   --ink-2: #6E4A4C;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
 
   /* ---- Action red: the only accent ---------------------------------------- */
-  --accent: #D3202A;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
-  --accent-press: #A8161E;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
-  --accent-ink: #A8161E;     /* red text on paper or cream (6.08:1 / 6.20:1) */
+  --accent: #C8161D;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
+  --accent-press: #A3101A;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
+  --accent-ink: #A3101A;     /* red text on paper or cream (6.08:1 / 6.20:1) */
   --on-accent: #FFFFFF;      /* label on red buttons */
   --brand-red: #EF3334;      /* logo badge and the hero's "1" "2" candles only. Never UI text (cream on it 3.35:1) */
 

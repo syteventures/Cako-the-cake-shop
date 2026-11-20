@@ -157,15 +157,15 @@
 
 /* ==== src/01-tokens.css ==== */
 /* ==========================================================================
-   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v6: white + wall maroon (primary) + balloon blush (second) + LED champagne (third); from Cako Images.zip)
+   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v7: logo red + white (punchier), wall reds, balloon blush, LED champagne; from Cako Images.zip)
    One :root block. Load after fonts.css and before every component rule.
    Contrast ratios are WCAG 2.x, computed in _workfiles/fontwork/cd-contrast.py.
    ========================================================================== */
 :root {
   /* ---- Night grounds (chapters 1 and 3) ---------------------------------- */
-  --night: #4A0E14;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
-  --night-2: #5C1219;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
-  --night-3: #2E080C;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
+  --night: #A3141C;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
+  --night-2: #8E1219;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
+  --night-3: #5E0B11;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
   --cream: #FFF8F0;          /* text and headings on night; focus ring on night */
   --cream-2: #F0D6CB;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
 
@@ -176,9 +176,9 @@
   --ink-2: #6E4A4C;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
 
   /* ---- Action red: the only accent ---------------------------------------- */
-  --accent: #D3202A;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
-  --accent-press: #A8161E;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
-  --accent-ink: #A8161E;     /* red text on paper or cream (6.08:1 / 6.20:1) */
+  --accent: #C8161D;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
+  --accent-press: #A3101A;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
+  --accent-ink: #A3101A;     /* red text on paper or cream (6.08:1 / 6.20:1) */
   --on-accent: #FFFFFF;      /* label on red buttons */
   --brand-red: #EF3334;      /* logo badge and the hero's "1" "2" candles only. Never UI text (cream on it 3.35:1) */
 
@@ -3394,6 +3394,59 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
   to { transform: translate(var(--x, 0px), calc(var(--y) - 4px)) rotate(calc(var(--r) + 1.3deg)); }
 }
 .reviews .reviews__actions { margin-top: 8px; }
+
+/* ==========================================================================
+   v7: logo red + white, punchier. The hero stands on the real shop photo; buttons on red go white with red type
+   ========================================================================== */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(70, 8, 13, .96) 0%, rgba(120, 14, 22, .9) 40%, rgba(150, 18, 26, .58) 64%, rgba(163, 20, 28, .3) 100%),
+    linear-gradient(to top, rgba(60, 8, 12, .72), transparent 40%),
+    url("/assets/img/shop/interior-1600.webp") 0% 36% / max(165%, 1500px) auto no-repeat, #8E1219;
+}
+@media (max-width: 959.98px) {
+  .hero { background:
+    linear-gradient(180deg, rgba(70, 8, 13, .93) 0%, rgba(120, 14, 22, .82) 42%, rgba(120, 14, 22, .72) 70%, rgba(60, 8, 12, .92) 100%),
+    url("/assets/img/shop/interior-800.webp") 50% 30% / cover no-repeat, #8E1219; }
+}
+.hero__stage::before { background: radial-gradient(closest-side, rgba(255, 220, 170, .38), rgba(255, 170, 90, .12) 45%, transparent); }
+.top.is-solid { background: rgb(142 18 25 / 0.96); }
+.filterbar { background: rgb(142 18 25 / 0.96); }
+
+/* the logo's own pairing on red grounds: white buttons, red type */
+[data-ground^="night"] .btn--primary, .top .top__order, .hero .btn--primary {
+  background: #FFF8F0; color: #C8161D; border-color: #FFF8F0;
+  box-shadow: 0 0 0 1px rgba(255, 213, 150, .7), 0 12px 26px -12px rgba(30, 4, 6, .65);
+}
+[data-ground^="night"] .btn--primary:hover, .top .top__order:hover, .hero .btn--primary:hover { background: #FFFFFF; color: #A3101A; }
+[data-ground^="night"] .btn--primary .icon, .hero .btn--primary .icon { color: #C8161D; }
+.hero__display { text-shadow: 0 3px 30px rgba(40, 4, 8, .55); }
+
+/* ---- cake-board frames: an ivory mat, a gold hairline, a ring of piped pearls just inside the photo ---- */
+.inside__fig, .visit__photo, .vhero__photo, .custom__clip {
+  box-shadow: 0 0 0 4px #FFF8F0, 0 0 0 5.5px #E2B76A, 0 30px 60px -34px rgba(20, 3, 6, .85);
+  outline: 2.5px dotted rgba(255, 248, 240, .9); outline-offset: -11px;
+}
+.inside__a { box-shadow: 0 0 0 4px #FFF8F0, 0 0 0 5.5px #E2B76A, 0 0 46px 8px rgba(255, 160, 80, .35); }
+.inside__card { box-shadow: 0 0 0 3px #FFF8F0, 0 0 0 4.5px #E2B76A, 0 0 30px 2px rgba(255, 160, 80, .22); outline: 2px dotted rgba(255, 248, 240, .85); outline-offset: -9px; }
+.visit__photo.framed { border: 0; padding: 0; }
+
+/* ---- the gallery row drifts by itself; hover (or focus) pauses it; still motion settings get the plain scroller ---- */
+.inside__track { display: flex; gap: clamp(14px, 1.6vw, 22px); width: max-content; }
+.inside__track > .inside__row { flex: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="paused"]) .inside__strip { overflow: hidden; scroll-snap-type: none; }
+  html:not([data-motion="paused"]) .inside__track { animation: inside-drift 70s linear infinite; }
+  html:not([data-motion="paused"]) .inside__strip:hover .inside__track,
+  html:not([data-motion="paused"]) .inside__strip:focus-within .inside__track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) { .inside__row[aria-hidden="true"] { display: none; } }
+html[data-motion="paused"] .inside__row[aria-hidden="true"] { display: none; }
+@keyframes inside-drift { to { transform: translateX(calc(-50% - clamp(7px, .8vw, 11px))); } }
+.inside__fig img, .inside__card img { transition: transform 1.2s var(--ease-out); }
+@media (hover: hover) { .inside__fig:hover img, .inside__card:hover img { transform: scale(1.05); } }
+
+.foot__deva { font-family: var(--f-deva); font-weight: 400; margin-left: .35em; opacity: .9; }
 
 /* ==== src/90-motion.css ==== */
 /* ---------------------------------------------------------------- motion support (motion.js; brief section 13) */
