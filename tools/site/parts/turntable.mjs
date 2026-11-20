@@ -97,7 +97,7 @@ export function turntable(cakes, manifest, opts = {}) {
               <${H} class="tt__name">${esc(name)}</${H}>
               <p class="tt__desc">${esc(desc)}.</p>
               <dl class="tt__prices" data-assumed><div><dt>½ kg</dt><dd>${inr(half)}</dd></div><div><dt>1 kg</dt><dd>${inr(kg)}</dd></div></dl>
-              <p class="tt__demo">Today’s price on WhatsApp</p>
+              
               <a class="tt__order" href="order.html#order-${esc(slug)}">Order this cake<span class="tt-sr">: ${esc(name)}</span></a>
             </figcaption>
           </figure>
@@ -134,7 +134,7 @@ export function turntable(cakes, manifest, opts = {}) {
           <div><dt>½ kg</dt><dd><span class="tt-sr" data-k="half-sr">${inr(first[4])}</span><span class="tt__odo" aria-hidden="true" data-k="half">${inr(first[4])}</span></dd></div>
           <div><dt>1 kg</dt><dd><span class="tt-sr" data-k="kg-sr">${inr(first[5])}</span><span class="tt__odo" aria-hidden="true" data-k="kg">${inr(first[5])}</span></dd></div>
         </dl>
-        <p class="tt__k-demo">Today’s price on WhatsApp</p>
+        
         <a class="tt__k-order" data-k="order" href="order.html#order-${esc(first[0])}">Order this cake<span class="tt-sr" data-k="order-sr">: ${esc(first[1])}</span></a>
       </div>
       <p class="tt-sr" aria-live="polite" aria-atomic="true" data-tt-live></p>

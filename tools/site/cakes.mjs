@@ -42,7 +42,6 @@ const card = (c, i) => `<li class="dcake" id="cake-${c[0]}" data-cat="${c[2]}"${
             ${fav.has(c[0]) ? '<p class="dcake__fav">Counter favourite</p>' : ''}
             <p class="dcake__desc">${c[3]}.</p>
             <div class="dcake__buy">
-              <p class="price-ask">Today’s price on WhatsApp</p>
             </div>
             <a class="btn btn--secondary btn--sm dcake__order" href="order.html#order-${c[0]}" aria-label="Order the ${c[1]} cake">Order</a>
           </div>
@@ -111,7 +110,7 @@ export default page({
       </div>
       <div class="case-hero__copy">
         <p class="lede">Chocolate, fruit and cream, the classics, and two cakes made for big days. All vegetarian, in ½ kg and 1 kg.</p>
-        <p class="small" data-assumed>Ask us on WhatsApp for today’s price, for any cake and any size.</p>
+        <p class="small" data-assumed>Prices depend on the cake, the size and the design. WhatsApp us what you need and we’ll send you today’s price.</p>
       </div>
     </div>
   </section>
@@ -123,11 +122,6 @@ export default page({
           <span class="visually-hidden" id="filters-label">Filter cakes</span>
           ${FILTERS.map(([k, t, n, say], i) => `<button class="chip" type="button" data-filter="${k}" aria-pressed="${i === 0}" data-say="${say}">${t} <span class="chip__n">${n}</span></button>`).join('\n          ')}
         </div>
-        <fieldset class="seg filterbar__view">
-          <legend class="visually-hidden">View</legend>
-          <input type="radio" name="view" id="view-shelves" value="shelves" checked><label for="view-shelves">${viewIcon.shelves}<span class="filterbar__word">Shelves</span></label>
-          <input type="radio" name="view" id="view-list" value="list"><label for="view-list">${viewIcon.list}<span class="filterbar__word">Price list</span></label>
-        </fieldset>
         <p class="visually-hidden" role="status" aria-live="polite" data-filter-status></p>
       </div>
     </div>

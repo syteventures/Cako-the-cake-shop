@@ -315,7 +315,7 @@
     // the remembered view, then the hash (cakes.html#chocolate, #fruit, #classic, #celebration)
     var saved = null;
     try { saved = localStorage.getItem('cako-view'); } catch (err) { saved = null; }
-    if (saved === 'list') setView('list', true);
+    if (saved === 'list') { try { localStorage.removeItem('cako-view'); } catch (err) { /* nothing to clear */ } }
     var hash = location.hash.slice(1);
     if (KEYS[hash] && hash !== 'all') {
       setFilter(hash, { instant: true });

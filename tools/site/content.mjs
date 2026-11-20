@@ -70,6 +70,15 @@ export const OCCASIONS = [
 export const nameOf = (slug) => (bySlug[slug] ? bySlug[slug][1] : slug);
 
 // DEMO: sample reviews, labelled on the page, never in structured data, no names or rating while they are samples
+// Google reviews on the Business Profile, quoted as written (2026-11-20). [quote, name, tag, cake slug, note colour, tilt, drop]
+export const REVIEWS = [
+  ['Bought a chocolate cake from cako. Loved the taste.', 'Nasim Khan', 'Google review', 'chocolate-truffle', '#FFE15D', '-2.4deg', '0px'],
+  ['The quality of cakes is really good. I personally loved the rasmalai cake. Must try!', 'Amaan Khan', 'Google review · Takeaway', 'rasmalai', '#FF9CB8', '2.2deg', '14px'],
+  ['A must try for sure. The prices are low for this quality, that’s rare!', 'Ethan Hunt', 'Google review · Dine in', 'red-velvet-heart', '#9FE8C0', '-1.6deg', '-6px'],
+  ['The cakes are just too good for the price. This shop is a must visit if you’re in upper Bibwewadi! Lovely service too.', 'Faisal Ahmad Shaikh', 'Google review · Takeaway', 'butterscotch', '#FFB36B', '2.8deg', '10px'],
+  ['Amazing cakes served here.', 'EHK', 'Google review', 'black-forest', '#8FD3FF', '-2.8deg', '-4px'],
+];
+
 export const SAMPLE_REVIEWS = [
   // [quote, name, occasion, cake slug, note colour, tilt, drop]
   ['Walked in at 11:40 pm for my sister’s birthday and the counter was still glowing. Cake in hand before midnight!', 'Riya S.', 'midnight birthday', 'chocolate-truffle', '#FFE15D', '-2.4deg', '0px'],

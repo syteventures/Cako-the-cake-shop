@@ -133,3 +133,14 @@
 .reviews__plates { display: flex; gap: clamp(10px, 2vw, 26px); }
 .reviews__plates .plate { width: clamp(84px, 11vw, 150px); }
 .reviews__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 26px; margin: 0; }
+
+/* the review notes sway gently on their tape and pins, out of step with each other */
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="paused"]) .note { animation: note-sway 5.5s ease-in-out var(--d, 0s) infinite alternate; }
+  html:not([data-motion="paused"]) .note:hover, html:not([data-motion="paused"]) .note:focus-within { animation-play-state: paused; }
+}
+@keyframes note-sway {
+  from { transform: translate(var(--x, 0px), var(--y)) rotate(calc(var(--r) - 1.3deg)); }
+  to { transform: translate(var(--x, 0px), calc(var(--y) - 4px)) rotate(calc(var(--r) + 1.3deg)); }
+}
+.reviews .reviews__actions { margin-top: 8px; }
