@@ -26,8 +26,7 @@ export function page({ file, title, description, body, jsonld = '', preload = ''
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${title}</title>
 <meta name="description" content="${description}">
-<!-- demo: noindex until the demo reviews and prices are replaced and the domain is live (then: index, follow) -->
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="${url}">
 <meta name="theme-color" content="#211410">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -35,7 +34,7 @@ export function page({ file, title, description, body, jsonld = '', preload = ''
 <link rel="apple-touch-icon" href="assets/icons/app/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Cako The Cake Shop">
+<meta property="og:site_name" content="Cako Cake">
 <meta property="og:locale" content="en_IN">
 <meta property="og:url" content="${url}">
 <meta property="og:title" content="${ogTitle || title}">
@@ -43,9 +42,9 @@ export function page({ file, title, description, body, jsonld = '', preload = ''
 <meta property="og:image" content="${SITE}assets/img/og-cako.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cakes from Cako The Cake Shop, Bibvewadi, Pune.">
+<meta property="og:image:alt" content="Cakes from Cako Cake, Bibvewadi, Pune.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image:alt" content="Cakes from Cako The Cake Shop, Bibvewadi, Pune.">
+<meta name="twitter:image:alt" content="Cakes from Cako Cake, Bibvewadi, Pune.">
 ${FONT_PRELOAD.map((f) => `<link rel="preload" href="assets/fonts/${f}" as="font" type="font/woff2" crossorigin>`).join('\n')}
 ${preload}<link rel="stylesheet" href="assets/css/site.css">
 ${jsonld}
@@ -57,7 +56,7 @@ ${part('sprite.html')}
   <div class="wrap top__bar">
     <nav class="nav" aria-label="Main">
       <ul class="nav__side nav__side--l">${side(['index.html', 'cakes.html', 'index.html#occasions'])}</ul>
-      <a class="brand" href="index.html" aria-label="Cako The Cake Shop, home"><span class="brand__bow" aria-hidden="true"></span><img src="assets/brand/cako-badge.svg" width="76" height="76" alt=""></a>
+      <a class="brand" href="index.html" aria-label="Cako Cake, home"><span class="brand__bow" aria-hidden="true"></span><img src="assets/brand/cako-badge.svg" width="76" height="76" alt=""></a>
       <ul class="nav__side nav__side--r">${side(['gallery.html', 'visit.html'])}</ul>
     </nav>
     <div class="top__right">
@@ -85,8 +84,8 @@ ${body}
   <div class="wrap">
     <div class="foot__grid">
       <div class="foot__brand">
-        <a href="index.html" aria-label="Cako The Cake Shop, home"><img src="assets/brand/cako-badge.svg" width="88" height="88" alt="" loading="lazy"></a>
-        <p class="foot__tag"><span class="foot__name">Cako The Cake Shop</span> A vegetarian-only cake shop and bakery.</p>
+        <a href="index.html" aria-label="Cako Cake, home"><img src="assets/brand/cako-badge.svg" width="88" height="88" alt="" loading="lazy"></a>
+        <p class="foot__tag"><span class="foot__name">Cako Cake</span> A vegetarian-only cake shop and bakery.</p>
         <address><a href="${DIRECTIONS}" target="_blank" rel="noopener">${ADDRESS}</a><br><a class="tnum" href="${TEL}">${PHONE_TEXT}</a>, call or WhatsApp</address>
       </div>
       <div class="foot__col"><h2 class="foot__h">Hours</h2><p>Open every day, 11 am to 12 midnight</p>${statusPill()}</div>
@@ -98,7 +97,7 @@ ${body}
         <button class="motion-link" type="button" aria-pressed="false" data-motion-toggle><span data-motion-label>Pause motion</span></button>
       </div>
     </div>
-    <div class="foot__legal"><p>© 2026 Cako The Cake Shop</p><p>Bibvewadi, Pune</p></div>
+    <div class="foot__legal"><p>© 2026 Cako Cake</p><p>Bibvewadi, Pune</p></div>
   </div>
 </footer>
 <nav class="actionbar" aria-label="Quick actions">

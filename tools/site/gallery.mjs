@@ -30,8 +30,8 @@ items.splice(4, 0, film);
 
 export default page({
   file: 'gallery.html',
-  title: 'Gallery | Cako The Cake Shop, Bibvewadi, Pune',
-  description: 'Photos and short films from Cako The Cake Shop on Upper Kondhwa Road, Bibvewadi: the lit arch wall, the cake counter and the party corner.',
+  title: 'Gallery | Cako Cake, Bibvewadi, Pune',
+  description: 'Photos and short films from Cako Cake on Upper Kondhwa Road, Bibvewadi: the lit arch wall, the cake counter and the party corner.',
   ogTitle: 'Inside Cako',
   parts: ['gallery'],
   bodyClass: 'page-gallery',

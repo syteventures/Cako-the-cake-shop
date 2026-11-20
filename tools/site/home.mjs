@@ -47,9 +47,9 @@ const candles = (cls = '') => `<span class="candles${cls ? ` ${cls}` : ''}" aria
 
 export default page({
   file: 'index.html',
-  title: 'Cako The Cake Shop in Bibvewadi, Pune | Open till Midnight',
+  title: 'Cako Cake in Bibvewadi, Pune | Open till Midnight',
   description: 'Vegetarian-only cake shop on Upper Kondhwa Road, Bibvewadi, Pune. Open every day, 11 am to 12 midnight, with home delivery, takeaway and seats inside.',
-  ogTitle: 'Cako The Cake Shop in Bibvewadi, Pune',
+  ogTitle: 'Cako Cake in Bibvewadi, Pune',
   jsonld: part('jsonld.html') + '\n' + faqJsonLd(HOME_FAQ),
   parts: ['photocake', 'turntable', 'midnight', 'home'],
   bodyClass: 'page-home',
@@ -102,7 +102,7 @@ export default page({
       ${turntable(FEATURED.map((s) => bySlug[s]), undefined, { autoplay: 0 })}
       <div class="counter__foot">
         <a class="link" href="cakes.html">See all 22 cakes</a>
-        <p class="small" data-assumed>Prices on this preview are samples. Ask us on WhatsApp for today’s price.</p>
+        <p class="small" data-assumed>Ask us on WhatsApp for today’s price, for any cake and any size.</p>
       </div>
     </div>
   </section>
@@ -159,7 +159,7 @@ export default page({
           <thead><tr><th scope="col">Size</th><th scope="col">Serves, approximately</th><th scope="col">Good for</th></tr></thead>
           <tbody>${SIZES.map(([s, n, g]) => `<tr><th scope="row">${s}</th><td>${n}</td><td>${g}</td></tr>`).join('')}</tbody>
         </table>
-        <p class="small" data-assumed>The demo prices on this site are for ½ kg and 1 kg; ask us for 1.5 kg and 2 kg.</p>
+        <p class="small" data-assumed>Ask us on WhatsApp for today’s price, for any cake and any size.</p>
         <a class="btn btn--primary sizes__order" href="order.html?size=1kg" data-size-order>Order this size</a>
       </div>
       <div class="sizes__guide">${sizeGuide({ tone: 'paper', selected: '1' })}</div>
@@ -204,24 +204,13 @@ export default page({
       <span class="doodle dd10"><svg viewBox="0 0 100 100" focusable="false"><rect x="38" y="38" width="24" height="56" rx="4" fill="#8FD3FF" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M38 52 L62 44 M38 66 L62 58 M38 80 L62 72" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M50 38 V30" fill="none" stroke="#2A0B0F" stroke-width="3" stroke-linecap="round"/><path d="M50 4 Q64 20 50 31 Q36 20 50 4 Z" fill="#FFB547" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M50 15 Q56 22 50 28 Q44 22 50 15 Z" fill="#FFF3C2"/></svg></span>
       <span class="doodle dd11"><svg viewBox="0 0 100 100" focusable="false"><path d="M26 56 Q38 26 58 12 M68 60 Q66 32 58 12" fill="none" stroke="#2A0B0F" stroke-width="3" stroke-linecap="round"/><path d="M58 12 Q74 2 86 16 Q70 24 58 12 Z" fill="#6FD1A8" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="26" cy="72" r="17" fill="#D3202A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="68" cy="76" r="17" fill="#D3202A" stroke="#2A0B0F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 66 Q19 61 24 59 M60 70 Q61 65 66 63" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".75"/></svg></span>
     </div>
-    <div class="wrap">
+    <div class="wrap reviews__ask">
+      <div class="reviews__plates" aria-hidden="true">${['chocolate-truffle', 'red-velvet-heart', 'rasmalai'].map((k) => `<span class="plate">${cut(k, '', '(min-width: 960px) 160px, 96px')}</span>`).join('')}</div>
       <header class="sec__head reviews__head">
-        <p class="label reviews__eyebrow">From our guests</p>
-        <h2 class="h2" id="reviews-title">Kind words</h2>
-        <p class="lede reviews__lede">Birthdays, anniversaries and plain Tuesday cravings. Here is what people pinned up after their last slice.</p>
+        <h2 class="h2" id="reviews-title">Had a Cako Cake?</h2>
+        <p class="lede reviews__lede">Tell Pune how it was. A short Google review helps the next family find a cake shop that’s open till midnight.</p>
       </header>
-      <div class="board">
-        <ul class="notes" role="list">
-        ${SAMPLE_REVIEWS.map(([q, who, tag, slug, col, tilt, drop], i) => `<li class="note${i % 3 === 1 ? ' note--pin' : ' note--tape'}" style="--c:${col};--r:${tilt};--y:${drop}">
-          <p class="note__stars" aria-hidden="true">★★★★★</p><span class="visually-hidden">5 out of 5 stars.</span>
-          <blockquote class="note__q"><p>${q}</p></blockquote>
-          <div class="note__foot">
-            <p class="note__by"><strong>${who}</strong><span>${tag}</span></p>
-            <a class="note__cake" href="order.html#order-${slug}" aria-label="Order the ${nameOf(slug)} cake">${cut(slug, '', '64px')}</a>
-          </div>
-        </li>`).join('\n        ')}
-        </ul>
-      </div>
+      <p class="reviews__actions"><a class="btn btn--primary" href="https://search.google.com/local/writereview?placeid=ChIJoXZOdifrwjsRGWtERyUqq4A" target="_blank" rel="noopener">Write a Google review</a><a class="link" href="https://maps.google.com/?cid=9271550597470120729" target="_blank" rel="noopener">See Cako Cake on Google Maps</a></p>
     </div>
   </section>
 

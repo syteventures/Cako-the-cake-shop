@@ -42,8 +42,7 @@ const card = (c, i) => `<li class="dcake" id="cake-${c[0]}" data-cat="${c[2]}"${
             ${fav.has(c[0]) ? '<p class="dcake__fav">Counter favourite</p>' : ''}
             <p class="dcake__desc">${c[3]}.</p>
             <div class="dcake__buy">
-              <dl class="leaders"><div><dt>½ kg</dt><dd>${inr(c[4])}</dd></div><div><dt>1 kg</dt><dd>${inr(c[5])}</dd></div></dl>
-              <p class="price-note">Demo price</p>
+              <p class="price-ask">Today’s price on WhatsApp</p>
             </div>
             <a class="btn btn--secondary btn--sm dcake__order" href="order.html#order-${c[0]}" aria-label="Order the ${c[1]} cake">Order</a>
           </div>
@@ -97,7 +96,7 @@ const almond = '<svg class="icon icon--line" viewBox="0 0 24 24" aria-hidden="tr
 
 export default page({
   file: 'cakes.html',
-  title: 'Birthday Cakes in Bibvewadi, Pune | Cako The Cake Shop',
+  title: 'Birthday Cakes in Bibvewadi, Pune | Cako Cake',
   description: 'Chocolate truffle, black forest, rasmalai, red velvet and 18 more vegetarian cakes, in half kg and 1 kg. Pick one and order on WhatsApp from Cako, Pune.',
   ogTitle: 'Birthday Cakes in Bibvewadi, Pune',
   jsonld: part('jsonld.html'),
@@ -112,7 +111,7 @@ export default page({
       </div>
       <div class="case-hero__copy">
         <p class="lede">Chocolate, fruit and cream, the classics, and two cakes made for big days. All vegetarian, in ½ kg and 1 kg.</p>
-        <p class="small" data-assumed>Prices are demo prices for this preview. Ask us on WhatsApp for today’s price.</p>
+        <p class="small" data-assumed>Ask us on WhatsApp for today’s price, for any cake and any size.</p>
       </div>
     </div>
   </section>

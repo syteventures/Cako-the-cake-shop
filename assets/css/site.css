@@ -3371,6 +3371,19 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 }
 @media (max-width: 959.98px) { .hero { padding-top: calc(var(--top-h) + 26px); } }
 
+/* launch: no invented prices on show (the order slip and WhatsApp confirm the price) */
+.tt__prices, .tt__k-prices { display: none; }
+.price-ask { margin: 6px 0 4px; font-weight: 600; color: var(--gold); }
+[data-ground^="paper"] .price-ask { color: var(--gold-deep); }
+
+/* reviews: an ask for real Google reviews, under three cakes on plates */
+.reviews__ask { display: grid; justify-items: center; text-align: center; gap: clamp(18px, 2.5vw, 28px); }
+.reviews__ask .sec__head { justify-items: center; margin-bottom: 0; }
+.reviews__ask .lede { max-width: 46ch; margin-inline: auto; }
+.reviews__plates { display: flex; gap: clamp(10px, 2vw, 26px); }
+.reviews__plates .plate { width: clamp(84px, 11vw, 150px); }
+.reviews__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 26px; margin: 0; }
+
 /* ==== src/90-motion.css ==== */
 /* ---------------------------------------------------------------- motion support (motion.js; brief section 13) */
 html.lenis, html.lenis body { height: auto; }

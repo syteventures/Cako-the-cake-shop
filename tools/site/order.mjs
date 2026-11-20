@@ -144,7 +144,7 @@ const preview = `<aside class="preview" data-ground="night-2" aria-labelledby="p
 
 export default page({
   file: 'order.html',
-  title: 'Order a Cake on WhatsApp | Cako The Cake Shop, Pune',
+  title: 'Order a Cake on WhatsApp | Cako Cake, Pune',
   description: 'Choose a cake and size, add the name for the top, and send your order to Cako on WhatsApp. Collect in Bibvewadi till 12 midnight, or ask about delivery.',
   ogTitle: 'Order a Cake on WhatsApp',
   jsonld: part('jsonld.html') + '\n' + faqJsonLd(ORDER_FAQ),

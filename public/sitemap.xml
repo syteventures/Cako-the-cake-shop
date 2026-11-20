@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.example-cako.in/</loc></url>
-  <url><loc>https://www.example-cako.in/cakes.html</loc></url>
-  <url><loc>https://www.example-cako.in/order.html</loc></url>
-  <url><loc>https://www.example-cako.in/visit.html</loc></url>
-  <url><loc>https://www.example-cako.in/gallery.html</loc></url>
+  <url><loc>https://cako-the-cake-shop.vercel.app/</loc></url>
+  <url><loc>https://cako-the-cake-shop.vercel.app/cakes.html</loc></url>
+  <url><loc>https://cako-the-cake-shop.vercel.app/order.html</loc></url>
+  <url><loc>https://cako-the-cake-shop.vercel.app/visit.html</loc></url>
+  <url><loc>https://cako-the-cake-shop.vercel.app/gallery.html</loc></url>
 </urlset>

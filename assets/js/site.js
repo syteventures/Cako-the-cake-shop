@@ -1,4 +1,4 @@
-/* Cako The Cake Shop: page behaviour. No dependencies.
+/* Cako Cake: page behaviour. No dependencies.
  * Shared (every page): the Pune clock and live status, the header, the phone menu, the old hours line.
  * cakes.html: filter chips (aria-pressed, URL hash, polite live region), Shelves / Price list, a hand-written FLIP.
  * order.html: the order slip (live piping, the exact WhatsApp message, validation, pre-selection, the phone bar).
@@ -447,7 +447,7 @@
       var size = val('size');
       var p = size === '½ kg' ? c.prices[0] : size === '1 kg' ? c.prices[1] : '';
       priceEl.hidden = false;
-      priceEl.innerHTML = p ? 'Demo price: <b>' + inr(p) + '</b> for <b>' + size + '</b>.' : 'For 1.5 kg and 2 kg: We’ll tell you the price on WhatsApp.';
+      priceEl.innerHTML = 'We’ll confirm today’s price for <b>' + size + '</b> on WhatsApp.';
     }
 
     function update(typed) {

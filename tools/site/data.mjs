@@ -5,9 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const part = (f) => fs.readFileSync(path.join(root, 'tools/partials', f), 'utf8');
-export const SITE = 'https://www.example-cako.in/'; // placeholder until the domain is bought
+export const SITE = 'https://cako-the-cake-shop.vercel.app/'; // live address; change here when a custom domain is bought
 export const PHONE = '+918446966779';
-export const DIRECTIONS = 'https://www.google.com/maps/dir/?api=1&amp;destination=18.46117%2C73.87538';
+export const DIRECTIONS = 'https://www.google.com/maps/dir/?api=1&amp;destination=Cako+Cake&amp;destination_place_id=ChIJoXZOdifrwjsRGWtERyUqq4A';
 export const ZOMATO = 'https://www.zomato.com/pune/kekiz-the-cake-shop-2-bibvewadi';
 
 // The shop's own cakes. Names describe the photo; prices are demo values the owner confirms (data-assumed).

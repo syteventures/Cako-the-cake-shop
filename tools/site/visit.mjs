@@ -9,7 +9,7 @@ import { hoursDial } from './parts/midnight.mjs';
 const VISIT_FAQ = ['F3', 'F1', 'F4', 'F5'];
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const ADDRESS_ONE_LINE = 'Survey 658/9, Ambika Nagar, Upper Kondhwa Road, Bibvewadi, Pune, Maharashtra 411037';
-const MAP_SRC = 'https://maps.google.com/maps?q=18.46117,73.87538&amp;z=16&amp;output=embed';
+const MAP_SRC = 'https://maps.google.com/maps?q=18.4610957,73.875732&amp;z=16&amp;output=embed';
 const MAP_LABEL = 'Map of Upper Kondhwa Road, Bibvewadi, with Cako marked.';
 
 // the map facade's drawing: loose contour rings around the pin, nothing that pretends to be a street
@@ -46,8 +46,8 @@ const dial = hoursDial({ tone: 'night', size: 'lg' }).replace(
 
 export default page({
   file: 'visit.html',
-  title: 'Hours and Directions | Cako The Cake Shop, Bibvewadi, Pune',
-  description: 'Cako The Cake Shop, Survey 658/9, Ambika Nagar, Upper Kondhwa Road, Bibvewadi, Pune 411037. Open every day, 11 am to 12 midnight. Call +91 84469 66779.',
+  title: 'Hours and Directions | Cako Cake, Bibvewadi, Pune',
+  description: 'Cako Cake, Survey 658/9, Ambika Nagar, Upper Kondhwa Road, Bibvewadi, Pune 411037. Open every day, 11 am to 12 midnight. Call +91 84469 66779.',
   ogTitle: 'Hours and Directions',
   jsonld: part('jsonld.html') + '\n' + faqJsonLd(VISIT_FAQ),
   parts: ['midnight'],
