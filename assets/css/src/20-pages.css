@@ -800,3 +800,16 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 @media (prefers-reduced-motion: reduce) {
   .page-cakes .ccta__doodle { animation: none; }
 }
+
+/* Visit Hours: use the same midnight ground and star field as Cakes' Good to know section. */
+.page-visit .vhours {
+  background-color: var(--night-3, #5E0B11);
+  background-image:
+    radial-gradient(40% 50% at 30% 50%, rgba(255, 190, 120, .1), transparent 70%),
+    radial-gradient(1.2px 1.2px at 12% 18%, rgba(255, 240, 215, .7), transparent 2px),
+    radial-gradient(1px 1px at 46% 72%, rgba(255, 240, 215, .55), transparent 2px),
+    radial-gradient(1.4px 1.4px at 78% 30%, rgba(255, 240, 215, .6), transparent 2px),
+    radial-gradient(1px 1px at 88% 84%, rgba(255, 240, 215, .45), transparent 2px),
+    radial-gradient(1px 1px at 30% 90%, rgba(255, 240, 215, .4), transparent 2px);
+  background-size: 100% 100%, 230px 230px, 170px 170px, 290px 290px, 210px 210px, 260px 260px;
+}
