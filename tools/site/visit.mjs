@@ -117,6 +117,17 @@ export default page({
     </div>
   </section>
 
+  <section class="vserv" id="services" data-ground="night-2" aria-labelledby="services-title">
+    <div class="wrap">
+      <h2 class="h2 vserv__title" id="services-title">Delivery, takeaway or a seat</h2>
+      <ul class="vserv__list" role="list">
+        <li data-assumed>${icon('i-bike')}<h3 class="vserv__h">Home delivery</h3><p>Send your address on WhatsApp. We’ll confirm whether we reach you, the charge and the time.</p></li>
+        <li data-assumed>${icon('i-shopping-bag')}<h3 class="vserv__h">Takeaway</h3><p>Order ahead on WhatsApp, or choose at the counter and take it home.</p></li>
+        <li data-assumed>${icon('i-armchair')}<h3 class="vserv__h">Seating</h3><p>Sit down inside with something sweet. About ₹100 for one.</p></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="vfaq" id="faq" data-ground="night" aria-labelledby="faq-title">
     <div class="wrap ip-grid">
       <h2 class="h2 vfaq__title" id="faq-title">Visiting questions</h2>
