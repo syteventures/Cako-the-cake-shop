@@ -827,3 +827,105 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
     radial-gradient(1px 1px at 30% 90%, rgba(255, 240, 215, .4), transparent 2px);
   background-size: 100% 100%, 230px 230px, 170px 170px, 290px 290px, 210px 210px, 260px 260px;
 }
+
+
+
+/* =====================================================================================================================
+   VISIT PAGE: birthday-inspired section borders and ribbon dividers.
+   Fine patisserie rules, sugar-sprinkle dots and a small bow at each chapter break.
+   ===================================================================================================================== */
+.page-visit .vhero,
+.page-visit .vhours,
+.page-visit .vaddr,
+.page-visit .vfind,
+.page-visit .vfaq,
+.page-visit .vtalk {
+  position: relative;
+  isolation: isolate;
+}
+
+/* A delicate double ribbon runs along each section's lower edge. */
+.page-visit .vhero::after,
+.page-visit .vhours::after,
+.page-visit .vaddr::after,
+.page-visit .vfind::after,
+.page-visit .vfaq::after,
+.page-visit .vtalk::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 0;
+  height: 18px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 10px 5px at calc(50% - 8px) 6px, rgba(242,194,122,.78) 0 70%, transparent 76%),
+    radial-gradient(ellipse 10px 5px at calc(50% + 8px) 6px, rgba(255,190,210,.72) 0 70%, transparent 76%),
+    radial-gradient(circle at 50% 6px, #f8d99d 0 2.2px, transparent 2.8px),
+    linear-gradient(90deg, transparent, rgba(242,194,122,.58) 12%, rgba(242,194,122,.58) 42%, transparent 46%, transparent 54%, rgba(242,194,122,.58) 58%, rgba(242,194,122,.58) 88%, transparent),
+    radial-gradient(circle, rgba(255,221,169,.8) 0 1.2px, transparent 1.8px);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x;
+  background-size: 24px 12px, 24px 12px, 10px 10px, 100% 1px, 22px 7px;
+  background-position: center 0, center 0, center 1px, center 10px, 0 12px;
+  filter: drop-shadow(0 1px 5px rgba(242,194,122,.18));
+}
+
+/* Add a slim inset frame to the main content chapters, like the edge of a cake board. */
+.page-visit .vhours::before,
+.page-visit .vaddr::before,
+.page-visit .vfind::before,
+.page-visit .vfaq::before,
+.page-visit .vtalk::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 14px var(--gutter) 24px;
+  border: 1px solid rgba(242,194,122,.16);
+  outline: 1px solid rgba(255,190,210,.07);
+  outline-offset: 4px;
+  pointer-events: none;
+}
+
+/* The opening section gets a matching top ribbon so the page feels framed from the start. */
+.page-visit .vhero::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 0;
+  height: 8px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(242,194,122,.52) 14%, rgba(242,194,122,.52) 86%, transparent);
+  opacity: .75;
+}
+
+@media (max-width: 599.98px) {
+  .page-visit .vhero::after,
+  .page-visit .vhours::after,
+  .page-visit .vaddr::after,
+  .page-visit .vfind::after,
+  .page-visit .vfaq::after,
+  .page-visit .vtalk::after {
+    left: max(14px, var(--gutter));
+    right: max(14px, var(--gutter));
+    opacity: .82;
+  }
+  .page-visit .vhours::before,
+  .page-visit .vaddr::before,
+  .page-visit .vfind::before,
+  .page-visit .vfaq::before,
+  .page-visit .vtalk::before {
+    inset: 10px 14px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-visit .vhero::after,
+  .page-visit .vhours::after,
+  .page-visit .vaddr::after,
+  .page-visit .vfind::after,
+  .page-visit .vfaq::after,
+  .page-visit .vtalk::after { filter: none; }
+}
