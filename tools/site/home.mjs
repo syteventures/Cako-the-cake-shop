@@ -71,7 +71,7 @@ export default page({
         <p class="hero__lede lede" data-enter>Cako is a vegetarian-only cake shop on Upper Kondhwa Road. We’re open every day from 11 am to 12 midnight, for the cake you need tonight.</p>
         <div class="hero__cta" data-enter>
           <a class="btn btn--primary" href="order.html" data-hero-cta>${icon('b-whatsapp', 1)}<span>Order on WhatsApp</span></a>
-          <a class="link" href="cakes.html">See all 22 cakes</a>
+          <a class="link" href="cakes.html">See all 23 cakes</a>
         </div>
         <ul class="hero__facts" data-enter>
           <li><b>22</b><span>cakes on the menu</span></li>
@@ -113,7 +113,7 @@ export default page({
       ${head('counter', 'On the counter tonight', 'Eight counter favourites. Turn the stand, stop on one, and the order slip opens with that cake already chosen.')}
       ${turntable(FEATURED.map((s) => bySlug[s]), undefined, { autoplay: 0 })}
       <div class="counter__foot">
-        <a class="link" href="cakes.html">See all 22 cakes</a>
+        <a class="link" href="cakes.html">See all 23 cakes</a>
         <p class="small" data-assumed>Prices depend on the cake, the size and the design. WhatsApp us what you need and we’ll send you today’s price.</p>
       </div>
     </div>
@@ -165,7 +165,7 @@ export default page({
   <section class="sec flavours" id="flavours" data-ground="night" aria-labelledby="flavours-title">
     <div class="wrap flavours__grid">
       <div class="flavours__pick">
-        ${head('flavours', 'Start with a flavour', 'Twenty-two cakes in four groups. Pick the one that sounds like tonight.')}
+        ${head('flavours', 'Start with a flavour', 'Twenty-three cakes in four groups. Pick the one that sounds like tonight.')}
         <ul class="families" role="list" data-families>
           ${FLAVOURS.map(([k, desc, linkText], i) => `<li class="family${i === 0 ? ' is-on' : ''}" data-family="${k}">
             <button class="family__btn" type="button" aria-pressed="${i === 0}" aria-controls="fan-${k}"><span class="family__name">${CAT_NAMES[k]}</span><span class="family__n">${catCount(k)} cakes</span></button>
