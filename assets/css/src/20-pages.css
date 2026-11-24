@@ -827,3 +827,185 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
     radial-gradient(1px 1px at 30% 90%, rgba(255, 240, 215, .4), transparent 2px);
   background-size: 100% 100%, 230px 230px, 170px 170px, 290px 290px, 210px 210px, 260px 260px;
 }
+
+
+/* =====================================================================================================================
+   VISIT PAGE: cohesive finishing details across every chapter.
+   Keep the midnight-and-gold identity, while giving each section a clear visual role.
+   ===================================================================================================================== */
+
+/* The opening chapter: a fine illuminated edge grounds the live-hours story. */
+.page-visit .vhero {
+  isolation: isolate;
+}
+.page-visit .vhero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(242,194,122,.52) 18%, rgba(242,194,122,.2) 82%, transparent);
+}
+.page-visit .vhero__cap {
+  max-width: 34ch;
+  color: var(--text-2);
+  text-wrap: balance;
+}
+
+/* Hours: make the seven-day schedule read like one considered timetable. */
+.page-visit .vhours__head .h2,
+.page-visit .vaddr__copy .h2,
+.page-visit .vfind__title,
+.page-visit .vfaq__title,
+.page-visit .vtalk__title {
+  text-wrap: balance;
+}
+.page-visit .vhours__list {
+  border-top-color: rgba(242,194,122,.48);
+}
+.page-visit .vhours__day {
+  transition: padding-inline .25s ease, background-color .25s ease;
+}
+.page-visit .vhours__day.is-today {
+  padding-inline: 12px;
+  background: linear-gradient(90deg, rgba(242,194,122,.10), rgba(242,194,122,.025));
+  box-shadow: inset 2px 0 rgba(242,194,122,.72);
+}
+.page-visit .vhours__day.is-today dt::before {
+  box-shadow: 0 0 0 4px rgba(255,181,71,.16), 0 0 14px rgba(255,181,71,.28);
+}
+
+/* Address: balance the copy and map as a single destination panel. */
+.page-visit .vaddr {
+  position: relative;
+  isolation: isolate;
+}
+.page-visit .vaddr::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(58vw, 720px);
+  aspect-ratio: 1;
+  right: -18vw;
+  top: 8%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,177,105,.09), transparent 68%);
+}
+.page-visit .vaddr__copy {
+  padding: clamp(20px, 3vw, 34px);
+  border: 1px solid rgba(242,194,122,.24);
+  border-left: 2px solid rgba(242,194,122,.66);
+  background: linear-gradient(135deg, rgba(255,236,220,.045), rgba(255,236,220,.012));
+}
+.page-visit .vaddr__lines {
+  max-width: 23ch;
+  text-wrap: pretty;
+}
+.page-visit .vaddr__acts .btn {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+@media (hover: hover) {
+  .page-visit .vaddr__acts .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  }
+}
+.page-visit .vmap {
+  border: 1px solid rgba(242,194,122,.34);
+  box-shadow: 0 18px 48px rgba(0,0,0,.2), inset 0 0 0 5px rgba(242,194,122,.035);
+}
+
+/* Finding us: a quiet route-line motif, distinct from the star field above. */
+.page-visit .vfind {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.page-visit .vfind::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: .5;
+  background:
+    radial-gradient(circle at 83% 52%, rgba(242,194,122,.24) 0 2px, transparent 3px),
+    radial-gradient(circle at 83% 52%, transparent 0 42px, rgba(242,194,122,.12) 43px 44px, transparent 45px 76px, rgba(242,194,122,.08) 77px 78px, transparent 79px),
+    linear-gradient(118deg, transparent 0 76%, rgba(242,194,122,.07) 76.1% 76.25%, transparent 76.35%);
+}
+.page-visit .vfind__text {
+  max-width: 54ch;
+  padding-left: clamp(18px, 2.4vw, 28px);
+  border-left: 1px solid rgba(242,194,122,.48);
+}
+
+/* Visiting questions: keep the shared midnight ground, with clearer question separators. */
+.page-visit .vfaq {
+  position: relative;
+  isolation: isolate;
+}
+.page-visit .vfaq > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.page-visit .vfaq .faq,
+.page-visit .vfaq details {
+  border-color: rgba(242,194,122,.26);
+}
+
+/* Contact: a confident closing chapter with a restrained gold frame. */
+.page-visit .vtalk {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(55% 110% at 82% 50%, rgba(255,174,91,.10), transparent 72%),
+    linear-gradient(115deg, rgba(94,11,17,.96), rgba(48,8,15,.98));
+}
+.page-visit .vtalk::before,
+.page-visit .vtalk::after {
+  content: "";
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(242,194,122,.5), transparent);
+}
+.page-visit .vtalk::before { top: 0; }
+.page-visit .vtalk::after { bottom: 0; }
+.page-visit .vtalk__list {
+  border-top-color: rgba(242,194,122,.5);
+}
+.page-visit .vtalk__list li {
+  transition: padding-left .25s ease, background-color .25s ease;
+}
+@media (hover: hover) {
+  .page-visit .vtalk__list li:has(a:hover) {
+    padding-left: 12px;
+    background: linear-gradient(90deg, rgba(242,194,122,.08), transparent 75%);
+  }
+}
+.page-visit .vtalk__v {
+  text-underline-offset: 7px;
+}
+@media (max-width: 599.98px) {
+  .page-visit .vaddr__copy {
+    padding: 20px 16px;
+  }
+  .page-visit .vfind::before {
+    opacity: .28;
+    background-position: center;
+  }
+}
+
+/* Honour reduced-motion preferences for the small interactive lifts. */
+@media (prefers-reduced-motion: reduce) {
+  .page-visit .vhours__day,
+  .page-visit .vaddr__acts .btn,
+  .page-visit .vtalk__list li {
+    transition: none;
+  }
+}
