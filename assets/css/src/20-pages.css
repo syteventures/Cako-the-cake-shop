@@ -743,14 +743,14 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 .page-cakes .ccta__party {
   position: absolute; z-index: 0; inset: 0; overflow: hidden; pointer-events: none;
 }
-.page-cakes .ccta__garland {
-  position: absolute; top: -12px; bottom: -10px; width: clamp(52px, 8vw, 108px);
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,.3)) drop-shadow(0 0 10px rgba(255,190,210,.3));
-  opacity: .98;
+.page-cakes .ccta__ribbon {
+  position: absolute; top: -12px; bottom: -10px; width: clamp(42px, 7vw, 92px);
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,.32)) drop-shadow(0 0 8px rgba(255,190,210,.22));
+  opacity: .96;
 }
-.page-cakes .ccta__garland svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.page-cakes .ccta__garland--left { left: clamp(0px, 1.8vw, 24px); }
-.page-cakes .ccta__garland--right { right: clamp(0px, 1.8vw, 24px); transform: scaleX(-1); }
+.page-cakes .ccta__ribbon svg { display: block; width: 100%; height: 100%; }
+.page-cakes .ccta__ribbon--left { left: clamp(2px, 2.4vw, 30px); transform: rotate(-2deg); }
+.page-cakes .ccta__ribbon--right { right: clamp(2px, 2.4vw, 30px); transform: rotate(2deg); }
 .page-cakes .ccta__doodle {
   position: absolute; display: block; width: clamp(34px, 5vw, 68px); aspect-ratio: 1;
   opacity: .9; filter: drop-shadow(0 0 8px rgba(255,222,170,.35));
@@ -791,7 +791,7 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
   to { translate: 0 -9px; }
 }
 @media (max-width: 699.98px) {
-  .page-cakes .ccta__garland { width: 38px; opacity: .86; }
+  .page-cakes .ccta__ribbon { width: 34px; opacity: .84; }
   .page-cakes .ccta__doodle--star { left: 28%; top: 5%; }
   .page-cakes .ccta__doodle--heart { left: 39%; bottom: 7%; }
   .page-cakes .ccta__doodle--sprinkles { right: 28%; bottom: 5%; }
