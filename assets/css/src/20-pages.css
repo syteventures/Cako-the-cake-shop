@@ -800,3 +800,146 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 @media (prefers-reduced-motion: reduce) {
   .page-cakes .ccta__doodle { animation: none; }
 }
+
+
+/* =====================================================================================================================
+   VISIT PAGE: bespoke chapter patterns, alternating midnight grounds and framed section edges.
+   Each scene has its own quiet motif; all decorative layers sit behind the working content.
+   ===================================================================================================================== */
+
+.page-visit .vhero,
+.page-visit .vhours,
+.page-visit .vaddr,
+.page-visit .vfind,
+.page-visit .vserv,
+.page-visit .vfaq,
+.page-visit .vtalk {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.page-visit .vhero > .wrap,
+.page-visit .vhours > .wrap,
+.page-visit .vaddr > .wrap,
+.page-visit .vfind > .wrap,
+.page-visit .vserv > .wrap,
+.page-visit .vfaq > .wrap,
+.page-visit .vtalk > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* A little more contrast between chapters, while keeping the page in its midnight palette. */
+.page-visit .vhours { background-color: #3b0d18; }
+.page-visit .vaddr { background-color: #5e0b11; }
+.page-visit .vfind { background-color: #321018; }
+.page-visit .vserv { background-color: #4a0e14; }
+.page-visit .vfaq { background-color: #5a1019; }
+.page-visit .vtalk { background-color: #321018; }
+
+/* Hero: fine navigation rays and a warm compass-like halo around the opening-hours dial. */
+.page-visit .vhero::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .8;
+  background-image:
+    radial-gradient(circle at 76% 48%, rgba(242,194,122,.35) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 76% 48%, transparent 0 118px, rgba(242,194,122,.2) 119px 120px, transparent 121px 158px, rgba(242,194,122,.13) 159px 160px, transparent 161px),
+    repeating-conic-gradient(from 0deg at 76% 48%, rgba(242,194,122,.1) 0deg 1deg, transparent 1deg 15deg);
+  background-size: 30px 30px, auto, auto;
+  -webkit-mask-image: linear-gradient(90deg, transparent 12%, #000 52%, #000);
+  mask-image: linear-gradient(90deg, transparent 12%, #000 52%, #000);
+}
+
+/* Hours: dotted clockwork rings, like a quiet wall clock behind the weekly schedule. */
+.page-visit .vhours::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .58;
+  background-image:
+    radial-gradient(circle at 82% 46%, transparent 0 74px, rgba(242,194,122,.22) 75px 76px, transparent 77px 112px, rgba(242,194,122,.14) 113px 114px, transparent 115px),
+    radial-gradient(circle, rgba(242,194,122,.48) 0 1px, transparent 1.6px);
+  background-size: auto, 26px 26px;
+  background-position: center, 8px 10px;
+}
+
+/* Address: soft topographic contours echo the map facade below. */
+.page-visit .vaddr::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .7;
+  background-image:
+    repeating-radial-gradient(ellipse at 78% 42%, transparent 0 24px, rgba(242,194,122,.16) 25px 26px, transparent 27px 43px),
+    linear-gradient(135deg, transparent 48.8%, rgba(242,194,122,.08) 49.5% 50%, transparent 50.7%);
+  background-size: 100% 100%, 44px 44px;
+}
+
+/* Finding us: a small constellation of route dots and dashed-looking directional lanes. */
+.page-visit .vfind::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .64;
+  background-image:
+    radial-gradient(circle, rgba(255,220,160,.58) 0 1.3px, transparent 1.8px),
+    repeating-linear-gradient(135deg, transparent 0 34px, rgba(242,194,122,.13) 34px 35px, transparent 35px 70px);
+  background-size: 38px 38px, auto;
+  background-position: 4px 8px, center;
+}
+
+/* Services: a restrained bakery-tile lattice behind the three ways to visit. */
+.page-visit .vserv::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .56;
+  background-image:
+    linear-gradient(45deg, transparent 48.8%, rgba(242,194,122,.18) 49.4% 50.6%, transparent 51.2%),
+    linear-gradient(-45deg, transparent 48.8%, rgba(242,194,122,.1) 49.4% 50.6%, transparent 51.2%),
+    radial-gradient(circle at 50% 50%, rgba(242,194,122,.34) 0 1px, transparent 1.8px);
+  background-size: 48px 48px, 48px 48px, 48px 48px;
+}
+
+/* Visiting questions: a soft star field with tiny ornamental corner points. */
+.page-visit .vfaq::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .68;
+  background-image:
+    radial-gradient(1.4px 1.4px at 12% 24%, rgba(255,240,215,.7), transparent 2px),
+    radial-gradient(1px 1px at 42% 72%, rgba(255,240,215,.55), transparent 2px),
+    radial-gradient(1.3px 1.3px at 78% 30%, rgba(255,240,215,.62), transparent 2px),
+    radial-gradient(1px 1px at 90% 82%, rgba(255,240,215,.45), transparent 2px),
+    radial-gradient(circle, rgba(242,194,122,.38) 0 1px, transparent 1.7px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 34px 34px;
+}
+
+/* Talk to us: elegant vertical pinstripes and a warm halo behind the contact details. */
+.page-visit .vtalk::before {
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .7;
+  background-image:
+    radial-gradient(ellipse at 76% 50%, rgba(255,184,119,.13), transparent 58%),
+    repeating-linear-gradient(90deg, transparent 0 27px, rgba(242,194,122,.1) 27px 28px, transparent 28px 56px);
+}
+
+/* A consistent inset double-gold frame gives every Visit chapter a clear edge. */
+.page-visit .vhero::after,
+.page-visit .vhours::after,
+.page-visit .vaddr::after,
+.page-visit .vfind::after,
+.page-visit .vserv::after,
+.page-visit .vfaq::after,
+.page-visit .vtalk::after {
+  content: ""; position: absolute; z-index: 2; inset: 14px var(--gutter);
+  pointer-events: none;
+  border: 1px solid rgba(242,194,122,.42);
+  outline: 1px solid rgba(242,194,122,.16);
+  outline-offset: 5px;
+}
+.page-visit .vhero::after { inset: calc(var(--top-h) + 12px) var(--gutter) 14px; }
+.page-visit .vfind > .wrap { border-top-color: rgba(242,194,122,.42); }
+
+@media (max-width: 599.98px) {
+  .page-visit .vhero::after { inset: calc(var(--top-h) + 10px) var(--gutter) 12px; }
+  .page-visit .vhours::after,
+  .page-visit .vaddr::after,
+  .page-visit .vfind::after,
+  .page-visit .vserv::after,
+  .page-visit .vfaq::after,
+  .page-visit .vtalk::after { inset: 10px var(--gutter); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-visit .vhero::before,
+  .page-visit .vhours::before,
+  .page-visit .vaddr::before,
+  .page-visit .vfind::before,
+  .page-visit .vserv::before,
+  .page-visit .vfaq::before,
+  .page-visit .vtalk::before { animation: none; }
+}
