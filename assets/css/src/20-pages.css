@@ -658,3 +658,64 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
   .page-cakes .know::before, .page-cakes .ccta::before { animation: none; }
 }
 
+
+
+/* =====================================================================================================================
+   CAKES PAGE: bespoke section dividers and the deep-maroon Good to Know chapter.
+   These details echo the homepage's rails, double rules and framed chapter transitions.
+   ===================================================================================================================== */
+
+/* hero: a double patisserie rule, finished with a small centred diamond */
+.page-cakes .case-hero { position: relative; }
+.page-cakes .case-hero::after {
+  content: ""; position: absolute; z-index: 2; left: var(--gutter); right: var(--gutter); bottom: 16px; height: 9px;
+  pointer-events: none;
+  background:
+    radial-gradient(4px 4px at 50% 50%, var(--gold) 0 1.5px, transparent 1.8px),
+    linear-gradient(var(--gold-hair), var(--gold-hair)) left 2px / calc(50% - 12px) 1px no-repeat,
+    linear-gradient(var(--gold-hair), var(--gold-hair)) right 2px / calc(50% - 12px) 1px no-repeat,
+    linear-gradient(var(--gold-hair), var(--gold-hair)) left 7px / calc(50% - 12px) 1px no-repeat,
+    linear-gradient(var(--gold-hair), var(--gold-hair)) right 7px / calc(50% - 12px) 1px no-repeat;
+}
+
+/* cake catalogue: a dotted sugar-bead rail along the foot of the display case */
+.page-cakes .case::after {
+  content: ""; position: absolute; z-index: 2; left: var(--gutter); right: var(--gutter); bottom: 0; height: 12px;
+  pointer-events: none;
+  border-top: 1px solid rgba(242, 194, 122, .42);
+  background:
+    radial-gradient(circle, rgba(242, 194, 122, .72) 0 1.5px, transparent 1.9px) 0 5px / 18px 6px repeat-x;
+}
+
+/* sizes strip: perforated paper edge that meets the maroon section below */
+.page-cakes .sstrip::after {
+  content: ""; position: absolute; z-index: 2; left: 0; right: 0; bottom: -1px; height: 13px;
+  pointer-events: none;
+  background: radial-gradient(circle at 10px 0, transparent 7.5px, #3b0d18 8px) 0 0 / 20px 13px repeat-x;
+}
+
+/* Good to Know: deep maroon ground, framed by a pair of fine gold rules */
+.page-cakes .know { background-color: #3b0d18; }
+.page-cakes .know::after {
+  content: ""; position: absolute; z-index: 0; left: var(--gutter); right: var(--gutter); bottom: 12px; height: 8px;
+  pointer-events: none;
+  border-top: 1px solid rgba(242, 194, 122, .5);
+  border-bottom: 1px solid rgba(242, 194, 122, .28);
+  background: radial-gradient(circle, rgba(242, 194, 122, .72) 0 1.2px, transparent 1.6px) center 3px / 34px 6px repeat-x;
+}
+
+/* custom cake section: a quiet double-line frame, like the border on a cake presentation card */
+.page-cakes .ccta::after {
+  content: ""; position: absolute; z-index: 0; inset: 18px var(--gutter);
+  pointer-events: none;
+  border: 1px solid rgba(242, 194, 122, .32);
+  outline: 1px solid rgba(242, 194, 122, .13);
+  outline-offset: 5px;
+}
+
+@media (max-width: 599.98px) {
+  .page-cakes .case-hero::after { left: var(--gutter); right: var(--gutter); }
+  .page-cakes .case::after { left: var(--gutter); right: var(--gutter); }
+  .page-cakes .know::after { left: var(--gutter); right: var(--gutter); }
+  .page-cakes .ccta::after { inset: 14px var(--gutter); }
+}
