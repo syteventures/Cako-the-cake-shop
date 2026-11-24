@@ -281,29 +281,6 @@ export default page({
     </div>
   </section>
 
-  <section class="sec visit" id="visit" data-ground="night" aria-labelledby="visit-title">
-    <div class="wrap visit__grid">
-      <figure class="visit__photo framed"><img src="assets/img/shop/logo-arch-800.webp" srcset="assets/img/shop/logo-arch-800.webp 800w, assets/img/shop/logo-arch-1600.webp 1600w" sizes="(min-width: 960px) 34vw, 92vw" width="800" height="1000" alt="The glowing red Cako sign inside a lit white arch" loading="lazy" decoding="async"></figure>
-      <div class="visit__copy">
-        ${head('visit', 'Find us on Upper Kondhwa Road', '', true)}
-        <address class="h3 visit__addr" data-assumed>${ADDRESS}</address>
-        <p class="visit__hours">Open every day, 11 am to 12 midnight</p>
-        ${live('visit__live')}
-        <div class="visit__dial">${hoursDial({ tone: 'night', size: 'sm' })}<p class="small visit__caption">The gold arc is our opening hours. The hand is the time in Pune, right now.</p></div>
-        <div class="visit__cta">
-          <a class="btn btn--primary" href="${DIRECTIONS}" target="_blank" rel="noopener">${icon('i-navigation')}<span>Get directions</span></a>
-          <a class="btn btn--secondary" href="${TEL}">${icon('i-phone')}<span>Call the shop</span></a>
-          <a class="link" href="visit.html">Plan your visit</a>
-        </div>
-      </div>
-      <ul class="trio" role="list">
-        <li>${icon('i-bike')}<b>Home delivery</b><span data-assumed>Ask us on WhatsApp whether we reach you.</span></li>
-        <li>${icon('i-shopping-bag')}<b>Takeaway</b><span data-assumed>Order ahead, collect from the counter.</span></li>
-        <li>${icon('i-armchair')}<b>Seats inside</b><span data-assumed>About ₹100 for one.</span></li>
-      </ul>
-    </div>
-  </section>
-
   <section class="sec faqs" id="faq" data-ground="night-2" aria-labelledby="faq-title">
     <div class="wrap faqs__grid">
       <div class="faqs__main">
