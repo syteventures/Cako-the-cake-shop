@@ -74,7 +74,7 @@ export default page({
           <a class="link" href="cakes.html">See all 23 cakes</a>
         </div>
         <ul class="hero__facts" data-enter>
-          <li><b>22</b><span>cakes on the menu</span></li>
+          <li><b>23</b><span>cakes on the menu</span></li>
           <li><b>100%</b><span>vegetarian, always</span></li>
           <li><b>11–12</b><span>open daily, am to midnight</span></li>
         </ul>
