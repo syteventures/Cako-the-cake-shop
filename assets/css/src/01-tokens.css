@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Cako The Cake Shop: design tokens ("Midnight Patisserie", palette v7: logo red + white (punchier), wall reds, balloon blush, LED champagne; from Cako Images.zip)
+   One :root block. Load after fonts.css and before every component rule.
+   Contrast ratios are WCAG 2.x, computed in _workfiles/fontwork/cd-contrast.py.
+   ========================================================================== */
+:root {
+  /* ---- Night grounds (chapters 1 and 3) ---------------------------------- */
+  --night: #A3141C;          /* cocoa night: hero, flavours, occasions, visit. cream 14.85:1 */
+  --night-2: #8E1219;        /* raised cocoa: counter turntable, FAQ. cream 14.02:1, red edge 3.01:1 */
+  --night-3: #5E0B11;        /* deepest well: ticker, midnight clock, close, footer. cream 15.99:1 */
+  --cream: #FFF8F0;          /* text and headings on night; focus ring on night */
+  --cream-2: #F0D6CB;        /* secondary text on night (8.64:1). Never on paper (1.45:1 on paper-2) */
+
+  /* ---- Paper grounds (chapter 2, paper cards, order slip) ---------------- */
+  --paper: #FFFFFF;          /* vanilla paper. ink 14.84:1 */
+  --paper-2: #FBEAEE;        /* biscuit: raised panels on paper. ink 12.76:1 */
+  --ink: #2A0B0F;            /* text on paper and cream; focus ring on paper */
+  --ink-2: #6E4A4C;          /* secondary text, input underlines (6.36:1 on paper, 5.47:1 on paper-2) */
+
+  /* ---- Action red: the only accent ---------------------------------------- */
+  --accent: #C8161D;         /* primary button fill only. on-accent label 5.25:1. Never text on night (3.19:1) */
+  --accent-press: #A3101A;   /* pressed fill (label 6.99:1); red links and errors on paper (6.08:1) */
+  --accent-ink: #A3101A;     /* red text on paper or cream (6.08:1 / 6.20:1) */
+  --on-accent: #FFFFFF;      /* label on red buttons */
+  --brand-red: #EF3334;      /* logo badge and the hero's "1" "2" candles only. Never UI text (cream on it 3.35:1) */
+
+  /* ---- Gold: fine ornament ------------------------------------------------ */
+  --wall: #981112;          /* the lit shop wall (Cako Images.zip): big colour fields only */
+  --wall-2: #681615;
+  --blush: #F9E4E8;         /* second colour: the party balloons and strawberry cakes. Light grounds and tints; ink on it 15.6:1 */
+  --rose: #C85A72;          /* blush deepened: fine accents on paper only */
+  --gold: #F2C27A;           /* hairlines, dial ticks, icons, numerals on night (7.90:1). Never on paper (1.84:1) */
+  --gold-deep: #8A5A1E;      /* gold on paper: hairlines, icons, small italic notes (5.67:1 / 4.87:1) */
+  --gold-hair: rgba(242, 194, 122, .45);  /* ornamental gold hairline on night (composite #6E5639) */
+  --gold-deep-hair: rgba(138, 90, 30, .35);
+
+  /* ---- Structure lines ------------------------------------------------------ */
+  --line: rgba(42, 11, 15, .13);          /* structural hairline on paper (composite #D1C4B4) */
+  --line-night: rgba(255, 240, 225, .15); /* structural hairline on night (composite #3F322C) */
+
+  /* ---- Live light ------------------------------------------------------------ */
+  --candle: #FFB547;                      /* flame core, "open now" dot and text on night (10.20:1) */
+  --candle-glow: rgba(255, 190, 110, .22); /* one light pool per scene, centred on its source */
+  --smoke: #9C8A7E;                       /* closed dot, blown-out wick (5.42:1 on night) */
+  --live: var(--candle);                  /* status dot colour used by the shell */
+
+  /* ---- Font stacks (faces in fonts.css) --------------------------------------- */
+  --f-display: "Bodoni Moda", "Cako Rupee", "Bodoni Moda Fallback", Didot, "Bodoni 72", Georgia, serif;
+  --f-text: "Schibsted Grotesk", "Schibsted Grotesk Fallback", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --f-script: "Sofia", "Segoe Script", "Snell Roundhand", cursive;
+  --f-deva: "Tiro Devanagari Marathi", "Nirmala UI", "Kohinoor Devanagari", "Noto Serif Devanagari", "Noto Sans Devanagari", serif;
+  --f-deva-ui: "Nirmala UI", "Kohinoor Devanagari", "Noto Sans Devanagari", sans-serif; /* visitor-typed Devanagari */
+  --display-weight: 500;
+  --display-axes: normal;    /* opsz follows font-size through font-optical-sizing: auto */
+
+  /* ---- Type scale (px at 360 -> 1440 viewport) ------------------------------- */
+  --fs-display-xxl: clamp(4.5rem, 1.6rem + 12.5vw, 13rem);    /* 72 -> 206  countdown, the "22" on Cakes. Bodoni 400 */
+  --fs-display-xl: clamp(2.875rem, 1.75rem + 5vw, 6.5rem);    /* 46 -> 100  home H1. Bodoni 500 */
+  --fs-display-l: clamp(2.5rem, 1.6rem + 3.75vw, 5.25rem);    /* 40 -> 80   inner-page H1, closing H2. Bodoni 500 */
+  --fs-h2: clamp(2.125rem, 1.6rem + 2.4vw, 3.75rem);          /* 34 -> 60   section H2. Bodoni 500 */
+  --fs-h3: clamp(1.625rem, 1.4rem + 1vw, 2.375rem);           /* 26 -> 37   H3, the address. Bodoni 500 */
+  --fs-quote: clamp(1.5rem, 1.3rem + 0.9vw, 2.25rem);         /* 24 -> 34   review quotes. Bodoni italic 400 */
+  --fs-name: clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);      /* 22 -> 28   cake names, FAQ questions. Bodoni 600 */
+  --fs-lede: clamp(1.125rem, 1.05rem + 0.33vw, 1.375rem);     /* 18 -> 22   leads; ticker in Bodoni italic (min 20) */
+  --fs-ticker: clamp(1.25rem, 1.18rem + 0.3vw, 1.5rem);       /* 20 -> 24   Bodoni italic, never below 20 px */
+  --fs-body: clamp(1rem, 0.955rem + 0.2vw, 1.125rem);         /* 16 -> 18   Schibsted 400 */
+  --fs-small: clamp(0.875rem, 0.85rem + 0.11vw, 0.9375rem);   /* 14 -> 15   meta, captions, small print */
+  --fs-eyebrow: clamp(0.875rem, 0.85rem + 0.11vw, 0.9375rem); /* 14 -> 15   Schibsted 500, sentence case */
+
+  --lh-xxl: 0.86;  --lh-display: 0.94;  --lh-h2: 1.0;  --lh-h3: 1.08;  --lh-name: 1.15;
+  --lh-quote: 1.22;  --lh-lede: 1.45;  --lh-body: 1.62;  --lh-body-night: 1.68;  --lh-small: 1.5;
+  --tr-display: -0.02em;  --tr-h2: -0.012em;  --tr-h3: -0.006em;  --tr-small: 0.005em;  --tr-eyebrow: 0.01em;
+  --measure: 62ch;  --measure-lede: 46ch;
+
+  /* ---- Space, grid, chrome ------------------------------------------------------ */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;  --sp-3: 0.75rem;  --sp-4: 1rem;  --sp-5: 1.5rem;
+  --sp-6: 2rem;  --sp-7: 3rem;  --sp-8: 4rem;  --sp-9: 6rem;  --sp-10: 8rem;
+  --section: clamp(5rem, 3rem + 7vw, 9.5rem);        /* 80 -> 148 block padding of a section */
+  --section-tight: clamp(3.5rem, 2.5rem + 4vw, 6rem); /* bands: ticker neighbours, size strip */
+  --wrap: 82rem;                                      /* 1312 px content width */
+  --gutter: clamp(1rem, -0.333rem + 5.555vw, 4rem);   /* side margin: 16 phone, ~40 tablet, 64 desktop */
+  --gap: clamp(1rem, 0.8rem + 0.6vw, 1.5rem);         /* column gap: 16 -> 24 */
+  --cols: 12;                                         /* 8 at 768-1199, 4 below 768 (set in media queries) */
+  --top-h: clamp(4rem, 3.85rem + 0.6vw, 4.5rem);      /* header height 64 -> 72 */
+  --bar-h: 3.5rem;                                    /* phone action bar, plus env(safe-area-inset-bottom) */
+  --tap: 44px;                                        /* minimum target */
+  --z-header: 60;  --z-bar: 70;  --z-menu: 90;  --z-skip: 1000;
+
+  /* ---- Radii by role ------------------------------------------------------------- */
+  --r-photo: 2px;   /* photos and photo windows */
+  --r-paper: 4px;   /* place-card, tags, order slip, help card */
+  --r-pill: 999px;  /* buttons, chips, status pill */
+  --r-round: 50%;   /* dials, turntable, badge, icon buttons */
+
+  /* ---- Light, shadow, frames ------------------------------------------------------- */
+  --contact: radial-gradient(closest-side, rgba(0, 0, 0, .55), rgba(0, 0, 0, .26) 48%, transparent); /* ellipse under every object */
+  --contact-paper: radial-gradient(closest-side, rgba(31, 18, 13, .34), rgba(31, 18, 13, .14) 50%, transparent);
+  --glow: radial-gradient(closest-side, var(--candle-glow), transparent);  /* candle / downlight pool */
+  --rim-night: inset 0 1px 0 rgba(255, 236, 220, .08);  /* top rim on night-2 surfaces */
+  --shadow-paper: 0 1px 0 rgba(31, 18, 13, .06), 0 16px 32px -20px rgba(31, 18, 13, .28);  /* raised on paper */
+  --shadow-paper-night: 0 2px 0 rgba(0, 0, 0, .25), 0 24px 48px -28px rgba(0, 0, 0, .7);   /* paper card on night */
+  --frame-inset: rgba(138, 90, 30, .3);  /* menu-card inner frame: outline 1px, outline-offset -8px */
+  --mat-offset: 10px;                     /* gold mat line around framed photos */
+
+  /* ---- Motion ---------------------------------------------------------------------------- */
+  --ease-out: cubic-bezier(.16, 1, .3, 1);     /* = GSAP "expo.out": arrivals */
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1); /* turntable steps, clock */
+  --ease-in: cubic-bezier(.7, 0, .84, 0);      /* exits */
+  --dur-press: 120ms;  --dur-hover: 240ms;  --dur-ui: 420ms;  --dur-reveal: 800ms;  --dur-hero: 1800ms;
+  --spin-bottom: 40s;  --spin-middle: 30s;  --spin-top: 24s;   /* hero tiers: cw, ccw, cw */
+}

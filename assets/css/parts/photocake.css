@@ -1,0 +1,168 @@
+/* Cako parts: the revolving photo cake (home hero). Markup: _workfiles/demos/photocake.snippet.mjs. JS: assets/js/parts/photocake.js.
+   Pure CSS 3D: every position comes from --u (1% of the width), each tier's --r --h --y --n and each panel's --i, so it renders
+   without JS. One preserve-3d scene: no opacity, filter, overflow or clip on a 3D ancestor. A non-rotating sleeve holds the light. */
+.pcake {
+  --u: 1cqi; --tilt: -12deg; --eo: var(--ease-out, cubic-bezier(.16, 1, .3, 1)); --frost: #f7ecdd; --frost-2: #e6d2b6; --bead: #fffaf2; --sh: 28 14 8;
+  container: pcake / inline-size; display: grid; position: relative; width: 100%;
+  touch-action: pan-y; cursor: grab; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.pcake.is-drag { cursor: grabbing; }
+.pcake__scene { position: relative; aspect-ratio: 100 / 96; pointer-events: none; perspective: 250cqi; perspective-origin: 50% 52cqi; }
+.pcake__cam, .pcake__tier, .pcake__turn, .pcake__spin, .pcake__sl, .pcake__stand { position: absolute; transform-style: preserve-3d; }
+.pcake__cam { left: 50%; top: 52cqi; transform: rotateX(var(--tilt)); }
+
+/* tiers: radius 37.5 / 28.6 / 19.6 % of the width; 12 / 10 / 8 panels, 10 / 8 / 6 under 460 px */
+.pcake__tier {
+  --n: var(--nl); --R: calc(var(--r) * var(--u)); --H: calc(var(--h) * var(--u));
+  --A: calc(var(--R) * cos(180deg / var(--n))); --w: calc(var(--R) * 2 * sin(180deg / var(--n)) + 1px);
+  transform: translateY(calc(var(--y) * var(--u)));
+}
+.pcake__t1 { --t: 0; --r: 37.5; --h: 21.5; --y: 2.5; --ao: 76%; --dur: var(--spin-bottom, 40s); --dir: -1; --off: 0deg; }
+.pcake__t2 { --t: 1; --r: 28.6; --h: 18.5; --y: -16; --ao: 69%; --dur: var(--spin-middle, 30s); --dir: 1; --off: calc(180deg / var(--n)); }
+.pcake__t3 { --t: 2; --r: 19.6; --h: 16.5; --y: -32.5; --ao: -20%; --dur: var(--spin-top, 24s); --dir: -1; --off: 0deg; }
+@container pcake (max-width: 459px) { .pcake__tier { --n: var(--ns); } .pcake__p--lg { display: none; } }
+
+/* music box: bottom clockwise, middle anticlockwise, top clockwise, on the compositor. JS adds .is-live (never under
+   reduced motion or html.low-power) */
+.pcake__spin { transform: rotateY(var(--off)); }
+.pcake.is-live .pcake__spin { animation: pcake-spin var(--dur) linear infinite; will-change: transform; }
+@keyframes pcake-spin { to { transform: rotateY(calc(var(--off) + var(--dir) * 360deg)); } }
+
+/* photo panels: a cutout on ivory fondant, gold seam, piped pearls top and bottom (the lower row hides the board's cut edge) */
+.pcake__p {
+  --j: sin(var(--i) * 137.5deg + var(--t) * 61deg);
+  position: absolute; margin-left: calc(var(--w) / -2); width: var(--w); height: var(--H); overflow: hidden; backface-visibility: hidden;
+  transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--A));
+  background: linear-gradient(var(--frost) 55%, var(--frost-2)); box-shadow: inset 1px 0 #c6a26bcc;
+}
+.pcake__p img { position: absolute; inset: auto 0 .45cqi; margin: auto; width: min(88%, var(--H) * .84); height: auto; max-width: none; }
+.pcake__p::before, .pcake__p::after {
+  content: ""; position: absolute; z-index: 1; inset: 0 0 auto; height: 1.7cqi;
+  background: radial-gradient(circle at 42% 38%, #fff 7%, var(--bead) 20%, #e5d1b3 47%, #76523080 58%, #0000 64%) 50% / 1.7cqi 100% space no-repeat;
+}
+.pcake__p::after { inset: auto 0 0; }
+
+/* tier top: fondant lit from the upper left, the upper tier's shadow (shows when the tiers part), a dotted bead rim */
+.pcake__top {
+  position: absolute; margin: calc(var(--R) * -1); width: calc(var(--R) * 2); aspect-ratio: 1; box-sizing: border-box;
+  border-radius: 50%; border: 1.25cqi dotted var(--bead); transform: rotateX(90deg);
+  background: radial-gradient(closest-side, rgb(var(--sh) / .5) calc(var(--ao) - 8%), rgb(var(--sh) / .28) var(--ao), #0000 calc(var(--ao) + 12%)),
+    radial-gradient(circle at 34% 28%, #fffaf3, var(--frost) 42%, var(--frost-2) 86%, #c9a77f);
+}
+
+/* the sleeve: the front 5 faces of a 12-gon just outside the panels. It never turns, so the light stays put.
+   The outer faces ease off at the very edge (a rim light), where the faceted ring is narrower at some angles */
+.pcake__sl i {
+  --sw: calc((var(--R) + 1px) * .5359 + 1px);
+  position: absolute; margin-left: calc(var(--sw) / -2); width: var(--sw); height: var(--H);
+  transform: rotateY(calc(var(--k) * 30deg)) translateZ(calc(var(--R) + 1px));
+  background: linear-gradient(rgb(var(--sh) / .16), #0000 16% 80%, rgb(var(--sh) / .24)), linear-gradient(90deg, var(--g));
+}
+.pcake__sl i:nth-child(1) { --k: -2; --g: rgb(var(--sh) / .14), rgb(var(--sh) / .32) 40%, rgb(var(--sh) / .04); }
+.pcake__sl i:nth-child(2) { --k: -1; --g: rgb(var(--sh) / .04), #fff7e826 60%, #fff7e80d; }
+.pcake__sl i:nth-child(3) { --k: 0; --g: #fff7e80d, rgb(var(--sh) / .08); }
+.pcake__sl i:nth-child(4) { --k: 1; --g: rgb(var(--sh) / .08), rgb(var(--sh) / .32); }
+.pcake__sl i:nth-child(5) { --k: 2; --g: rgb(var(--sh) / .32), rgb(var(--sh) / .62) 55%, rgb(var(--sh) / .3); }
+
+/* the stand: gold plate and rim, a lathe-turned stem drawn once (it never turns), foot, contact shadow */
+.pcake__plate, .pcake__rim, .pcake__foot, .pcake__shadow {
+  position: absolute; margin: calc(var(--d) * -.5cqi); width: calc(var(--d) * 1cqi); aspect-ratio: 1;
+  border-radius: 50%; transform: translateY(calc(var(--y) * 1cqi)) rotateX(90deg);
+}
+.pcake__plate { --d: 85; --y: 24; background: radial-gradient(closest-side, #0000 90%, #ffeecdb3 93%, #0000 96.5%), conic-gradient(from 200deg, #7a5629, #ead095, #a27a3f, #f5e1b0, #7a5629, #ddbd7e, #7a5629); }
+.pcake__rim { --d: 84; --y: 25.5; background: #563a1b; }
+.pcake__foot { --d: 29; --y: 40.4; background: conic-gradient(from 200deg, #6d4c22, #e4c78d, #8f6a33, #dab97a, #6d4c22); }
+/* on a light ground set --contact: var(--contact-paper) on the section */
+.pcake__shadow { --d: 68; --y: 40.9; background: var(--contact, radial-gradient(closest-side, #0000008c, #00000042 48%, #0000)); }
+.pcake__stem { position: absolute; margin: 25.4cqi 0 0 -18cqi; width: 36cqi; height: 15.1cqi; }
+
+/* candles "1" "2": Bodoni numerals (low optical size, so no hairlines vanish) in the brand red, two wax shadows, cream wicks.
+   No per-flame halo: the scene has one light pool (the page draws it) */
+.pcake__candles {
+  position: absolute; display: flex; gap: .04em; transform: translate(-50%, -84%) translateZ(calc(var(--R) * .3));
+  font: 600 13.5cqi / .72 var(--f-display, "Bodoni Moda", Didot, Georgia, serif); font-variation-settings: "opsz" 6;
+  color: var(--brand-red, #ef3334); -webkit-text-stroke: .009em; text-shadow: .015em .012em #c51d23, .03em .024em #8c1218;
+}
+.pcake__c { position: relative; }
+.pcake__c::before { content: ""; position: absolute; left: 50%; top: -.11em; width: max(1px, .022em); height: .13em; translate: -50%; background: var(--cream, #f8eee2); }
+.pcake__c i {
+  position: absolute; left: 50%; top: -.46em; width: .15em; height: .34em; margin-left: -.075em; transform-origin: 50% 90%;
+  border-radius: 50% 50% 46% 46% / 64% 64% 36% 36%;
+  background: radial-gradient(50% 60% at 50% 70%, #fffbe8 30%, var(--candle, #ffb547) 55%, #ff6e24d9 80%, #ff6e2400);
+}
+/* closed (00:00 to 10:59 Pune time): wicks out; at midnight the flame leaves as one wisp of smoke */
+.pcake.is-out .pcake__c i { visibility: hidden; }
+.pcake.is-out .pcake__c::before { background: var(--smoke, #9c8a7e); }
+.pcake.is-snuff .pcake__c i { visibility: visible; background: radial-gradient(closest-side, #d6c8bc90, #0000); animation: pcake-smoke 2.6s ease-out both; }
+
+/* motion. The load burst needs html.js (set in <head>) and no pause, so with no JS everything is already in place.
+   JS adds .is-still under reduced motion, Save-Data or html.low-power, which also stops the burst */
+@media (prefers-reduced-motion: no-preference) {
+  html.js:not([data-motion=paused]) .pcake:not(.is-still) { --in: pcake-in; --grow: pcake-grow; --fade: pcake-fade; --rise: pcake-rise; --lite: pcake-lite; }
+  .pcake__p { animation: var(--in, none) 1.15s var(--eo) calc(var(--t) * 140ms + var(--i) * 14ms) both; }
+  .pcake__top { animation: var(--grow, none) .7s var(--eo) calc(var(--t) * 140ms + 560ms) both; }
+  .pcake__sl i { animation: var(--fade, none) .6s ease-out calc(var(--t) * 140ms + 300ms) both; }
+  .pcake__candles { animation: var(--rise, none) .7s var(--eo) 1.15s both; }
+  .pcake__c i { animation: var(--lite, none) .4s ease-out 1.5s both, pcake-flicker 1.9s ease-in-out 1.9s infinite alternate; }
+}
+/* .is-paused: the site pause control (photocake.js also mirrors html[data-motion=paused]); .is-off: off screen or hidden tab */
+.pcake:is(.is-paused, .is-off) :is(.pcake__spin, .pcake__c i) { animation-play-state: paused; }
+
+@keyframes pcake-in {
+  from { opacity: 0; transform: rotateY(calc(var(--i) * 360deg / var(--n) + var(--j) * 25deg)) translateZ(calc(var(--A) * 2.4)) rotateX(calc(var(--j) * 40deg)); }
+  30% { opacity: 1; }
+}
+@keyframes pcake-grow { from { scale: 0; } }
+@keyframes pcake-fade { from { opacity: 0; } }
+@keyframes pcake-rise { from { translate: 0 70%; opacity: 0; } }
+@keyframes pcake-lite { from { opacity: 0; transform: scale(.3, 0); } }
+@keyframes pcake-flicker { 40% { transform: scale(.93, 1.07) skewX(2deg); } to { transform: scale(1.03, .96) skewX(-1.5deg); } }
+@keyframes pcake-smoke { from { opacity: .9; } to { opacity: 0; transform: translateY(-1.2em) scale(1.8, 2.2); } }
+
+/* realism v2: seamless fondant, chocolate ganache drip and top, stronger cylinder light, candles clear of the rim, live fire */
+.pcake { --gan: #3a1b0f; --gan-2: #5c2f1b; }
+.pcake__p { box-shadow: none; }
+.pcake__p::before { /* ganache drip: a glossy band with drips of three lengths, offset per panel so no two repeat */
+  height: 3.4cqi; inset: -1px 0 auto;
+  background:
+    linear-gradient(#ffffff40, #0000 .5cqi) top / 100% .9cqi no-repeat,
+    linear-gradient(var(--gan-2), var(--gan)) top / 100% .95cqi no-repeat,
+    radial-gradient(.55cqi 1.5cqi at 50% 0, var(--gan) 96%, #0000) calc(var(--j) * 2cqi + .4cqi) .5cqi / 2.6cqi 2.2cqi repeat-x,
+    radial-gradient(.75cqi 2.3cqi at 50% 0, var(--gan-2) 96%, #0000) calc(var(--j) * 3cqi + 1.7cqi) .5cqi / 4.1cqi 3cqi repeat-x;
+  filter: drop-shadow(0 .22cqi .18cqi rgb(var(--sh) / .45));
+}
+.pcake__top {
+  border-color: #fffaf2;
+  background: radial-gradient(closest-side, rgb(0 0 0 / .45) calc(var(--ao) - 8%), rgb(0 0 0 / .22) var(--ao), #0000 calc(var(--ao) + 12%)),
+    radial-gradient(circle at 34% 26%, #8a5236, var(--gan-2) 30%, var(--gan) 72%, #1f0d06);
+}
+.pcake__sl i { background: linear-gradient(rgb(var(--sh) / .3), #0000 22% 76%, rgb(var(--sh) / .36)), linear-gradient(90deg, var(--g)); }
+.pcake__sl i:nth-child(1) { --g: rgb(var(--sh) / .34), rgb(var(--sh) / .5) 40%, rgb(var(--sh) / .16); }
+.pcake__sl i:nth-child(2) { --g: rgb(var(--sh) / .12), #ffffff30 58%, #ffffff12; }
+.pcake__sl i:nth-child(3) { --g: #ffffff14, rgb(var(--sh) / .1); }
+.pcake__sl i:nth-child(4) { --g: rgb(var(--sh) / .14), rgb(var(--sh) / .42); }
+.pcake__sl i:nth-child(5) { --g: rgb(var(--sh) / .44), rgb(var(--sh) / .72) 55%, rgb(var(--sh) / .48); }
+
+.pcake__candles { transform: translate(-50%, -104%) translateZ(calc(var(--R) * .3)); }
+.pcake__c::before { top: -.13em; height: .15em; background: #2b1a12; }
+.pcake__c i { /* flame: blue root, white-hot core, amber body, orange tip */
+  top: -.66em; width: .2em; height: .5em; margin-left: -.1em; transform-origin: 50% 92%;
+  border-radius: 50% 50% 48% 48% / 70% 70% 30% 30%;
+  background:
+    radial-gradient(38% 18% at 50% 88%, #7fb4ffcc, #0000),
+    radial-gradient(34% 34% at 50% 72%, #ffffff 40%, #fff6c8 70%, #0000),
+    radial-gradient(50% 64% at 50% 66%, #ffe08a 30%, #ffb547 55%, #ff7a26e6 78%, #ff5a1a00 96%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pcake__c i { animation: var(--lite, none) .4s ease-out 1.5s both, pcake-fire 1.1s ease-in-out 1.9s infinite; }
+  .pcake__c + .pcake__c i { animation-delay: 1.5s, 1.45s; animation-duration: .4s, .95s; }
+  .hero__stage:not(:has(.pcake.is-out, .pcake.is-paused))::before { animation: pcake-glow 2.4s ease-in-out infinite; }
+}
+@keyframes pcake-fire {
+  0%, 100% { transform: scale(1, 1) skewX(0); }
+  18% { transform: scale(.9, 1.12) skewX(3deg); }
+  36% { transform: scale(1.06, .93) skewX(-2deg); }
+  55% { transform: scale(.95, 1.07) skewX(2deg); }
+  78% { transform: scale(1.03, .96) skewX(-3.5deg); }
+}
+@keyframes pcake-glow { 0%, 100% { opacity: 1; } 30% { opacity: .82; } 55% { opacity: .95; } 80% { opacity: .86; } }

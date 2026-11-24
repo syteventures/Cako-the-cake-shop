@@ -1,0 +1,18 @@
+/* ---------------------------------------------------------------- motion support (motion.js; brief section 13) */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* split text: each word is a mask; its inner span (or its letters) rises into it */
+.split { display: inline; }
+.sw { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.06em 0.03em 0.16em; margin: -0.06em -0.03em -0.16em; }
+.sw__in { display: inline-block; }
+.sc { display: inline-block; }
+
+/* anything that moves on its own stops when the visitor pauses motion, and off screen */
+[data-motion="paused"] *, [data-motion="paused"] *::before, [data-motion="paused"] *::after { animation-play-state: paused !important; }
+.is-offscreen, .is-offscreen *, .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}

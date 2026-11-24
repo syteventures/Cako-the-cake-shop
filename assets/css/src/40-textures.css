@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Section textures: one edible edge and one background pattern per section, so no two read alike.
+   Edges: a glossy drip hangs from the top of a section (chocolate, strawberry, vanilla, caramel).
+   Patterns stay at 3-8 % so text contrast is untouched; every one is a CSS gradient or a tiny inline SVG.
+   ========================================================================== */
+
+/* ---- the drip: a band along the top edge with drips of five lengths (mask), tinted per section ---- */
+.sec.counter, .sec.occasions, .sec.sizes, .sec.inside, .sec.faqs { --drip-h: clamp(46px, 5.2vw, 74px); }
+.sec.counter::before, .sec.occasions::before, .sec.sizes::before, .sec.inside::before, .sec.faqs::before {
+  content: ""; position: absolute; z-index: 1; top: 0; left: 0; right: 0; height: var(--drip-h); pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .22), transparent 22%) top / 100% 30% no-repeat,
+    linear-gradient(180deg, var(--drip-a) 0%, var(--drip-b) 45%, var(--drip-c) 100%);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 70' preserveAspectRatio='none'%3E%3Cpath d='M0 0h300v16c-8 0-10 4-10 12v18a7 7 0 0 1-14 0V30c0-8-4-14-12-14h-30c-6 0-8 3-8 9v8a5 5 0 0 1-10 0v-6c0-7-3-11-10-11h-40c-7 0-9 5-9 13v30a8 8 0 0 1-16 0V28c0-8-3-12-10-12h-36c-6 0-8 4-8 10v6a5 5 0 0 1-10 0v-4c0-8-4-12-12-12h-12c-7 0-9 4-9 11v20a7 7 0 0 1-14 0V27c0-7-3-11-10-11H0z'/%3E%3C/svg%3E") var(--drip-x, 0) 0 / clamp(220px, 24vw, 340px) 100% repeat-x;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 70' preserveAspectRatio='none'%3E%3Cpath d='M0 0h300v16c-8 0-10 4-10 12v18a7 7 0 0 1-14 0V30c0-8-4-14-12-14h-30c-6 0-8 3-8 9v8a5 5 0 0 1-10 0v-6c0-7-3-11-10-11h-40c-7 0-9 5-9 13v30a8 8 0 0 1-16 0V28c0-8-3-12-10-12h-36c-6 0-8 4-8 10v6a5 5 0 0 1-10 0v-4c0-8-4-12-12-12h-12c-7 0-9 4-9 11v20a7 7 0 0 1-14 0V27c0-7-3-11-10-11H0z'/%3E%3C/svg%3E") var(--drip-x, 0) 0 / clamp(220px, 24vw, 340px) 100% repeat-x;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, .3));
+}
+.sec.counter  { --drip-a: #B8822F; --drip-b: #F2C27A; --drip-c: #FFE7BC; }                       /* champagne-gold glaze: shines on maroon (chocolate only on white) */
+.sec.occasions { --drip-a: #A8304E; --drip-b: #D45E7C; --drip-c: #F2A3B6; --drip-x: 110px; }   /* strawberry icing */
+.sec.sizes    { --drip-a: #2A1209; --drip-b: #45210F; --drip-c: #6B3A20; --drip-x: 60px; }     /* chocolate onto white */
+.sec.inside   { --drip-a: #FFFFFF; --drip-b: #FBF1E4; --drip-c: #EBD6BA; --drip-x: 180px; }    /* vanilla / white chocolate */
+.sec.faqs     { --drip-a: #7A3E0C; --drip-b: #B56A20; --drip-c: #E3A653; --drip-x: 40px; }     /* caramel */
+.sec.sizes::before { filter: drop-shadow(0 6px 6px rgba(42, 11, 15, .22)); }
+
+/* ---- patterns, one per section ---- */
+/* counter: the shop's arch wallpaper under a spotlight */
+.sec.counter {
+  background-image:
+    radial-gradient(60% 50% at 30% 0%, rgba(255, 200, 140, .22), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='120'%3E%3Cpath d='M12 120V46a30 30 0 0 1 60 0v74' fill='none' stroke='%23FFD58A' stroke-opacity='.2' stroke-width='2'/%3E%3C/svg%3E");
+}
+/* flavours: cake-box ribbon stripes and a low warm glow */
+.sec.flavours {
+  background-image:
+    radial-gradient(50% 60% at 85% 80%, rgba(255, 170, 100, .1), transparent 70%),
+    repeating-linear-gradient(135deg, rgba(242, 194, 122, .16) 0 2px, transparent 2px 24px);
+}
+/* occasions: sprinkles */
+.sec.occasions {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg opacity='.16' stroke-linecap='round' stroke-width='4'%3E%3Cpath d='M20 30l10 6' stroke='%23F2C27A'/%3E%3Cpath d='M70 18l3 11' stroke='%23F9E4E8'/%3E%3Cpath d='M128 40l-9 7' stroke='%23F2A3B6'/%3E%3Cpath d='M160 14l10 3' stroke='%23FFFFFF'/%3E%3Cpath d='M40 92l-4 10' stroke='%23F2A3B6'/%3E%3Cpath d='M98 80l11 2' stroke='%23F2C27A'/%3E%3Cpath d='M150 104l-6 9' stroke='%23F9E4E8'/%3E%3Cpath d='M14 150l9-6' stroke='%23FFFFFF'/%3E%3Cpath d='M76 140l4 10' stroke='%23F2C27A'/%3E%3Cpath d='M124 162l10-4' stroke='%23F2A3B6'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* midnight: a starry sky with a central glow */
+.mclock {
+  background-image:
+    radial-gradient(40% 50% at 30% 50%, rgba(255, 190, 120, .1), transparent 70%),
+    radial-gradient(1.2px 1.2px at 12% 18%, rgba(255, 240, 215, .7), transparent 2px),
+    radial-gradient(1px 1px at 46% 72%, rgba(255, 240, 215, .55), transparent 2px),
+    radial-gradient(1.4px 1.4px at 78% 30%, rgba(255, 240, 215, .6), transparent 2px),
+    radial-gradient(1px 1px at 88% 84%, rgba(255, 240, 215, .45), transparent 2px),
+    radial-gradient(1px 1px at 30% 90%, rgba(255, 240, 215, .4), transparent 2px);
+  background-size: 100% 100%, 230px 230px, 170px 170px, 290px 290px, 210px 210px, 260px 260px;
+}
+/* custom: white polka dots on the blush panel */
+.custom__panel { background-image: radial-gradient(rgba(255, 255, 255, .85) 2.2px, transparent 2.6px); background-size: 26px 26px; }
+/* reviews: a row of piped pearls along the top, like a cake board's edge */
+.sec.reviews {
+  background-image:
+    radial-gradient(circle at 50% 50%, #FFFFFF 0 2px, #EBD8C4 3.5px, rgba(200, 160, 120, .5) 5px, transparent 5.6px),
+    linear-gradient(180deg, #FFFFFF, #FFF8F3);
+  background-size: 18px 18px, 100% 100%;
+  background-position: 0 22px, 0 0;
+  background-repeat: repeat-x, no-repeat;
+}
+/* inside: warm vertical light, like the LED strips round the arches */
+.sec.inside {
+  background-image:
+    radial-gradient(50% 40% at 50% 0%, rgba(255, 190, 120, .12), transparent 70%),
+    repeating-linear-gradient(90deg, transparent 0 150px, rgba(255, 196, 120, .045) 150px 152px, transparent 152px 300px);
+}
+/* visit: map contours around the shop */
+.sec.visit { background-image: repeating-radial-gradient(circle at 88% 22%, transparent 0 46px, rgba(242, 194, 122, .055) 46px 47.5px); }
+/* faq: the chocolate lattice from the cakes, in gold */
+.sec.faqs {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(242, 194, 122, .11) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(-45deg, rgba(242, 194, 122, .11) 0 1px, transparent 1px 36px);
+}
+/* close: a few stars over the candle light */
+.close {
+  background-image:
+    radial-gradient(1.2px 1.2px at 22% 26%, rgba(255, 240, 215, .6), transparent 2px),
+    radial-gradient(1px 1px at 64% 14%, rgba(255, 240, 215, .5), transparent 2px),
+    radial-gradient(1.3px 1.3px at 84% 66%, rgba(255, 240, 215, .55), transparent 2px);
+  background-size: 250px 250px, 190px 190px, 310px 310px;
+}
+
+@media (forced-colors: active) {
+  .sec.counter::before, .sec.occasions::before, .sec.sizes::before, .sec.inside::before, .sec.faqs::before { display: none; }
+}
+/* the gold glaze gets a brighter sheen than the other drips */
+.sec.counter::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .45), transparent 26%) top / 100% 30% no-repeat,
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 255, 255, .18) 22%, transparent 30% 58%, rgba(255, 255, 255, .14) 62%, transparent 70%),
+    linear-gradient(180deg, var(--drip-a) 0%, var(--drip-b) 45%, var(--drip-c) 100%);
+  filter: drop-shadow(0 5px 6px rgba(30, 6, 8, .45));
+}
+
+/* ---- celebration: a balloon cluster by the occasions heading, and a satin ribbon swag the tags hang from ---- */
+.sec.occasions > .wrap { position: relative; }
+.balloons { pointer-events: none; }
+.balloons svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 18px 22px rgba(20, 3, 6, .45)); }
+.balloons__string { fill: none; stroke: rgba(255, 236, 214, .7); stroke-width: 1.3; }
+.balloons--occ { position: absolute; z-index: 0; right: var(--gutter-in, 0px); top: clamp(-60px, -3vw, -20px); width: clamp(120px, 22vw, 300px); }
+.occasions .sec__head { position: relative; z-index: 1; }
+@media (max-width: 699.98px) { .balloons--occ { top: -24px; width: 112px; opacity: .95; } .occasions .sec__head { padding-right: 96px; } }
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="paused"]) .balloons__b { animation: balloon-sway 7s ease-in-out var(--d, 0s) infinite alternate; }
+}
+@keyframes balloon-sway { from { transform: rotate(-2deg) translateY(0); } to { transform: rotate(2deg) translateY(-6px); } }
+
+/* the rail becomes a draped blush satin ribbon; a small bow ties each tag's thread on at the low point */
+.tag-slot::before {
+  height: 26px; top: -4px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 30' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='r' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F9DDE4'/%3E%3Cstop offset='.5' stop-color='%23E9A3B5'/%3E%3Cstop offset='1' stop-color='%23C9758C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 3Q200 30 400 3' stroke='url(%23r)' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M0 1.5Q200 28 400 1.5' stroke='%23FFF4F6' stroke-opacity='.55' stroke-width='1' fill='none'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  filter: drop-shadow(0 3px 3px rgba(20, 3, 6, .35));
+}
+.tag-slot::after {
+  content: ""; position: absolute; z-index: 2; left: 50%; top: 2px; width: 46px; height: 30px; margin-left: -23px; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-26 -12 52 30'%3E%3Cpath d='M0 0C-14-11-25-6-22 3C-19 10-7 7 0 0Z' fill='%23F2B3C3'/%3E%3Cpath d='M0 0C14-11 25-6 22 3C19 10 7 7 0 0Z' fill='%23E9A3B5'/%3E%3Cpath d='M0 0C-3 7-7 13-11 17M0 0C3 7 8 13 12 16' stroke='%23E9A3B5' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3Ccircle r='3.4' fill='%23C9758C'/%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 2px 2px rgba(20, 3, 6, .35));
+}
+@media (max-width: 959.98px) { .hero { padding-top: calc(var(--top-h) + 26px); } }
+
+/* launch: no invented prices on show (the order slip and WhatsApp confirm the price) */
+.tt__prices, .tt__k-prices { display: none; }
+.price-ask { margin: 6px 0 4px; font-weight: 600; color: var(--gold); }
+[data-ground^="paper"] .price-ask { color: var(--gold-deep); }
+
+/* reviews: an ask for real Google reviews, under three cakes on plates */
+.reviews__ask { display: grid; justify-items: center; text-align: center; gap: clamp(18px, 2.5vw, 28px); }
+.reviews__ask .sec__head { justify-items: center; margin-bottom: 0; }
+.reviews__ask .lede { max-width: 46ch; margin-inline: auto; }
+.reviews__plates { display: flex; gap: clamp(10px, 2vw, 26px); }
+.reviews__plates .plate { width: clamp(84px, 11vw, 150px); }
+.reviews__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 26px; margin: 0; }
+
+/* the review notes sway gently on their tape and pins, out of step with each other */
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="paused"]) .note { animation: note-sway 5.5s ease-in-out var(--d, 0s) infinite alternate; }
+  html:not([data-motion="paused"]) .note:hover, html:not([data-motion="paused"]) .note:focus-within { animation-play-state: paused; }
+}
+@keyframes note-sway {
+  from { transform: translate(var(--x, 0px), var(--y)) rotate(calc(var(--r) - 1.3deg)); }
+  to { transform: translate(var(--x, 0px), calc(var(--y) - 4px)) rotate(calc(var(--r) + 1.3deg)); }
+}
+.reviews .reviews__actions { margin-top: 8px; }
+
+/* ==========================================================================
+   v7: logo red + white, punchier. The hero stands on the real shop photo; buttons on red go white with red type
+   ========================================================================== */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(70, 8, 13, .96) 0%, rgba(120, 14, 22, .9) 40%, rgba(150, 18, 26, .58) 64%, rgba(163, 20, 28, .3) 100%),
+    linear-gradient(to top, rgba(60, 8, 12, .72), transparent 40%),
+    url("/assets/img/shop/interior-1600.webp") 0% 36% / max(165%, 1500px) auto no-repeat, #8E1219;
+}
+@media (max-width: 959.98px) {
+  .hero { background:
+    linear-gradient(180deg, rgba(70, 8, 13, .93) 0%, rgba(120, 14, 22, .82) 42%, rgba(120, 14, 22, .72) 70%, rgba(60, 8, 12, .92) 100%),
+    url("/assets/img/shop/interior-800.webp") 50% 30% / cover no-repeat, #8E1219; }
+}
+.hero__stage::before { background: radial-gradient(closest-side, rgba(255, 220, 170, .38), rgba(255, 170, 90, .12) 45%, transparent); }
+.top.is-solid { background: rgb(142 18 25 / 0.96); }
+.filterbar { background: rgb(142 18 25 / 0.96); }
+
+/* the logo's own pairing on red grounds: white buttons, red type */
+[data-ground^="night"] .btn--primary, .top .top__order, .hero .btn--primary {
+  background: #FFF8F0; color: #C8161D; border-color: #FFF8F0;
+  box-shadow: 0 0 0 1px rgba(255, 213, 150, .7), 0 12px 26px -12px rgba(30, 4, 6, .65);
+}
+[data-ground^="night"] .btn--primary:hover, .top .top__order:hover, .hero .btn--primary:hover { background: #FFFFFF; color: #A3101A; }
+[data-ground^="night"] .btn--primary .icon, .hero .btn--primary .icon { color: #C8161D; }
+.hero__display { text-shadow: 0 3px 30px rgba(40, 4, 8, .55); }
+
+/* ---- cake-board frames: an ivory mat, a gold hairline, a ring of piped pearls just inside the photo ---- */
+.inside__fig, .visit__photo, .vhero__photo, .custom__clip {
+  box-shadow: 0 0 0 4px #FFF8F0, 0 0 0 5.5px #E2B76A, 0 30px 60px -34px rgba(20, 3, 6, .85);
+  outline: 2.5px dotted rgba(255, 248, 240, .9); outline-offset: -11px;
+}
+.inside__a { box-shadow: 0 0 0 4px #FFF8F0, 0 0 0 5.5px #E2B76A, 0 0 46px 8px rgba(255, 160, 80, .35); }
+.inside__card { box-shadow: 0 0 0 3px #FFF8F0, 0 0 0 4.5px #E2B76A, 0 0 30px 2px rgba(255, 160, 80, .22); outline: 2px dotted rgba(255, 248, 240, .85); outline-offset: -9px; }
+.visit__photo.framed { border: 0; padding: 0; }
+
+/* ---- the gallery row drifts by itself; hover (or focus) pauses it; still motion settings get the plain scroller ---- */
+.inside__track { display: flex; gap: clamp(14px, 1.6vw, 22px); width: max-content; }
+.inside__track > .inside__row { flex: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="paused"]) .inside__strip { overflow: hidden; scroll-snap-type: none; }
+  html:not([data-motion="paused"]) .inside__track { animation: inside-drift 70s linear infinite; }
+  html:not([data-motion="paused"]) .inside__strip:hover .inside__track,
+  html:not([data-motion="paused"]) .inside__strip:focus-within .inside__track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) { .inside__row[aria-hidden="true"] { display: none; } }
+html[data-motion="paused"] .inside__row[aria-hidden="true"] { display: none; }
+@keyframes inside-drift { to { transform: translateX(calc(-50% - clamp(7px, .8vw, 11px))); } }
+.inside__fig img, .inside__card img { transition: transform 1.2s var(--ease-out); }
+@media (hover: hover) { .inside__fig:hover img, .inside__card:hover img { transform: scale(1.05); } }
+
+.foot__deva { font-family: var(--f-deva); font-weight: 400; margin-left: .35em; opacity: .9; }
+
+/* ==========================================================================
+   v8: hero background = the real Cako sign wall (hero-sign photo), kept translucent so it reads as the room
+   behind the content. The photo sits on the maroon ground at partial opacity; the Cako sign lands in the gap
+   between the headline and the cake, and the photo fades out at the far left so the type stays crisp.
+   ========================================================================== */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(60, 8, 12, .45), transparent 34%),
+    url("/assets/img/shop/hero-sign-1600.webp") 18% 0% / 115% auto no-repeat;
+  opacity: .42;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .45) 12%, #000 56%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .45) 12%, #000 56%);
+}
+/* the maroon ground the photo shows through (no photo in the ground any more) */
+.hero { background:
+    linear-gradient(to top, rgba(46, 8, 12, .6), transparent 34%),
+    linear-gradient(100deg, #4A0E14 0%, #6A1119 34%, #8E1219 66%, #B01418 100%); }
+@media (max-width: 959.98px) {
+  .hero::before {
+    background:
+      linear-gradient(to top, rgba(60, 8, 12, .45), transparent 30%),
+      url("/assets/img/shop/hero-sign-800.webp") 50% 17% / auto 62% no-repeat;
+    opacity: .4;
+    -webkit-mask-image: linear-gradient(180deg, transparent 6%, rgba(0, 0, 0, .75) 14%, #000 40%, #000 56%, transparent 69%);
+    mask-image: linear-gradient(180deg, transparent 6%, rgba(0, 0, 0, .75) 14%, #000 40%, #000 56%, transparent 69%);
+  }
+  .hero { background:
+      linear-gradient(to top, rgba(46, 8, 12, .6), transparent 30%),
+      linear-gradient(170deg, #4A0E14 0%, #6A1119 34%, #8E1219 70%, #B01418 100%); }
+}
+
+/* v9: hero text column sits a little higher and further left (cake stays put).
+   Adjust --hero-text-lift (more negative = higher) and --hero-text-shift (more negative = further left). */
+@media (min-width: 960px) {
+  .hero { --hero-text-lift: -56px; --hero-text-shift: -38px; }
+  .hero__title, .hero__below { translate: var(--hero-text-shift) var(--hero-text-lift); }
+}
+
+/* v10: the facts row (22 / 100% / 11-12), the open-now line and the delivery note drop down so the block ends level with
+   the bottom of the "Facing you" column (the "Drag to turn" row). Visual offset only (position: relative; top), so nothing else in the grid moves.
+   Adjust --hero-meta-drop: bigger = lower. */
+@media (min-width: 960px) {
+  .hero { --hero-meta-drop: 325px; }
+  .hero__facts, .hero__status, .hero__note { position: relative; top: var(--hero-meta-drop); }
+}
+
+/* v11: the big outlined "midnight" watermark behind the hero is removed */
+.hero__mark { display: none; }
+
+/* v12: the facts row (22 / 100% / 11-12) rises a little above the lines beneath it; the cake and the "Facing you"
+   card move a little to the right. Adjust --hero-facts-rise (bigger = higher) and --hero-right-shift (bigger = further right). */
+@media (min-width: 960px) {
+  .hero { --hero-facts-rise: 30px; --hero-right-shift: min(80px, 5vw); }
+  .hero__facts { top: calc(var(--hero-meta-drop) - var(--hero-facts-rise)); }
+  .hero__stage, .hero__under { translate: var(--hero-right-shift) 0; }
+}
+
+/* v13: the facts row, open-now line and delivery note move higher in the hero (was 325px). Smaller = higher. */
+@media (min-width: 960px) {
+  .hero { --hero-meta-drop: 245px; }
+}
+
+/* v14: the photo strip is one track of exactly two identical rows that slides left by one row width, then starts again
+   from the same picture, so it loops with no jump. (Replaces the earlier nested-track version.) */
+.inside__track { gap: 0; }
+.inside__row { padding-right: clamp(14px, 1.6vw, 22px); }
+@keyframes inside-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* safeguard: if an older page still has a track inside a track or a third (duplicate) row, ignore them so the loop stays seamless */
+.inside__track .inside__track { animation: none; transform: none; }
+.inside__row--dup { display: none !important; }

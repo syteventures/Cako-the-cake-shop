@@ -1,0 +1,191 @@
+[
+ {
+  "id": "sign-lamp",
+  "t": "210504",
+  "cat": "shop",
+  "cap": "The sign under the lamp",
+  "alt": "The red Cako sign glowing in a white arch under a pierced pendant lamp",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "cake-arch",
+  "t": "211905",
+  "cat": "cakes",
+  "cap": "A cake under the arch",
+  "alt": "A yellow cake with chocolate lattice on the counter in front of the lit Cako sign",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "party-corner",
+  "t": "211459",
+  "cat": "birthdays",
+  "cap": "The party corner",
+  "alt": "A teal sofa under a Happy Birthday banner with pink and white balloons, cakes on a low table",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "wall-counters",
+  "t": "210329",
+  "cat": "shop",
+  "cap": "The arch wall and the counters",
+  "alt": "The red wall with lit white arches above the glass cake counters",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "candy-top",
+  "t": "211551",
+  "cat": "cakes",
+  "cap": "Three cakes, from above",
+  "alt": "A chocolate cake, a red heart cake and a yellow cake on a table of coloured sweets",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "display-case",
+  "t": "213248",
+  "cat": "cakes",
+  "cap": "Tonight’s display",
+  "alt": "The lit glass display case with rows of cakes",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "arches-angle",
+  "t": "210657",
+  "cat": "shop",
+  "cap": "Arches and pendant lamps",
+  "alt": "Lit arches along the red wall with shelves and pierced pendant lamps",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "banner",
+  "t": "211611",
+  "cat": "birthdays",
+  "cap": "Ready for a birthday",
+  "alt": "A Happy Birthday banner on silver tinsel with pink and white balloons",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "sign-close",
+  "t": "210745",
+  "cat": "shop",
+  "cap": "The Cako sign",
+  "alt": "Close view of the scalloped red Cako sign lit from behind",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "candy-angle",
+  "t": "211559",
+  "cat": "cakes",
+  "cap": "On the sweets table",
+  "alt": "A red heart cake, a chocolate cake and a yellow cake on a table of coloured sweets",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "arch-portrait",
+  "t": "212411",
+  "cat": "shop",
+  "cap": "Lit till twelve",
+  "alt": "White arches glowing on the red wall above the counter",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "party-wide",
+  "t": "211521",
+  "cat": "birthdays",
+  "cap": "Cakes in the party corner",
+  "alt": "Three cakes on a low table in front of the teal sofa and the balloon wall",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "shelves",
+  "t": "210731",
+  "cat": "shop",
+  "cap": "Party hats and gifts",
+  "alt": "Shelves of party hats, boxes and gifts in a lit arch",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "cake-arch-2",
+  "t": "211706",
+  "cat": "cakes",
+  "cap": "Butter cream and chocolate lattice",
+  "alt": "A yellow cake with chocolate lattice in front of a lit arch",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "arch-wall",
+  "t": "212347",
+  "cat": "shop",
+  "cap": "The arch wall",
+  "alt": "Three lit arches on the red wall, the middle one holding the Cako sign",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "display-portrait",
+  "t": "213325",
+  "cat": "cakes",
+  "cap": "Cakes on three shelves",
+  "alt": "The display case with chocolate, red and white cakes on three shelves",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "sign-boxes",
+  "t": "210535",
+  "cat": "shop",
+  "cap": "Boxes ready at the sign",
+  "alt": "The lit Cako sign in its arch with cake boxes stacked below",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "display-wide",
+  "t": "213234",
+  "cat": "cakes",
+  "cap": "The glass case",
+  "alt": "The glass display case below the lit arches",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "arch-display",
+  "t": "210419",
+  "cat": "shop",
+  "cap": "Arches over the display",
+  "alt": "Lit arches on the red wall above the cake display case",
+  "w": 800,
+  "h": 1067
+ },
+ {
+  "id": "interior-wide",
+  "t": "212544",
+  "cat": "shop",
+  "cap": "The whole shop",
+  "alt": "The shop from the door: the arch wall, the counters and the freezer",
+  "w": 800,
+  "h": 600
+ },
+ {
+  "id": "interior-wide-2",
+  "t": "213931",
+  "cat": "shop",
+  "cap": "Counters and balloons",
+  "alt": "The arch wall and counters with balloons on the ceiling",
+  "w": 800,
+  "h": 600
+ }
+]

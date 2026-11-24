@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Cako parts: "The Counter", the lazy-susan turntable (home, "On the counter tonight")
+   Markup: _workfiles/demos/turntable.snippet.mjs. Behaviour: assets/js/parts/turntable.js.
+   Tokens are read with fallbacks. Only transform and opacity ever animate.
+   States on .tt: is-ready (script running), is-pre / is-intro (first view), is-moving, is-dragging,
+   is-auto (turning by itself), is-instant (reduced motion). The script sets --tt-* geometry in px.
+   ========================================================================== */
+
+.tt {
+  --_paper: var(--paper, #f6efe6);
+  --_ink: var(--ink, #22140f);
+  --_ink-2: var(--ink-2, #6b4f42);
+  --_deep: var(--night-3, #110a07);
+  --_cream: var(--cream, #f8eee2);
+  --_cream-2: var(--cream-2, #cdb7a6);
+  --_accent: var(--accent, #d7262b);
+  --_accent-press: var(--accent-press, #b81f24);
+  --_gold: var(--gold, #c6a26b);
+  --_gold-hair: var(--gold-hair, rgba(198, 162, 107, 0.45));
+  --_gold-deep: var(--gold-deep, #74532a);
+  --_line-night: var(--line-night, rgba(248, 238, 226, 0.14));
+  --_leader: var(--leader, rgba(245, 232, 215, 0.3));
+  --_display: var(--f-display, "Fraunces", Georgia, serif);
+  --_text: var(--f-text, "Manrope", system-ui, sans-serif);
+  --_ease: var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+  --_ease-io: var(--ease-in-out, cubic-bezier(0.65, 0, 0.35, 1));
+  position: relative;
+  color: var(--_cream);
+  font-family: var(--_text);
+}
+.tt, .tt *, .tt *::before, .tt *::after { box-sizing: border-box; }
+.tt [hidden] { display: none !important; }
+.tt-sr {
+  position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.tt__list { list-style: none; margin: 0; padding: 0; }
+.tt__fig { margin: 0; }
+.tt__cake { position: relative; display: block; }
+.tt__lift { position: relative; display: block; }
+.tt__img { display: block; width: 100%; height: auto; -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
+/* contact shadow: the board sits on something */
+.tt__shadow {
+  position: absolute; left: 7%; right: 7%; top: 86%; height: 20%;
+  background: var(--contact, radial-gradient(closest-side, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.26) 48%, transparent));
+}
+
+/* ---------------------------------------------------------------- without the script: a scroll-snap row with captions */
+.tt:not(.is-ready) .tt__list {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 260px); gap: clamp(20px, 3vw, 40px);
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding: 8px 2px 20px;
+  scrollbar-width: thin; scrollbar-color: var(--_gold-hair) transparent;
+}
+.tt:not(.is-ready) .tt__item { scroll-snap-align: start; }
+.tt:not(.is-ready) .tt__cake { margin-bottom: 18px; }
+.tt__cap { display: grid; gap: 8px; align-content: start; }
+.tt__meta { display: flex; flex-wrap: wrap; gap: 2px 12px; margin: 0; font-size: var(--fs-small, 0.875rem); font-weight: 500; color: var(--_cream-2); }
+.tt__fav { font-style: italic; font-weight: 400; color: var(--_gold); }
+.tt__name { margin: 0; font-family: var(--_display); font-weight: 600; font-size: var(--fs-name, clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem)); line-height: 1.15; }
+.tt__desc { margin: 0; font-size: var(--fs-small, 0.9375rem); line-height: 1.5; color: var(--_cream-2); }
+.tt__prices, .tt__k-prices { display: grid; gap: 6px; margin: 4px 0 0; }
+.tt__prices > div, .tt__k-prices > div { display: flex; align-items: center; }
+.tt__prices dt, .tt__k-prices dt { flex: 1 1 auto; display: flex; align-items: center; font-weight: 600; line-height: 1.3; }
+.tt__prices dt::after, .tt__k-prices dt::after {
+  content: ""; flex: 1 1 auto; align-self: flex-end; min-width: 24px; margin: 0 0.6em 0.36em; border-bottom: 1px dotted var(--_leader);
+}
+.tt__prices dd, .tt__k-prices dd { margin: 0; font-weight: 600; line-height: 1.3; white-space: nowrap; }
+.tt__demo { margin: 0; font-size: var(--fs-small, 0.875rem); font-style: italic; color: var(--_gold); }
+.tt__order {
+  justify-self: start; display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--_cream);
+  text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: var(--_gold); text-underline-offset: 0.3em;
+}
+
+/* ---------------------------------------------------------------- with the script: stage, controls and place-card */
+.tt.is-ready { display: grid; grid-template-columns: minmax(0, 1fr); }
+.tt.is-ready .tt__stage {
+  position: relative; height: clamp(280px, 90vw, 400px); margin-inline: calc(50% - 50vw); overflow: hidden;
+  touch-action: pan-y pinch-zoom; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; cursor: grab;
+}
+.tt.is-dragging .tt__stage { cursor: grabbing; }
+.tt.is-ready .tt__deck { position: absolute; inset: 0; z-index: 0; pointer-events: none; transform-origin: 50% 70%; }
+.tt.is-ready .tt__list { position: absolute; inset: 0; z-index: 1; }
+.tt.is-ready .tt__item {
+  position: absolute;
+  left: calc(var(--tt-cx, 50%) - var(--tt-s, 300px) / 2);
+  top: calc(var(--tt-hz, 0px) - var(--tt-s, 300px) * 0.96);
+  width: var(--tt-s, 300px); height: var(--tt-s, 300px);
+  transform-origin: 50% 96%; /* the bottom of the board: cakes stand on their base point */
+}
+.tt.is-ready .tt__item.is-off { display: none; }
+.tt.is-ready .tt__item.is-ghost { pointer-events: none; }
+.tt.is-moving .tt__item, .tt.is-pre .tt__item { will-change: transform, opacity; }
+.tt.is-ready .tt__fig, .tt.is-ready .tt__cake, .tt.is-ready .tt__lift { position: absolute; inset: 0; margin: 0; }
+.tt.is-ready .tt__cap { display: none; }
+.tt.is-ready .tt__img { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+button.tt__cake {
+  -webkit-appearance: none; appearance: none; margin: 0; padding: 0; border: 0; border-radius: 0; background: none;
+  color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.tt__item.is-front .tt__cake { cursor: inherit; }
+.tt.is-ready .tt__lift { transition: transform 0.5s var(--_ease); }
+.tt.is-ready .tt__shadow { transition: transform 0.5s var(--_ease), opacity 0.5s var(--_ease); }
+/* cakes further back go darker by their own silhouette: opacity only, nothing shows through */
+.tt__shade {
+  position: absolute; inset: 0; background: var(--_deep); opacity: var(--dim, 0); pointer-events: none;
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+.tt__shade:not(.is-masked) { display: none; }
+.tt.is-ready:not(.is-moving) .tt__shade { transition: opacity 0.35s var(--_ease); }
+@media (hover: hover) and (pointer: fine) {
+  .tt.is-ready:not(.is-dragging) .tt__item:not(.is-front) .tt__cake:hover .tt__lift { transform: translateY(-4%); }
+  .tt.is-ready:not(.is-dragging) .tt__item:not(.is-front) .tt__cake:hover .tt__shadow { transform: scale(0.86); opacity: 0.7; }
+  .tt.is-ready:not(.is-moving) .tt__item:not(.is-front) .tt__cake:hover .tt__shade { opacity: calc(var(--dim, 0) * 0.3); }
+}
+.tt__cake:focus { outline: none; }
+.tt__cake:focus-visible::after {
+  content: ""; position: absolute; left: 5%; right: 5%; top: 80%; height: 24%; border-radius: 50%; pointer-events: none;
+  box-shadow: 0 0 0 2px var(--focus, var(--_cream)), 0 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* the deck: downlight, counter line, the plate's shadow, brass rim, and the platter with its turning sunray sheen */
+.tt__pool { /* sized by the script so it fades out before any edge of the stage */
+  position: absolute; inset: 0;
+  background: radial-gradient(var(--tt-grx, 300px) var(--tt-gry, 240px) at var(--tt-cx, 50%) var(--tt-gy, 50%),
+    var(--candle-glow, rgba(255, 163, 77, 0.2)), rgba(255, 163, 77, 0.06) 55%, transparent);
+  transition: opacity 0.7s var(--_ease);
+}
+/* the downlight eases off while the table turns and comes back up on the cake it stops at */
+.tt.is-moving .tt__pool { opacity: 0.6; transition-duration: 0.35s; }
+.tt__line {
+  position: absolute; left: 0; right: 0; height: 1px;
+  top: calc(var(--tt-pc) + var(--tt-pb) + var(--tt-pt));
+  background: linear-gradient(90deg, transparent, var(--_gold-hair) 16%, var(--_gold-hair) 84%, transparent);
+}
+.tt__contact { /* centred on the plate's lowest edge; the script leaves room for its lower half */
+  position: absolute;
+  left: calc(var(--tt-cx) - var(--tt-pa) * 1.06); width: calc(var(--tt-pa) * 2.12);
+  top: calc(var(--tt-pc) + var(--tt-pb) * 0.6 + var(--tt-pt)); height: calc(var(--tt-pb) * 0.8);
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.28) 52%, transparent);
+}
+.tt__plate {
+  position: absolute;
+  left: calc(var(--tt-cx) - var(--tt-pa)); width: calc(var(--tt-pa) * 2);
+  top: calc(var(--tt-pc) - var(--tt-pb)); height: calc(var(--tt-pb) * 2);
+}
+.tt__side {
+  position: absolute; left: 0; right: 0; top: 0; height: calc(100% + var(--tt-pt));
+  border-radius: 50% / var(--tt-pb);
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.45)),
+    linear-gradient(90deg, #0d0705 0%, #2e1c10 16%, #6e4f2e 40%, #b08a55 49%, #c9a66e 50%, #b08a55 51%, #6e4f2e 60%, #2e1c10 84%, #0d0705 100%);
+}
+.tt__top { /* dark lacquer, three engraved gold rings (foreshortened by the ellipse), the downlight's reflection */
+  position: absolute; inset: 0; border-radius: 50%; overflow: hidden;
+  background:
+    radial-gradient(ellipse 46% 40% at 50% 70%, rgba(255, 190, 128, 0.16), transparent 70%),
+    radial-gradient(ellipse farthest-side at 50% 50%,
+      transparent calc(36% - 1px), rgba(205, 166, 107, 0.2) 36%, transparent calc(36% + 1.4px),
+      transparent calc(70% - 1px), rgba(205, 166, 107, 0.16) 70%, transparent calc(70% + 1.4px),
+      transparent calc(91% - 1px), rgba(205, 166, 107, 0.28) 91%, transparent calc(91% + 1.4px)),
+    radial-gradient(ellipse farthest-side at 50% 40%, #3a2417, #2a1810 40%, #1c100b 72%, #120a06);
+  box-shadow: inset 0 0 0 1px var(--_gold-hair), inset 0 -2px 8px rgba(0, 0, 0, 0.55);
+}
+.tt__sheen { /* two soft lobes of light on the lacquer: they turn with the cakes */
+  position: absolute; left: 0; width: 100%;
+  height: calc(var(--tt-pa) * 2); top: calc(var(--tt-pb) - var(--tt-pa));
+  border-radius: 50%; will-change: transform;
+  background: conic-gradient(from 0deg,
+    rgba(255, 222, 180, 0) 0deg, rgba(255, 222, 180, 0.15) 34deg, rgba(255, 222, 180, 0) 78deg,
+    rgba(255, 222, 180, 0) 178deg, rgba(255, 222, 180, 0.1) 216deg, rgba(255, 222, 180, 0) 258deg, rgba(255, 222, 180, 0) 360deg);
+  -webkit-mask-image: radial-gradient(closest-side, transparent 18%, #000 70%, rgba(0, 0, 0, 0.6));
+  mask-image: radial-gradient(closest-side, transparent 18%, #000 70%, rgba(0, 0, 0, 0.6));
+}
+
+/* controls under the stage */
+.tt__bar { position: relative; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 6px; }
+.tt__btn {
+  position: relative; display: inline-grid; place-items: center; flex: none; width: 48px; height: 48px; padding: 0;
+  border: 1px solid var(--_gold); border-radius: 50%; background: transparent; color: var(--_cream); cursor: pointer;
+  transition: transform 0.12s var(--_ease); -webkit-tap-highlight-color: transparent;
+}
+.tt__btn::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: rgba(205, 166, 107, 0.14);
+  opacity: 0; transition: opacity 0.24s var(--_ease);
+}
+.tt__btn:hover::before { opacity: 1; }
+.tt__btn:active { transform: scale(0.94); }
+.tt__btn:focus { outline: none; }
+.tt__btn:focus-visible { outline: 2px solid var(--focus, var(--_cream)); outline-offset: 3px; }
+.tt__ic { position: relative; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.tt__btn--motion .tt__ic--play, .tt__btn--motion[aria-pressed="true"] .tt__ic--pause { display: none; }
+.tt__btn--motion[aria-pressed="true"] .tt__ic--play { display: block; }
+.tt__hint { margin: 0 0 0 8px; font-size: var(--fs-small, 0.875rem); line-height: 1.4; color: var(--_cream-2); }
+.tt__timer { position: relative; flex: none; width: 64px; height: 1px; margin-left: auto; background: var(--_line-night); overflow: hidden; }
+.tt__timer i { position: absolute; inset: 0; background: var(--_gold); transform: scaleX(0); transform-origin: 0 50%; opacity: 0.4; transition: opacity 0.3s var(--_ease); }
+.tt.is-auto .tt__timer i { opacity: 1; }
+@media (max-width: 559px) {
+  .tt__hint { order: 9; flex-basis: 100%; margin: 2px 0 0; }
+}
+
+/* the place-card: paper, square, a menu-card frame */
+.tt__card {
+  --focus: var(--_ink);
+  --_leader: rgba(31, 18, 13, 0.38);
+  position: relative; z-index: 2; display: flex; flex-direction: column; gap: 14px; margin-top: 28px;
+  padding: clamp(28px, 2.4vw, 40px) clamp(24px, 2.4vw, 40px);
+  border-radius: 4px; background: var(--_paper); color: var(--_ink);
+  box-shadow: var(--shadow-paper-night, 0 2px 0 rgba(0, 0, 0, 0.25), 0 24px 48px -28px rgba(0, 0, 0, 0.7));
+  outline: 1px solid var(--frame-inset, rgba(116, 83, 42, 0.35)); outline-offset: -8px;
+}
+.tt__k-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.tt__k-meta {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 0;
+  font-size: var(--fs-eyebrow, 0.875rem); font-weight: 500; letter-spacing: 0.01em; line-height: 1.4; color: var(--_ink-2);
+}
+.tt__k-fav { font-style: italic; font-weight: 400; color: var(--_gold-deep); }
+.tt__k-fav:empty, .tt__k-fav .tt__sw:empty { display: none; }
+.tt__k-count { flex: none; margin: 0; font-size: var(--fs-eyebrow, 0.875rem); font-weight: 500; line-height: 1.4; color: var(--_ink-2); }
+.tt__k-count > [aria-hidden] { display: inline-flex; align-items: center; }
+.tt__k-of { white-space: pre; }
+.tt__k-name { /* the mask the name slides through */
+  margin: 10px 0 0; padding-bottom: 0.06em; overflow: hidden;
+  font-family: var(--_display); font-weight: 500; font-size: clamp(2rem, 1.3rem + 1.5vw, 2.75rem);
+  line-height: 1.04; letter-spacing: -0.015em; text-wrap: balance; align-content: start;
+}
+.tt__k-desc { margin: 0; font-size: var(--fs-body, 1rem); line-height: 1.5; color: var(--_ink-2); max-width: 34ch; text-wrap: pretty; }
+.tt__stack { display: grid; }
+.tt__stack > .tt__sw { grid-area: 1 / 1; }
+.tt__k-prices { margin-top: auto; padding-top: 6px; font-size: 1.0625rem; } /* the card keeps one height: spare room sits above the prices */
+.tt__k-demo { margin: -6px 0 0; font-size: var(--fs-small, 0.875rem); font-style: italic; color: var(--_gold-deep); }
+.tt__k-order {
+  position: relative; align-self: flex-start; display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; margin-top: 6px; padding: 0 28px; border-radius: 999px;
+  background: var(--_accent); color: var(--on-accent, #fff6ec);
+  font-family: var(--_text); font-size: 1rem; font-weight: 600; line-height: 1.1; text-decoration: none; white-space: nowrap;
+  transition: transform 0.24s var(--_ease);
+}
+.tt__k-order::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 1px 0 rgba(255, 236, 220, 0.22);
+  opacity: 0; transition: opacity 0.24s var(--_ease);
+}
+.tt__k-order:hover { transform: translateY(-1px); }
+.tt__k-order:hover::after { opacity: 1; }
+.tt__k-order:active { transform: scale(0.98); background: var(--_accent-press); transition-duration: 0.12s; }
+.tt__k-order:focus { outline: none; }
+.tt__k-order:focus-visible { outline: 2px solid var(--_ink); outline-offset: 3px; }
+
+/* the till: each digit is a reel that rolls (translateY) */
+.tt__odo { display: inline-flex; align-items: flex-start; }
+.tt__dg { display: inline-block; height: 1.3em; overflow: hidden; }
+.tt__reel { display: block; font-variant-numeric: tabular-nums; transition: transform 0.82s cubic-bezier(0.2, 0.9, 0.25, 1); }
+.tt__reel > span { display: block; height: 1.3em; line-height: 1.3em; text-align: center; }
+.tt__ch { display: inline-block; height: 1.3em; line-height: 1.3em; }
+.tt.is-instant .tt__reel { transition: none; }
+
+@media (min-width: 700px) {
+  .tt.is-ready .tt__stage { height: clamp(400px, 60vw, 500px); }
+  .tt__card { justify-self: start; width: min(100%, 520px); }
+}
+@media (min-width: 900px) {
+  .tt.is-ready { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap, 24px); align-items: center; }
+  .tt.is-ready .tt__stage { grid-column: 1 / 8; grid-row: 1; margin-inline: 0; height: clamp(420px, 37vw, 540px); }
+  .tt.is-ready .tt__bar { grid-column: 1 / 8; grid-row: 2; }
+  .tt.is-ready .tt__card { grid-column: 8 / 13; grid-row: 1 / 3; align-self: center; width: auto; margin-top: 0; }
+}
+@media (min-width: 1200px) {
+  .tt.is-ready .tt__card { grid-column: 9 / 13; }
+}
+@media (max-width: 767px) {
+  .tt__k-order { align-self: stretch; min-height: 48px; }
+}
+
+/* first view: the plate settles, the cakes spin in (script), then the card and the controls */
+.tt.is-pre .tt__deck, .tt.is-pre .tt__card, .tt.is-pre .tt__bar { opacity: 0; }
+.tt.is-pre .tt__deck { transform: translateY(16px) scale(0.95); }
+.tt.is-pre .tt__card { transform: translateY(24px); }
+.tt.is-intro .tt__deck { transition: opacity 0.9s var(--_ease), transform 1.5s var(--_ease); }
+.tt.is-intro .tt__card { transition: opacity 0.9s var(--_ease) 0.45s, transform 1.3s var(--_ease) 0.45s; }
+.tt.is-intro .tt__bar { transition: opacity 0.8s var(--_ease) 0.9s; }
+
+/* the section's light leans toward the cake in front (the script adds .tt-sky as the section's first child) */
+.tt-host { isolation: isolate; }
+.tt-sky { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.tt-sky__l { /* only as big as the glow itself, so the cross-fade composites as little as it can */
+  position: absolute; opacity: 0;
+  left: calc(var(--tt-sky-x, 35%) - var(--tt-sky-rx, 450px)); width: calc(var(--tt-sky-rx, 450px) * 2);
+  top: calc(var(--tt-sky-y, 55%) - var(--tt-sky-ry, 310px)); height: calc(var(--tt-sky-ry, 310px) * 2);
+  background: radial-gradient(closest-side,
+    rgb(var(--tt-c, 198 162 107) / var(--tt-a, 0.16)),
+    rgb(var(--tt-c, 198 162 107) / calc(var(--tt-a, 0.16) * 0.42)) 46%,
+    transparent 100%);
+  transition: opacity 1.4s var(--ease-in-out, cubic-bezier(0.65, 0, 0.35, 1));
+}
+.tt-sky__l.is-on { opacity: 1; }
+.tt-sky__l.is-now { transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tt *, .tt *::before, .tt *::after, .tt-sky__l { transition-duration: 0s !important; transition-delay: 0s !important; animation: none !important; }
+}
+
+/* palette v3: white porcelain turntable on a polished gold rim (the shop's gold cake boards) */
+.tt__side {
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.32)),
+    linear-gradient(90deg, #5e451c 0%, #9c7a3a 16%, #d4b26c 40%, #f1dba0 49%, #fff3cc 50%, #f1dba0 51%, #d4b26c 60%, #9c7a3a 84%, #5e451c 100%);
+}
+.tt__top {
+  background:
+    radial-gradient(ellipse 46% 40% at 50% 70%, rgba(255, 236, 200, 0.35), transparent 70%),
+    radial-gradient(ellipse farthest-side at 50% 50%,
+      transparent calc(36% - 1px), rgba(138, 100, 32, 0.22) 36%, transparent calc(36% + 1.4px),
+      transparent calc(70% - 1px), rgba(138, 100, 32, 0.18) 70%, transparent calc(70% + 1.4px),
+      transparent calc(91% - 1px), rgba(138, 100, 32, 0.32) 91%, transparent calc(91% + 1.4px)),
+    radial-gradient(ellipse farthest-side at 46% 36%, #ffffff, #f5f8f9 40%, #e2eaee 74%, #c9d5da);
+  box-shadow: inset 0 0 0 1px rgba(226, 190, 120, .7), inset 0 -3px 10px rgba(46, 8, 12, 0.28);
+}

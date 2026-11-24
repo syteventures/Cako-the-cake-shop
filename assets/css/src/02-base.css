@@ -1,0 +1,98 @@
+/* ---------------------------------------------------------------- base: grounds, reset, type roles, utilities */
+
+/* Ground flip (brief section 2): a section sets data-ground; components read only these role tokens. */
+:root, [data-ground="night"], [data-ground="night-2"], [data-ground="night-3"] {
+  --text: var(--cream); --text-2: var(--cream-2); --hair: var(--line-night); --orn: var(--gold); --focus: var(--cream); --link-line: var(--gold);
+  --leader: rgba(245, 232, 215, 0.3); --btn2-line: var(--gold); --btn2-hover: rgba(205, 166, 107, 0.12); --lh-run: var(--lh-body-night);
+}
+[data-ground="paper"], [data-ground="paper-2"], .paper-card {
+  --text: var(--ink); --text-2: var(--ink-2); --hair: var(--line); --orn: var(--gold-deep); --focus: var(--ink); --link-line: var(--accent-press);
+  --leader: rgba(31, 18, 13, 0.38); --btn2-line: var(--ink); --btn2-hover: var(--paper-2); --lh-run: var(--lh-body);
+}
+[data-ground] { color: var(--text); }
+[data-ground="night"] { background-color: var(--night); color-scheme: dark; }
+[data-ground="night-2"] { background-color: var(--night-2); color-scheme: dark; }
+[data-ground="night-3"] { background-color: var(--night-3); color-scheme: dark; }
+[data-ground="paper"] { background-color: var(--paper); color-scheme: light; }
+[data-ground="paper-2"] { background-color: var(--paper-2); color-scheme: light; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: calc(var(--top-h) + 24px);
+  scroll-padding-bottom: calc(var(--bar-h) + 24px);
+  background: var(--night-3);
+  color-scheme: dark;
+}
+@media (prefers-reduced-motion: no-preference) { html:not(.has-motion) { scroll-behavior: smooth; } }
+@media (min-width: 960px) { html { scroll-padding-bottom: 24px; } }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--night);
+  color: var(--text);
+  font-family: var(--f-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-run, 1.62);
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  padding-bottom: calc(var(--bar-h) + 16px + env(safe-area-inset-bottom)); /* the phone action bar */
+}
+@media (min-width: 960px) { body { padding-bottom: 0; } }
+img, svg, video, canvas { display: block; max-width: 100%; }
+img { height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; letter-spacing: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, h4 { margin: 0; font-weight: 500; text-wrap: balance; }
+p, ul, ol, dl, dd, dt, figure, blockquote { margin: 0; }
+ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+p, li, dd { text-wrap: pretty; }
+address { font-style: normal; }
+table { border-collapse: collapse; }
+[hidden] { display: none !important; }
+::selection { background: var(--gold); color: var(--night-3); }
+[data-ground="paper"] ::selection, [data-ground="paper-2"] ::selection { background: var(--ink); color: var(--paper); }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.3em; text-decoration-color: var(--link-line); }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+/* the root scroll-padding already keeps focused and anchored things clear of the fixed header */
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.skip {
+  position: fixed; left: 16px; top: -80px; z-index: var(--z-skip); padding: 12px 20px; border-radius: var(--r-pill);
+  background: var(--cream); color: var(--night-3); font-weight: 600; text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+.wrap { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* type roles (brief section 3) */
+.display-xl, .display-l, .h2, .h3, .name, .quote-text {
+  font-family: var(--f-display); font-optical-sizing: auto; text-wrap: balance;
+}
+.display-xl { font-size: var(--fs-display-xl); line-height: var(--lh-display); letter-spacing: var(--tr-display); font-weight: 500; }
+.display-l { font-size: var(--fs-display-l); line-height: var(--lh-display); letter-spacing: var(--tr-display); font-weight: 500; }
+.h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: var(--tr-h2); font-weight: 500; max-width: 16ch; }
+.h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: var(--tr-h3); font-weight: 500; }
+.name { font-size: var(--fs-name); line-height: var(--lh-name); font-weight: 600; }
+.quote-text { font-size: var(--fs-quote); line-height: var(--lh-quote); font-style: italic; font-weight: 400; }
+.lede { font-size: var(--fs-lede); line-height: var(--lh-lede); color: var(--text-2); max-width: var(--measure-lede); }
+.small { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--text-2); max-width: var(--measure); }
+.label { font-family: var(--f-text); font-size: var(--fs-eyebrow); font-weight: 500; letter-spacing: var(--tr-eyebrow); line-height: 1.4; color: var(--text-2); }
+.note, .price-note, .hero__caption { font-size: var(--fs-small); font-style: italic; color: var(--orn); }
+.measure { max-width: var(--measure); }
+
+/* Marathi lines: lang="mr" in --f-deva, the English meaning in italic small under it */
+.mr { display: grid; gap: 4px; }
+.mr [lang="mr"] { font-family: var(--f-deva); font-size: 1.375rem; line-height: 1.5; letter-spacing: 0; color: var(--text); }
+.mr__en { font-size: var(--fs-small); font-style: italic; color: var(--text-2); }

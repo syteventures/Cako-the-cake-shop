@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T00:00:00+05:30",
+  "title": "Design System: Cako The Cake Shop",
+  "extensions": {
+    "colorMeta": {
+      "night": { "role": "neutral", "displayName": "Night", "canonical": "oklch(17.8% 0.025 32.7)", "cssVar": "--night", "tonalRamp": ["#0e0a09", "#2b2321", "#4b3f3c", "#6d5d59", "#8f7e7a", "#b0a19e", "#d1c6c4", "#f3edeb"] },
+      "night-2": { "role": "neutral", "displayName": "Night Raised", "canonical": "oklch(20.7% 0.031 33.3)", "cssVar": "--night-2", "tonalRamp": ["#0f0a09", "#2c2320", "#4d3e3b", "#705c57", "#927d78", "#b2a19c", "#d3c6c3", "#f4edeb"] },
+      "night-3": { "role": "neutral", "displayName": "Night Deep Raised", "canonical": "oklch(24.0% 0.039 33.1)", "cssVar": "--night-3", "tonalRamp": ["#0f0a08", "#2d221f", "#4f3d39", "#745a55", "#967b75", "#b59f9a", "#d5c5c1", "#f5ecea"] },
+      "night-line": { "role": "neutral", "displayName": "Night Hairline", "canonical": "oklch(30.0% 0.047 36.2)", "cssVar": "--night-line", "tonalRamp": ["#100908", "#2f211d", "#523c36", "#775951", "#9a7a71", "#b89e97", "#d7c4bf", "#f7ece9"] },
+      "cream": { "role": "neutral", "displayName": "Frosting Cream", "canonical": "oklch(97.0% 0.022 69.8)", "cssVar": "--cream", "tonalRamp": ["#0d0b09", "#282420", "#47413a", "#696056", "#8a8176", "#aba49b", "#cec8c2", "#f1eeea"] },
+      "cream-2": { "role": "neutral", "displayName": "Deep Frosting", "canonical": "oklch(92.8% 0.033 70.3)", "cssVar": "--cream-2", "tonalRamp": ["#0e0b07", "#2a241d", "#4a4035", "#6c5f4f", "#8e806f", "#afa396", "#d0c8be", "#f2eee8"] },
+      "field-cream": { "role": "neutral", "displayName": "Field Cream", "canonical": "#fffaf4" },
+      "ink": { "role": "neutral", "displayName": "Chocolate Ink", "canonical": "oklch(22.1% 0.038 33.7)", "cssVar": "--ink", "tonalRamp": ["#0f0a08", "#2d221f", "#4f3d39", "#735b55", "#957b75", "#b5a09b", "#d5c5c2", "#f5ecea"] },
+      "ink-2": { "role": "neutral", "displayName": "Cocoa Ink", "canonical": "oklch(44.5% 0.054 42.1)", "cssVar": "--ink-2", "tonalRamp": ["#110907", "#30211b", "#533c32", "#7a584b", "#9c796c", "#ba9e93", "#d9c4bc", "#f8ece7"] },
+      "mute": { "role": "neutral", "displayName": "Muted Caramel", "canonical": "oklch(77.8% 0.040 58.3)", "cssVar": "--mute", "tonalRamp": ["#0f0a07", "#2c231c", "#4d3f34", "#715d4d", "#937d6d", "#b3a194", "#d3c6bd", "#f4ede7"] },
+      "badge-red": { "role": "primary", "displayName": "Cako Badge Red", "canonical": "oklch(62.1% 0.223 26.5)", "cssVar": "--red", "tonalRamp": ["#1f0001", "#4d0004", "#80010c", "#b80216", "#e13f3b", "#f67b70", "#ffaea4", "#ffe0d9"] },
+      "act": { "role": "primary", "displayName": "Order Red", "canonical": "oklch(58.7% 0.216 26.3)", "cssVar": "--act", "tonalRamp": ["#1e0001", "#4c0205", "#7f070f", "#b60f1a", "#df423e", "#f47c72", "#ffafa5", "#ffe0da"] },
+      "act-press": { "role": "primary", "displayName": "Pressed Red", "canonical": "oklch(52.8% 0.198 26.5)", "cssVar": "--act-press", "tonalRamp": ["#1d0102", "#490808", "#7a1515", "#b02223", "#d84c45", "#ee8176", "#ffb1a8", "#ffe1db"] },
+      "error": { "role": "primary", "displayName": "Error Red", "canonical": "#b3141a" },
+      "amber": { "role": "secondary", "displayName": "Candle Amber", "canonical": "oklch(82.4% 0.149 73.3)", "cssVar": "--amber", "tonalRamp": ["#150800", "#391e00", "#623700", "#8d5200", "#b17300", "#cc9b59", "#e6c396", "#ffebd1"] },
+      "veg": { "role": "tertiary", "displayName": "Veg Mark Green", "canonical": "oklch(55.5% 0.150 149.3)", "cssVar": "--veg", "tonalRamp": ["#001003", "#022e10", "#055021", "#0a7533", "#3c9854", "#75b782", "#a9d7b0", "#dcf7e0"] },
+      "veg-on-night": { "role": "tertiary", "displayName": "Leaf Green", "canonical": "#3fbf6a" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The closing line; the hero h1 uses the same face at 3.5rem from 960px." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles; the Visit address runs larger as its section title." },
+      "title": { "displayName": "Title", "purpose": "Sub-heads and label-band names in Mukta 700." },
+      "body": { "displayName": "Body", "purpose": "All running text; 1.125rem from 960px; tabular numerals for prices." },
+      "lede": { "displayName": "Lede", "purpose": "Section introductions, max 54ch, in the secondary colour of its ground." },
+      "label": { "displayName": "Label", "purpose": "Form labels, the hours-line time label, the chosen-cake note." },
+      "pipe": { "displayName": "Piping", "purpose": "Leckerli One gel lettering on the cake preview only (16px wish, 30px name)." }
+    },
+    "shadows": [
+      { "name": "paper-on-table", "value": "0 28px 60px -24px rgba(0,0,0,0.75), 0 2px 8px rgba(0,0,0,0.35)", "purpose": "The order slip only: a paper sheet laid on the night table." },
+      { "name": "action-lift", "value": "0 6px 14px -8px rgba(0,0,0,0.55)", "purpose": "Red action buttons at rest." },
+      { "name": "action-lift-hover", "value": "0 8px 18px -8px rgba(0,0,0,0.6)", "purpose": "Red action buttons on hover." },
+      { "name": "piped-relief", "value": "drop-shadow(0 1.4px 0 #2a120c)", "purpose": "Filter on the piped letters of the cake preview." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The single easing curve for every transition and the load moment." },
+      { "name": "button", "value": "0.18s", "purpose": "Button colour, border and lift changes; press scales to 0.97." },
+      { "name": "field", "value": "0.15s", "purpose": "Field and segment border and fill changes." },
+      { "name": "rise", "value": "0.8s, translateY(14px) to none, staggered 0 / 0.06 / 0.12 / 0.18s", "purpose": "Hero copy and slip on load only." },
+      { "name": "hours-draw", "value": "1.2s", "purpose": "The hours line fill, now mark and label travel from 11 am to now once on load." },
+      { "name": "pipe-letter", "value": "0.32s opacity", "purpose": "Each newly typed letter on the cake preview." },
+      { "name": "flicker", "value": "0.9s ease-in-out x4 alternate", "purpose": "Candle flames when the name changes." },
+      { "name": "photo-zoom", "value": "0.6s, scale 1.03", "purpose": "Counter photographs on hover." },
+      { "name": "reduced-motion", "value": "0.01ms", "purpose": "All animation and transition collapse under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "narrow", "value": "420px" },
+      { "name": "form-2col", "value": "440px" },
+      { "name": "slip-actions", "value": "560px" },
+      { "name": "tablet", "value": "720px" },
+      { "name": "faq-2col", "value": "900px" },
+      { "name": "desktop", "value": "960px" },
+      { "name": "reviews-3col", "value": "1100px" },
+      { "name": "short-screen", "value": "max-height 500px (below 960px wide)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Action Button",
+      "kind": "button",
+      "refersTo": "button-act",
+      "description": "Red fill for the one main action in a group: WhatsApp order, Call the shop.",
+      "html": "<button class=\"ds-btn ds-btn-act\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>Call the shop</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; min-height: 52px; padding: 0.7rem 1.3rem; border-radius: 12px; border: 2px solid transparent; font-family: 'Mukta', system-ui, sans-serif; font-weight: 700; font-size: 1.0625rem; line-height: 1.1; cursor: pointer; transition: background-color 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s cubic-bezier(0.16,1,0.3,1), transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-ico { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-btn-act { background: var(--act, #e0292d); color: #fff; box-shadow: 0 6px 14px -8px rgba(0,0,0,0.55); } .ds-btn-act:hover { background: var(--act-press, #c41f23); box-shadow: 0 8px 18px -8px rgba(0,0,0,0.6); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 3px solid var(--amber, #ffb547); outline-offset: 3px; }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action on the night: cream outline, no fill.",
+      "html": "<div style=\"background:#1b0d0a;padding:16px\"><button class=\"ds-btn-line\">Get directions</button></div>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; min-height: 52px; padding: 0.7rem 1.3rem; border-radius: 12px; border: 2px solid rgba(255,243,230,0.55); background: transparent; color: var(--cream, #fff3e6); font-family: 'Mukta', system-ui, sans-serif; font-weight: 700; font-size: 1.0625rem; cursor: pointer; transition: background-color 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s cubic-bezier(0.16,1,0.3,1), transform 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-btn-line:hover { border-color: var(--cream, #fff3e6); background: rgba(255,243,230,0.08); } .ds-btn-line:active { transform: scale(0.97); } .ds-btn-line:focus-visible { outline: 3px solid var(--amber, #ffb547); outline-offset: 3px; }"
+    },
+    {
+      "name": "Slip Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Text field inside the cream order slip.",
+      "html": "<div class=\"ds-paper\"><label class=\"ds-field\"><span class=\"ds-label\">Name on the cake <span class=\"ds-opt\">(optional)</span></span><input class=\"ds-input\" placeholder=\"Ishaan\"></label></div>",
+      "css": ".ds-paper { background: #fff3e6; padding: 20px; border-radius: 18px; color: #2a140f; font-family: 'Mukta', system-ui, sans-serif; } .ds-field { display: grid; gap: 6px; } .ds-label { font-weight: 700; font-size: 0.9375rem; } .ds-opt { font-weight: 400; color: #6e4a3c; } .ds-input { min-height: 48px; padding: 10px 12px; border-radius: 10px; border: 2px solid rgba(42,20,15,0.2); background: #fffaf4; color: #2a140f; font: inherit; font-size: 1rem; caret-color: #e0292d; transition: border-color 0.15s cubic-bezier(0.16,1,0.3,1); } .ds-input::placeholder { color: #8a6a5c; } .ds-input:hover { border-color: rgba(42,20,15,0.42); } .ds-input:focus { border-color: #2a140f; outline: none; } .ds-input:focus-visible { outline: 3px solid #2a140f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Segment Choice",
+      "kind": "chip",
+      "refersTo": "segment",
+      "description": "Radio segments for size and when; selected fills with Chocolate Ink, never red.",
+      "html": "<div class=\"ds-seg\"><input type=\"radio\" name=\"ds-size\" id=\"ds-s1\" checked><label for=\"ds-s1\">½ kg</label><input type=\"radio\" name=\"ds-size\" id=\"ds-s2\"><label for=\"ds-s2\">1 kg</label><input type=\"radio\" name=\"ds-size\" id=\"ds-s3\"><label for=\"ds-s3\">2 kg</label></div>",
+      "css": ".ds-seg { display: flex; gap: 6px; background: #fff3e6; padding: 16px; font-family: 'Mukta', system-ui, sans-serif; } .ds-seg input { position: absolute; opacity: 0; width: 1px; height: 1px; } .ds-seg label { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 12px; border-radius: 10px; border: 2px solid rgba(42,20,15,0.2); background: #fffaf4; color: #2a140f; font-size: 1rem; cursor: pointer; transition: background-color 0.15s cubic-bezier(0.16,1,0.3,1), border-color 0.15s cubic-bezier(0.16,1,0.3,1), color 0.15s cubic-bezier(0.16,1,0.3,1); } .ds-seg label:hover { border-color: rgba(42,20,15,0.42); } .ds-seg input:checked + label { background: #2a140f; border-color: #2a140f; color: #fff3e6; } .ds-seg input:focus-visible + label { outline: 3px solid #2a140f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "Header pill with the amber live dot; dot turns Muted Caramel when closed.",
+      "html": "<div style=\"background:#1b0d0a;padding:16px\"><span class=\"ds-chip\"><span class=\"ds-chip-dot\"></span>Open till 12 tonight</span></div>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; border: 1px solid rgba(255,243,230,0.22); background: rgba(27,13,10,0.55); color: #fff3e6; font-family: 'Mukta', system-ui, sans-serif; font-size: 0.9375rem; line-height: 1.2; } .ds-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: #ffb547; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Solid night header with grow-in underline links and a red call button.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Cakes</a><a href=\"#\">Midnight orders</a><a href=\"#\">Reviews</a><a href=\"#\">Visit</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 28px; padding: 0 24px; min-height: 72px; align-items: center; background: #1b0d0a; box-shadow: 0 1px 0 #42251d; font-family: 'Mukta', system-ui, sans-serif; font-size: 1.125rem; } .ds-nav a { color: #fff3e6; text-decoration: none; padding: 12px 0; background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 calc(100% - 8px); background-size: 0 2px; transition: background-size 0.3s cubic-bezier(0.16,1,0.3,1); } .ds-nav a:hover { background-size: 100% 2px; } .ds-nav a:focus-visible { outline: 3px solid #ffb547; outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Label Band",
+      "kind": "card",
+      "refersTo": "label-band",
+      "description": "One counter item on the lit cream counter: veg mark, name, description, sizes and prices, order link.",
+      "html": "<article class=\"ds-band\"><h4 class=\"ds-band-name\"><svg class=\"ds-veg\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><rect x=\"1\" y=\"1\" width=\"14\" height=\"14\" rx=\"2\" fill=\"none\" stroke=\"#128a3e\" stroke-width=\"1.6\"/><circle cx=\"8\" cy=\"8\" r=\"3.6\" fill=\"#128a3e\"/></svg>Black forest</h4><p class=\"ds-band-desc\">Chocolate sponge, whipped cream and cherries.</p><p class=\"ds-band-prices\"><span><small>½ kg</small> <b>₹400</b></span><span><small>1 kg</small> <b>₹750</b></span></p><a class=\"ds-link-act\" href=\"#order-black-forest\">Order this cake</a></article>",
+      "css": ".ds-band { display: grid; gap: 4px; max-width: 260px; padding: 20px; background: #fff3e6; color: #2a140f; font-family: 'Mukta', system-ui, sans-serif; font-size: 1.0625rem; } .ds-band-name { margin: 0; display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.1875rem; line-height: 1.2; } .ds-veg { width: 16px; height: 16px; flex: none; } .ds-band-desc { margin: 0; color: #6e4a3c; font-size: 1rem; line-height: 1.4; } .ds-band-prices { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-variant-numeric: tabular-nums; } .ds-band-prices small { font-size: 0.9375rem; color: #6e4a3c; } .ds-link-act { justify-self: start; display: inline-flex; align-items: center; min-height: 44px; color: #c41f23; font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; } .ds-link-act:hover { color: #9e161a; text-decoration-thickness: 3px; } .ds-link-act:focus-visible { outline: 3px solid #2a140f; outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Hours Line",
+      "kind": "custom",
+      "refersTo": "hours-line",
+      "description": "11 am to 12 midnight track with now lit in amber; drawn once on load from the Pune clock.",
+      "html": "<div class=\"ds-hours\" style=\"--p:0.9\"><span class=\"ds-hours-label\">Now 10:42 pm</span><div class=\"ds-track\"><div class=\"ds-fill\"></div><span class=\"ds-now\"></span></div><div class=\"ds-scale\"><span>11 am</span><span>12 midnight</span></div></div>",
+      "css": ".ds-hours { position: relative; padding: 34px 24px 16px; background: #1b0d0a; font-family: 'Mukta', system-ui, sans-serif; } .ds-hours-label { position: absolute; top: 8px; right: 24px; color: #ffb547; font-size: 0.9375rem; font-weight: 700; line-height: 1; } .ds-track { position: relative; height: 6px; border-radius: 3px; background: rgba(255,243,230,0.2); } .ds-fill { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: #fff3e6; width: calc(var(--p) * 100%); } .ds-now { position: absolute; top: 50%; left: calc(var(--p) * 100%); width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: #ffb547; border: 4px solid #1b0d0a; } .ds-scale { display: flex; justify-content: space-between; margin-top: 10px; color: #cbb19e; font-size: 0.875rem; }"
+    },
+    {
+      "name": "Scallop Edge",
+      "kind": "custom",
+      "refersTo": "counter-edge",
+      "description": "The logo scallop as piping on the lit counter's top edge (48px repeat, 16px tall).",
+      "html": "<div class=\"ds-night\"><div class=\"ds-counter\">The lit counter</div></div>",
+      "css": ".ds-night { background: #1b0d0a; padding: 32px 0; } .ds-counter { position: relative; background: #fff3e6; color: #2a140f; padding: 40px 24px; font-family: 'Shrikhand', 'Mukta', sans-serif; font-size: 1.6rem; } .ds-counter::before, .ds-counter::after { content: ''; position: absolute; left: 0; right: 0; height: 16px; background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 16' preserveAspectRatio='none'%3E%3Cpath fill='%23fff3e6' d='M0 14.9C0.5 14.8 2 14.7 3 14.4C4 14.1 5 13.5 6 12.9C7 12.3 8 11.5 9 10.6C10 9.8 11 8.9 12 8C13 7.1 14 6.2 15 5.4C16 4.5 17 3.7 18 3.1C19 2.5 20 1.9 21 1.6C22 1.3 23 1.1 24 1.1C25 1.1 26 1.3 27 1.6C28 1.9 29 2.5 30 3.1C31 3.7 32 4.5 33 5.4C34 6.2 35 7.1 36 8C37 8.9 38 9.8 39 10.6C40 11.5 41 12.3 42 12.9C43 13.5 44 14.1 45 14.4C46 14.7 47.5 14.8 48 14.9V16H0Z'/%3E%3C/svg%3E\") repeat-x; background-size: 48px 16px; } .ds-counter::before { top: -15px; } .ds-counter::after { bottom: -15px; transform: scaleY(-1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Counter After Dark",
+    "overview": "The page is the shop at night. The ground is dark chocolate, the type is frosting cream, and the only bright island is the counter itself, lit cream like a glass showcase and edged top and bottom with the logo's scalloped piping. Light lives in the photographs (candles, cakes) and in one warm amber reserved for the clock; everything the visitor can act on is red, and nothing else is.\n\nThe system is driven by a real clock. The Pune time (Asia/Kolkata) decides open or closed, colours the live line and the now mark, and draws the hours line from 11 am to now once on load. Every other surface is still until touched. Density is moderate and phone-first: large tap targets, a fixed action bar under 960px, and generous section rhythm on the night.\n\nThe type is a bakery shopfront, not a pastel boutique: a heavy brush-script display (Shrikhand) for headlines and the address, a plain humanist sans (Mukta) for everything that has to be read or tapped, and piped gel lettering (Leckerli One) only on the cake itself.",
+    "keyCharacteristics": [
+      "Dark chocolate night ground with frosting-cream text; one cream \"lit counter\" island.",
+      "Red only on the badge and on actions; amber only on the live time and the now mark.",
+      "The logo's scallop reused as piping: the cake rim and the counter's top and bottom edge.",
+      "Flat fills; depth comes from the cream-on-night contrast and from photographs, not from glow.",
+      "A live hours line (11 am to 12 midnight) that opens the page and returns at Visit.",
+      "One label band per counter item: veg mark, name, description, sizes and prices, order link."
+    ],
+    "rules": [
+      { "name": "The Red Means Act Rule", "body": "Red appears on the badge and on things you press. Nothing decorative is red: no red headings, borders, rules, or backgrounds.", "section": "colors" },
+      { "name": "The Candle Rule", "body": "Amber is the clock. It marks the live time, the now mark and the candle flame, and doubles as the focus ring on the night; it never fills a button or colours a heading.", "section": "colors" },
+      { "name": "The Two Grounds Rule", "body": "A surface is either night (cream text, mute secondary) or cream (ink text, ink-2 secondary). Never put cream text on cream-2 or ink on night.", "section": "colors" },
+      { "name": "The Piping Stays on the Cake Rule", "body": "Leckerli One is the gel pen on the cake top. It never sets a heading, button or label anywhere else.", "section": "typography" },
+      { "name": "The Sentence Case Rule", "body": "Headings and buttons are plain sentence case in their own face; no uppercase tracked labels or small caps above headings.", "section": "typography" },
+      { "name": "The Light Lives in the Photographs Rule", "body": "Fills are flat. Candles, cakes and the lit counter supply the light; never add gradient glows, neon halos or coloured shadows to make something shine.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every action red (act, pressed to act-press) and every non-action element free of red.",
+      "Do reserve Candle Amber for the live time, the now mark, the status dot, the flame and the focus ring on the night.",
+      "Do edge any cream island set on the night with the logo scallop (48px repeat, 16px tall), as the lit counter does.",
+      "Do give every orderable item its own label band in the fixed order (veg mark, name, description, sizes and prices, order link) and its own `#order-<slug>` link.",
+      "Do drive time-dependent copy and states from the Pune clock, with a designed closed state in Muted Caramel.",
+      "Do keep tap targets at 44px or more and primary buttons at 52px.",
+      "Do keep motion to the load moment (a 14px rise over 0.8s, the hours line draw) and to touch responses, all on cubic-bezier(0.16, 1, 0.3, 1), and honour reduced motion."
+    ],
+    "donts": [
+      "Don't add gradient glows, neon halos or coloured shadows; fills stay flat and light stays in the photographs.",
+      "Don't use red for headings, borders, dividers, backgrounds or decoration.",
+      "Don't set anything outside the cake preview in Leckerli One.",
+      "Don't build a grid of identical product cards with no lead item, a testimonial carousel, or a pastel bakery hero.",
+      "Don't use amber on buttons, headings or large fills."
+    ]
+  }
+}
