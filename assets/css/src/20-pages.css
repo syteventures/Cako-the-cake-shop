@@ -592,13 +592,13 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
    ===================================================================================================================== */
 
 /* hero: fine engraved pinstripes with a soft constellation around the gold 22 */
-.page-cakes .case-hero { isolation: isolate; }
+.page-cakes .case-hero { position: relative; isolation: isolate; }
 .page-cakes .case-hero::before {
-  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .34;
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .78;
   background-image:
-    radial-gradient(circle at 78% 34%, rgba(242, 194, 122, .2) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 78% 34%, transparent 0 84px, rgba(242, 194, 122, .12) 85px 86px, transparent 87px 118px, rgba(242, 194, 122, .08) 119px 120px, transparent 121px),
-    repeating-linear-gradient(135deg, transparent 0 22px, rgba(242, 194, 122, .045) 22px 23px, transparent 23px 46px);
+    radial-gradient(circle at 78% 34%, rgba(242, 194, 122, .38) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 78% 34%, transparent 0 84px, rgba(242, 194, 122, .25) 85px 86px, transparent 87px 118px, rgba(242, 194, 122, .16) 119px 120px, transparent 121px),
+    repeating-linear-gradient(135deg, transparent 0 22px, rgba(242, 194, 122, .13) 22px 23px, transparent 23px 46px);
   background-size: 34px 34px, auto, auto;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 100%);
   mask-image: linear-gradient(90deg, transparent, #000 18%, #000 100%);
@@ -608,10 +608,10 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 /* cake shelves: a quiet field of tiny gold sugar-dots between the downlights */
 .page-cakes .case { isolation: isolate; }
 .page-cakes .case::before {
-  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .26;
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .76;
   background-image:
-    radial-gradient(circle, rgba(242, 194, 122, .32) 0 1px, transparent 1.5px),
-    radial-gradient(ellipse at 50% 0%, rgba(255, 174, 91, .09), transparent 58%);
+    radial-gradient(circle, rgba(242, 194, 122, .58) 0 1px, transparent 1.5px),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 174, 91, .17), transparent 58%);
   background-size: 28px 28px, 100% 560px;
   background-position: 0 8px, center top;
 }
@@ -622,9 +622,9 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 .page-cakes .sstrip::before {
   content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .34;
   background-image:
-    repeating-linear-gradient(45deg, transparent 0 13px, rgba(116, 83, 42, .075) 13px 14px, transparent 14px 27px),
-    repeating-linear-gradient(-45deg, transparent 0 13px, rgba(116, 83, 42, .055) 13px 14px, transparent 14px 27px),
-    radial-gradient(circle, transparent 0 8px, rgba(116, 83, 42, .12) 8.5px 9px, transparent 9.5px);
+    repeating-linear-gradient(45deg, transparent 0 13px, rgba(116, 83, 42, .17) 13px 14px, transparent 14px 27px),
+    repeating-linear-gradient(-45deg, transparent 0 13px, rgba(116, 83, 42, .13) 13px 14px, transparent 14px 27px),
+    radial-gradient(circle, transparent 0 8px, rgba(116, 83, 42, .22) 8.5px 9px, transparent 9.5px);
   background-size: auto, auto, 72px 72px;
   background-position: center, center, 36px 36px;
 }
@@ -633,11 +633,11 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 /* good to know: a subtle diamond-tile motif, like embossed cocoa wrapping */
 .page-cakes .know { position: relative; isolation: isolate; overflow: hidden; }
 .page-cakes .know::before {
-  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .3;
+  content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; opacity: .72;
   background-image:
-    linear-gradient(45deg, transparent 48.8%, rgba(242, 194, 122, .11) 49.4% 50.6%, transparent 51.2%),
+    linear-gradient(45deg, transparent 48.8%, rgba(242, 194, 122, .23) 49.4% 50.6%, transparent 51.2%),
     linear-gradient(-45deg, transparent 48.8%, rgba(242, 194, 122, .11) 49.4% 50.6%, transparent 51.2%),
-    radial-gradient(circle at 50% 50%, rgba(242, 194, 122, .2) 0 1px, transparent 1.8px);
+    radial-gradient(circle at 50% 50%, rgba(242, 194, 122, .4) 0 1px, transparent 1.8px);
   background-size: 42px 42px, 42px 42px, 42px 42px;
 }
 .page-cakes .know > .wrap { position: relative; z-index: 1; }
@@ -645,10 +645,10 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
 /* custom cake call-to-action: oversized, barely-there cake-ring arcs behind the sketch */
 .page-cakes .ccta { position: relative; isolation: isolate; overflow: hidden; }
 .page-cakes .ccta::before {
-  content: ""; position: absolute; z-index: 0; inset: -18% -8%; pointer-events: none; opacity: .42;
+  content: ""; position: absolute; z-index: 0; inset: -18% -8%; pointer-events: none; opacity: .78;
   background-image:
-    radial-gradient(ellipse at 22% 50%, transparent 0 104px, rgba(242, 194, 122, .13) 105px 106px, transparent 107px 142px, rgba(242, 194, 122, .09) 143px 144px, transparent 145px 184px, rgba(242, 194, 122, .07) 185px 186px, transparent 187px),
-    radial-gradient(circle at 82% 24%, rgba(242, 194, 122, .22) 0 1px, transparent 1.8px);
+    radial-gradient(ellipse at 22% 50%, transparent 0 104px, rgba(242, 194, 122, .25) 105px 106px, transparent 107px 142px, rgba(242, 194, 122, .18) 143px 144px, transparent 145px 184px, rgba(242, 194, 122, .13) 185px 186px, transparent 187px),
+    radial-gradient(circle at 82% 24%, rgba(242, 194, 122, .42) 0 1px, transparent 1.8px);
   background-size: 100% 100%, 32px 32px;
 }
 .page-cakes .ccta > .wrap { position: relative; z-index: 1; }
