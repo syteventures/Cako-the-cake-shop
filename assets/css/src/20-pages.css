@@ -943,3 +943,18 @@ a.vtalk__v:hover::after, a.vtalk__v:focus-visible::after { transform: scaleX(1);
   .page-visit .vfaq::before,
   .page-visit .vtalk::before { animation: none; }
 }
+
+
+/* Visit page follow-up refinements: keep the opening hero as it was, match Hours
+   to the Cakes page's Good to know ground, and use the site's signature red for directions. */
+.page-visit .vhero::before,
+.page-visit .vhero::after,
+.page-visit .vhours::before,
+.page-visit .vhours::after { display: none; }
+
+.page-visit .vhours {
+  background-color: var(--night-2);
+}
+.page-visit .vfind {
+  background-color: #5e0b11;
+}
