@@ -8,7 +8,9 @@ export const NAV = [['index.html', 'Home'], ['cakes.html', 'Cakes'], ['order.htm
 // header nav (copy deck): Cakes, Occasions, Order, Visit
 const MENU = [['index.html', 'Home'], ['cakes.html', 'Cakes'], ['index.html#occasions', 'Occasions'], ['gallery.html', 'Gallery'], ['order.html', 'Order'], ['visit.html', 'Visit']];
 // only the two faces used above the fold on every page (brief section 3)
-export const FONT_PRELOAD = ['bodoni-moda-latin.woff2', 'schibsted-grotesk-latin.woff2'];
+export const FONT_LINKS = `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap">`;
 
 export const statusPill = (cls = '') => `<p class="status-chip${cls ? ` ${cls}` : ''}"><span class="status-chip__dot" aria-hidden="true"></span><span data-live data-open="Open till 12 tonight" data-closed="Opens at 11 am">Open 11 am to 12 midnight</span></p>`;
 export const motionButton = (cls = '') => `<button class="icon-btn motion-btn${cls ? ` ${cls}` : ''}" type="button" aria-pressed="false" data-motion-toggle><span class="motion-btn__pause">${icon('i-pause', 1)}</span><span class="motion-btn__play">${icon('i-play', 1)}</span><span class="visually-hidden" data-motion-label>Pause motion</span></button>`;
@@ -45,7 +47,7 @@ export function page({ file, title, description, body, jsonld = '', preload = ''
 <meta property="og:image:alt" content="Cakes from Cako Cake, Bibvewadi, Pune.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image:alt" content="Cakes from Cako Cake, Bibvewadi, Pune.">
-${FONT_PRELOAD.map((f) => `<link rel="preload" href="assets/fonts/${f}" as="font" type="font/woff2" crossorigin>`).join('\n')}
+${FONT_LINKS}
 ${preload}<link rel="stylesheet" href="assets/css/site.css">
 ${jsonld}
 </head>

@@ -46,6 +46,12 @@
   .hero__under { grid-column: 7 / 13; grid-row: 3; align-self: start; padding: 18px 0 28px; }
 }
 
+/* hero scale: on mid-width desktops (browser zoom ~80% on a 1080p screen, 1440-1999 css px) the hero read too large.
+   zoom .84 makes it look as it does at 67% browser zoom. Header offset and min-height are divided by the same factor. */
+@media (min-width: 1440px) and (max-width: 1999px) {
+  .hero { zoom: .84; padding-top: calc(var(--top-h) / .84); }
+}
+
 /* 2. ticker: Bodoni italic facts between a double gold rule */
 .ticker { position: relative; overflow: hidden; display: flex; align-items: center; height: 56px; }
 .ticker::before, .ticker::after { content: ""; position: absolute; left: 0; right: 0; height: 5px; border-top: 1px solid var(--gold-hair); border-bottom: 1px solid var(--gold-hair); pointer-events: none; }
@@ -661,6 +667,7 @@ html.has-motion .custom__sketch-note { display: block; }
 
 /* counter: lift the place-card up beside the heading/cakes, and a few sweet doodles */
 .counter { overflow-x: clip; }
+.sec.counter { padding-bottom: clamp(28px, 3.5vw, 52px); } /* shorter: less empty space under the "See all" line */
 .counter > .wrap { position: relative; z-index: 1; }
 .counter__doodles { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .dd { position: absolute; height: auto; filter: drop-shadow(0 4px 0 rgba(58, 20, 24, 0.18)); transform: rotate(var(--r, 0deg)); animation: dd-bob 6s ease-in-out infinite; }

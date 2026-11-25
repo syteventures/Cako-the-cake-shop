@@ -80,7 +80,7 @@
    No per-flame halo: the scene has one light pool (the page draws it) */
 .pcake__candles {
   position: absolute; display: flex; gap: .04em; transform: translate(-50%, -84%) translateZ(calc(var(--R) * .3));
-  font: 600 13.5cqi / .72 var(--f-display, "Bodoni Moda", Didot, Georgia, serif); font-variation-settings: "opsz" 6;
+  font: 600 13.5cqi / .72 var(--f-display, "Playfair Display", Georgia, serif); font-variation-settings: "opsz" 6;
   color: var(--brand-red, #ef3334); -webkit-text-stroke: .009em; text-shadow: .015em .012em #c51d23, .03em .024em #8c1218;
 }
 .pcake__c { position: relative; }

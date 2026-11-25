@@ -45,8 +45,8 @@
   --live: var(--candle);                  /* status dot colour used by the shell */
 
   /* ---- Font stacks (faces in fonts.css) --------------------------------------- */
-  --f-display: "Bodoni Moda", "Cako Rupee", "Bodoni Moda Fallback", Didot, "Bodoni 72", Georgia, serif;
-  --f-text: "Schibsted Grotesk", "Schibsted Grotesk Fallback", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --f-display: "Playfair Display", "Cako Rupee", Georgia, "Times New Roman", serif;
+  --f-text: "DM Sans", "Schibsted Grotesk", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   --f-script: "Sofia", "Segoe Script", "Snell Roundhand", cursive;
   --f-deva: "Tiro Devanagari Marathi", "Nirmala UI", "Kohinoor Devanagari", "Noto Serif Devanagari", "Noto Sans Devanagari", serif;
   --f-deva-ui: "Nirmala UI", "Kohinoor Devanagari", "Noto Sans Devanagari", sans-serif; /* visitor-typed Devanagari */
@@ -54,18 +54,18 @@
   --display-axes: normal;    /* opsz follows font-size through font-optical-sizing: auto */
 
   /* ---- Type scale (px at 360 -> 1440 viewport) ------------------------------- */
-  --fs-display-xxl: clamp(4.5rem, 1.6rem + 12.5vw, 13rem);    /* 72 -> 206  countdown, the "22" on Cakes. Bodoni 400 */
-  --fs-display-xl: clamp(2.875rem, 1.75rem + 5vw, 6.5rem);    /* 46 -> 100  home H1. Bodoni 500 */
-  --fs-display-l: clamp(2.5rem, 1.6rem + 3.75vw, 5.25rem);    /* 40 -> 80   inner-page H1, closing H2. Bodoni 500 */
-  --fs-h2: clamp(2.125rem, 1.6rem + 2.4vw, 3.75rem);          /* 34 -> 60   section H2. Bodoni 500 */
-  --fs-h3: clamp(1.625rem, 1.4rem + 1vw, 2.375rem);           /* 26 -> 37   H3, the address. Bodoni 500 */
-  --fs-quote: clamp(1.5rem, 1.3rem + 0.9vw, 2.25rem);         /* 24 -> 34   review quotes. Bodoni italic 400 */
-  --fs-name: clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);      /* 22 -> 28   cake names, FAQ questions. Bodoni 600 */
-  --fs-lede: clamp(1.125rem, 1.05rem + 0.33vw, 1.375rem);     /* 18 -> 22   leads; ticker in Bodoni italic (min 20) */
-  --fs-ticker: clamp(1.25rem, 1.18rem + 0.3vw, 1.5rem);       /* 20 -> 24   Bodoni italic, never below 20 px */
-  --fs-body: clamp(1rem, 0.955rem + 0.2vw, 1.125rem);         /* 16 -> 18   Schibsted 400 */
+  --fs-display-xxl: clamp(4.5rem, 1.6rem + 12.5vw, 13rem);    /* 72 -> 206  countdown, the "22" on Cakes. Playfair 400 */
+  --fs-display-xl: clamp(2.875rem, 1.75rem + 5vw, 6.5rem);    /* 46 -> 100  home H1. Playfair 500 */
+  --fs-display-l: clamp(2.5rem, 1.6rem + 3.75vw, 5.25rem);    /* 40 -> 80   inner-page H1, closing H2. Playfair 500 */
+  --fs-h2: clamp(2.125rem, 1.6rem + 2.4vw, 3.75rem);          /* 34 -> 60   section H2. Playfair 500 */
+  --fs-h3: clamp(1.625rem, 1.4rem + 1vw, 2.375rem);           /* 26 -> 37   H3, the address. Playfair 500 */
+  --fs-quote: clamp(1.5rem, 1.3rem + 0.9vw, 2.25rem);         /* 24 -> 34   review quotes. Playfair italic 400 */
+  --fs-name: clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);      /* 22 -> 28   cake names, FAQ questions. Playfair 600 */
+  --fs-lede: clamp(1.125rem, 1.05rem + 0.33vw, 1.375rem);     /* 18 -> 22   leads; ticker in Playfair italic (min 20) */
+  --fs-ticker: clamp(1.25rem, 1.18rem + 0.3vw, 1.5rem);       /* 20 -> 24   Playfair italic, never below 20 px */
+  --fs-body: clamp(1rem, 0.955rem + 0.2vw, 1.125rem);         /* 16 -> 18   DM Sans 400 */
   --fs-small: clamp(0.875rem, 0.85rem + 0.11vw, 0.9375rem);   /* 14 -> 15   meta, captions, small print */
-  --fs-eyebrow: clamp(0.875rem, 0.85rem + 0.11vw, 0.9375rem); /* 14 -> 15   Schibsted 500, sentence case */
+  --fs-eyebrow: clamp(0.875rem, 0.85rem + 0.11vw, 0.9375rem); /* 14 -> 15   DM Sans 500, sentence case */
 
   --lh-xxl: 0.86;  --lh-display: 0.94;  --lh-h2: 1.0;  --lh-h3: 1.08;  --lh-name: 1.15;
   --lh-quote: 1.22;  --lh-lede: 1.45;  --lh-body: 1.62;  --lh-body-night: 1.68;  --lh-small: 1.5;
