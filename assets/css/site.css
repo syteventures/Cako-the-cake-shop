@@ -3864,8 +3864,9 @@ html[data-motion=paused] .page-cakes .ccta__shelf .tw { animation-play-state: pa
    ========================================================================== */
 
 /* ---- the drip: a band along the top edge with drips of five lengths (mask), tinted per section ---- */
-.sec.counter, .sec.occasions, .sec.sizes, .sec.inside, .sec.faqs { --drip-h: clamp(46px, 5.2vw, 74px); }
-.sec.counter::before, .sec.occasions::before, .sec.sizes::before, .sec.inside::before, .sec.faqs::before {
+.sec.counter, .sec.occasions, .sec.sizes, .sec.inside, .sec.faqs, .page-order .ohow, .page-order .opd, .page-order .ocare, .page-order .ofaq { --drip-h: clamp(46px, 5.2vw, 74px); }
+.sec.counter::before, .sec.occasions::before, .sec.sizes::before, .sec.inside::before, .sec.faqs::before,
+.page-order .ohow::before, .page-order .opd::before, .page-order .ocare::before, .page-order .ofaq::before {
   content: ""; position: absolute; z-index: 1; top: 0; left: 0; right: 0; height: var(--drip-h); pointer-events: none;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .22), transparent 22%) top / 100% 30% no-repeat,
@@ -3944,7 +3945,7 @@ html[data-motion=paused] .page-cakes .ccta__shelf .tw { animation-play-state: pa
 }
 
 @media (forced-colors: active) {
-  .sec.counter::before, .sec.occasions::before, .sec.sizes::before, .sec.inside::before, .sec.faqs::before { display: none; }
+  .sec.counter::before, .sec.occasions::before, .sec.sizes::before, .sec.inside::before, .sec.faqs::before, .page-order .ohow::before, .page-order .opd::before, .page-order .ocare::before, .page-order .ofaq::before { display: none; }
 }
 /* the gold glaze gets a brighter sheen than the other drips */
 .sec.counter::before {
@@ -4128,6 +4129,151 @@ html[data-motion="paused"] .inside__row[aria-hidden="true"] { display: none; }
 /* safeguard: if an older page still has a track inside a track or a third (duplicate) row, ignore them so the loop stays seamless */
 .inside__track .inside__track { animation: none; transform: none; }
 .inside__row--dup { display: none !important; }
+
+/* v16: the glowing line-art shelf at the foot of the cakes page "Don't see your cake here?" panel is replaced by a moving
+   strip of occasions (same look as the home page ticker). Edit the words in STRIP_OCCASIONS in tools/site/cakes.mjs.
+   Speed: change the 70s in --strip-speed (bigger = slower). */
+.page-cakes .ccta { padding-bottom: calc(var(--section) + 40px); }
+.page-cakes .ccta__strip {
+  --strip-speed: 70s;
+  position: absolute; z-index: 2; left: calc(var(--gutter) + 1px); right: calc(var(--gutter) + 1px); bottom: 19px;
+  height: 56px; display: flex; align-items: center; overflow: hidden;
+  background: var(--night-3);
+  border-top: 1px solid var(--gold-hair); border-bottom: 1px solid var(--gold-hair);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.page-cakes .ccta__strip-track { display: flex; width: max-content; animation: ccta-strip var(--strip-speed) linear infinite; }
+.page-cakes .ccta__strip:hover .ccta__strip-track, html[data-motion=paused] .page-cakes .ccta__strip-track { animation-play-state: paused; }
+.page-cakes .ccta__strip-list { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
+.page-cakes .ccta__strip-list li {
+  display: flex; align-items: center; gap: 22px; padding-right: 22px; white-space: nowrap;
+  font-family: var(--f-display); font-style: italic; font-weight: 400; font-size: var(--fs-ticker); line-height: 1.1; color: var(--cream-2);
+}
+.page-cakes .ccta__strip .mark { width: 12px; height: 12px; fill: var(--gold); flex: none; }
+@keyframes ccta-strip { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 599.98px) { .page-cakes .ccta__strip { height: 48px; bottom: 15px; } }
+@media (prefers-reduced-motion: reduce) {
+  .page-cakes .ccta__strip { height: auto; padding: 14px 0; -webkit-mask-image: none; mask-image: none; }
+  .page-cakes .ccta__strip-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; padding-inline: 16px; }
+  .page-cakes .ccta__strip-list { flex-wrap: wrap; justify-content: center; row-gap: 8px; }
+  .page-cakes .ccta__strip-list[aria-hidden] { display: none; }
+}
+
+/* v17: cakes page, "shelves" view: every cake sits in its own card (rounded, gold hairline, soft shadow) so the grid reads
+   as an organised set. The "Price list" view keeps its plain rows. The shelf lip is hidden because each card has its own base.
+   Tweak: border-radius (card corners), --card-bg (card colour), the translateY(-5px) hover lift. */
+.page-cakes .shelves:not([data-view="list"]) { row-gap: var(--gap); }
+.page-cakes .shelves:not([data-view="list"]) .dcake {
+  --card-bg: var(--night-3);
+  position: relative; isolation: isolate; overflow: hidden;
+  grid-template-rows: auto 1fr;
+  background:
+    radial-gradient(90% 60% at 50% 0%, rgba(255, 200, 140, .16), transparent 70%),
+    linear-gradient(180deg, rgba(255, 236, 220, .08) 0%, rgba(255, 236, 220, .02) 45%, rgba(0, 0, 0, .22) 100%),
+    var(--card-bg);
+  border: 1px solid var(--gold-hair); border-radius: 22px;
+  box-shadow: 0 18px 34px -20px rgba(16, 2, 5, .9), inset 0 1px 0 rgba(255, 236, 220, .12);
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .35s var(--ease-out);
+}
+@media (hover: hover) {
+  .page-cakes .shelves:not([data-view="list"]) .dcake:hover {
+    transform: translateY(-5px); border-color: rgba(242, 194, 122, .85);
+    box-shadow: 0 26px 40px -20px rgba(16, 2, 5, .95), 0 0 0 1px rgba(242, 194, 122, .25), 0 0 28px rgba(255, 170, 110, .18), inset 0 1px 0 rgba(255, 236, 220, .16);
+  }
+}
+.page-cakes .shelves:not([data-view="list"]) .dcake:focus-within { border-color: rgba(242, 194, 122, .85); }
+.page-cakes .shelves:not([data-view="list"]) .dcake__lip { display: none; }
+.page-cakes .shelves:not([data-view="list"]) .dcake__stage { margin: 14px 12px 0; }
+.page-cakes .shelves:not([data-view="list"]) .dcake__label {
+  position: static; padding: 14px clamp(14px, 1.5vw, 20px) clamp(16px, 1.6vw, 20px); gap: 8px;
+  border-top: 1px solid rgba(242, 194, 122, .22);
+}
+.page-cakes .shelves:not([data-view="list"]) .dcake__name { font-size: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem); }
+.page-cakes .shelves:not([data-view="list"]) .dcake__desc { max-width: none; flex: 1 1 auto; }
+.page-cakes .shelves:not([data-view="list"]) .dcake__buy { display: none; }
+.page-cakes .shelves:not([data-view="list"]) .dcake__order { margin-top: 6px; align-self: stretch; justify-content: center; }
+/* "Counter favourite" becomes a small gold tag pinned to the card's top-left corner */
+.page-cakes .shelves:not([data-view="list"]) .dcake__fav {
+  position: absolute; z-index: 4; top: 12px; left: 12px; margin: 0;
+  padding: 3px 11px; border-radius: 999px; font-style: normal; font-size: .75rem; font-weight: 600; letter-spacing: .02em; line-height: 1.3;
+  color: #3a1418; background: linear-gradient(180deg, #FFE2A8, #F2C27A); box-shadow: 0 4px 10px -4px rgba(16, 2, 5, .6);
+}
+@media (max-width: 599.98px) {
+  .page-cakes .shelves:not([data-view="list"]) .dcake { border-radius: 18px; }
+  .page-cakes .shelves:not([data-view="list"]) .dcake__stage { margin: 12px 6px 0; }
+  .page-cakes .shelves:not([data-view="list"]) .dcake__fav { top: 9px; left: 9px; font-size: .6875rem; padding: 2px 9px; }
+  .page-cakes .shelves:not([data-view="list"]) .dcake__desc { font-size: .8125rem; }
+}
+
+/* ==========================================================================
+   v18: ORDER PAGE: the same hand-made edges and patterns the home and cakes pages have.
+   hero: dotted lattice + patisserie rule with a diamond   |   order slip: cake-box ribbon stripes
+   how it works: gold glaze + polka beads   |   pickup & delivery: strawberry icing + map contours
+   getting it home: vanilla icing + the shop's arch wallpaper   |   questions: caramel icing + gold lattice
+   Patterns stay at 4-16 % so text contrast is untouched. Each drip colour is the --drip-a/b/c trio on its section.
+   ========================================================================== */
+.page-order .ohow, .page-order .opd, .page-order .ocare, .page-order .ofaq { position: relative; isolation: isolate; padding-top: calc(var(--section) + clamp(14px, 2vw, 28px)); }
+
+/* hero: warm spotlight, a sugar-bead lattice, and the double patisserie rule with a centred diamond at its foot */
+.page-order .desk-hero {
+  background-image:
+    radial-gradient(60% 80% at 14% 0%, rgba(255, 200, 140, .14), transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(242, 194, 122, .34) 0 1px, transparent 1.8px);
+  background-size: 100% 100%, 42px 42px;
+}
+.page-order .desk-hero::after {
+  content: ""; position: absolute; z-index: 2; left: var(--gutter); right: var(--gutter); bottom: 14px; height: 9px;
+  pointer-events: none;
+  background:
+    radial-gradient(4px 4px at 50% 50%, var(--gold) 0 1.5px, transparent 1.8px),
+    linear-gradient(var(--gold-hair), var(--gold-hair)) left 2px / calc(50% - 12px) 1px no-repeat,
+    linear-gradient(var(--gold-hair), var(--gold-hair)) right 2px / calc(50% - 12px) 1px no-repeat,
+    linear-gradient(var(--gold-hair), var(--gold-hair)) left 7px / calc(50% - 12px) 1px no-repeat,
+    linear-gradient(var(--gold-hair), var(--gold-hair)) right 7px / calc(50% - 12px) 1px no-repeat;
+}
+
+/* order slip: cake-box ribbon stripes and a low warm glow */
+.page-order .desk {
+  background-image:
+    radial-gradient(50% 60% at 85% 85%, rgba(255, 170, 100, .12), transparent 70%),
+    repeating-linear-gradient(135deg, rgba(242, 194, 122, .07) 0 2px, transparent 2px 24px);
+}
+
+/* how ordering works: gold glaze, staggered polka beads */
+.page-order .ohow { --drip-a: #B8822F; --drip-b: #F2C27A; --drip-c: #FFE7BC; }
+.page-order .ohow {
+  background-image:
+    radial-gradient(circle, rgba(242, 194, 122, .2) 0 1.6px, transparent 2.1px),
+    radial-gradient(circle, rgba(242, 194, 122, .2) 0 1.6px, transparent 2.1px);
+  background-size: 30px 30px, 30px 30px; background-position: 0 0, 15px 15px;
+}
+
+/* pickup and delivery: strawberry icing, map contours around the shop */
+.page-order .opd { --drip-a: #A8304E; --drip-b: #D45E7C; --drip-c: #F2A3B6; }
+.page-order .opd {
+  background-image:
+    repeating-radial-gradient(circle at 90% 20%, transparent 0 46px, rgba(242, 194, 122, .075) 46px 47.5px),
+    repeating-radial-gradient(circle at 6% 92%, transparent 0 40px, rgba(242, 194, 122, .05) 40px 41.5px);
+}
+
+/* getting it home: vanilla icing, the shop's arch wallpaper */
+.page-order .ocare { --drip-a: #FFFFFF; --drip-b: #FBF1E4; --drip-c: #EBD6BA; }
+.page-order .ocare {
+  background-image:
+    radial-gradient(60% 50% at 30% 0%, rgba(255, 200, 140, .14), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='120'%3E%3Cpath d='M12 120V46a30 30 0 0 1 60 0v74' fill='none' stroke='%23FFD58A' stroke-opacity='.16' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* ordering questions: caramel icing, the gold lattice */
+.page-order .ofaq { --drip-a: #7A3E0C; --drip-b: #B56A20; --drip-c: #E3A653; }
+.page-order .ofaq {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(242, 194, 122, .09) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(-45deg, rgba(242, 194, 122, .09) 0 1px, transparent 1px 36px);
+}
+/* a little more room above the slip so the hero's rule doesn't touch the Order slip's top edge */
+.page-order .desk-hero { padding-bottom: calc(clamp(36px, 4.5vw, 64px) + 22px); }
 
 /* ==== src/90-motion.css ==== */
 /* ---------------------------------------------------------------- motion support (motion.js; brief section 13) */
